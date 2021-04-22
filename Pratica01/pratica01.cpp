@@ -27,7 +27,7 @@ public:
 };
 
 int Veiculo::getNumRodas(){
-	cout << "Objeto"<< this->nome<<" com "<< this->num_rodas << " números de rodas." << endl;
+	cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " números de rodas." << endl;
 	return num_rodas;
 }
 
@@ -44,6 +44,7 @@ int Veiculo::getNumRodas(){
 					{
 						Veiculo * obj3 = new Veiculo("v3");
 						obj1->setNumRodas(2);
+						obj2->getNumRodas();
 
 						delete obj3;
 					}
