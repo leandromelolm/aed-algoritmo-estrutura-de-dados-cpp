@@ -12,10 +12,13 @@ using namespace std;
 
 int main()
 {
-	Veiculo v1;
-	Terrestre t2;
-	Aereo ae3;
-	Aquatico aq4;
+	cout<<"Prática 02"<<endl;
+	Veiculo *v1 = new Veiculo("v1");
+//	Veiculo v2 ("v2");
+	Terrestre tr1("tr1");
+	Aquatico aq1("aq1");
+	Aereo ar1("ar1");
+;
 
 return 0;
 
