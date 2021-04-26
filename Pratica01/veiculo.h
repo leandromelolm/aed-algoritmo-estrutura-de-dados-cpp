@@ -2,7 +2,7 @@
  * veiculo.h
  *
  *  Created on: 22 de abr. de 2021
- *      Author: melo
+ *      Author: lmelo
  */
 
 #ifndef VEICULO_H_INCLUDED
@@ -19,31 +19,30 @@ class Roda{
 		~Roda(){
 			cout <<"Objeto roda destruido"<<endl;
 		}
-
 };
 
-
 class Veiculo{
+
 	private:
 		string nome;
-		int num_rodas=4;
-		Roda* rodas;
+		int num_rodas;
+		Roda * rodas;
 
 	public:
 		int getNumRodas();
-		void setNumRodas(int nRodas);
+		void setNumRodas(int nr);
 
-	Veiculo(const char *param){
-			this->nome = string(param);
-			this->rodas = NULL;
-			 cout << "Objeto " << this->nome << " construído." << endl;
-   };
+		Veiculo(const char * param);
+//	Veiculo(const char * param){
+//			this->nome = string(param);
+//			this->rodas = NULL;
+//			 cout << "Objeto " << this->nome << " construído." << endl;
+//   };
+
 	~Veiculo(){
-              cout << "Objeto " << this->nome << " destruido." << endl;
-              delete[]rodas;
+			delete[]rodas;
+             cout << "Objeto " << this->nome << " destruido." << endl;
+             cout << endl;
    }
 };
-
-
-
 #endif /* VEICULO_H_ */
