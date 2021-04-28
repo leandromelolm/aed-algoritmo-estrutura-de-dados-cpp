@@ -15,17 +15,18 @@ int Veiculo::getNumRodas(){
 
 //set permite a modificação do  atributo encapsulado
 void Veiculo::setNumRodas(int nr){
-		this->num_rodas=nr;
-		this->rodas= new Roda[nr];
+		this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
+		this->rodas= new Roda[nr]; // executa o construtor Roda
 		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
 		cout << endl;
 }
 
-Veiculo::Veiculo(const char *param){
-				this->nome = string(param);
-				cout << "Objeto " << this->nome << " construído." << endl;
-				this->rodas = NULL;
+/*Construtor de Veiculo*/
+//Veiculo::Veiculo(const char *param){
+//				this->nome = string(param);
+//				cout << "Objeto " << this->nome << " construído." << endl;
+//				this->rodas = NULL;
 //				this->num_rodas=0;
-}
+//}
 
 

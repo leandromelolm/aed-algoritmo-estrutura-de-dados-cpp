@@ -20,12 +20,12 @@ using namespace std;
 
 // Objeto declarado como ponteiro e estanciado com o operador new
 		Veiculo * obj1 = new Veiculo("v1");
-		{
+		{ obj1->setNumRodas(2);
 			Veiculo  * obj2 = new Veiculo("v2");
 				{
 						Veiculo * obj3 = new Veiculo("v3");
 						{
-								obj1->setNumRodas(2);
+//								obj1->setNumRodas(2);
 //								obj2->getNumRodas();
 								obj2->setNumRodas(3);
 								obj3 ->setNumRodas(4);
