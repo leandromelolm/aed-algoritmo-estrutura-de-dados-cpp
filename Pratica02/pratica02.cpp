@@ -25,7 +25,7 @@ int main()
 	*/
 
 /*
- // Erro de Compilação
+// Erro de Compilação
 	Veiculo * terr, *aqua,*aereo;
 	terr = new Terrestre("VT1");
 	terr->setCapacidadeMaxima(45);
@@ -44,11 +44,16 @@ int main()
 	Veiculo *aereo = new Aereo("VA1");
 	((Aereo *)aereo)->setVelocidadeMaxima(1040.5);
 
-//Parte 4: Trabalhando com métodos virtuais
+	//Parte 4: Trabalhando com métodos virtuais
 	cout<<endl;
 	terr->mover();
 	aqua->mover();
 	aereo->mover();
+
+	//Parte 4: Passo 6 destrua os objetos criados na função main() usando delete .
+	delete(terr);
+	delete(aqua);
+	delete(aereo);
 
 
 return 0;

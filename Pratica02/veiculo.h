@@ -18,6 +18,9 @@ class Veiculo{
 				cout << "Veiculo " << nome <<" construido"<<endl;
 				cout<<endl;
 		};
+		~Veiculo(){
+			cout<<"Veículo "<<nome<<" destruido"<<endl;
+		};
 
 		virtual void mover();//Parte 4: Trabalhando com métodos virtuais
 
@@ -34,6 +37,10 @@ class Terrestre : public Veiculo{
 			cout<<"Veiculo terrestre "<<nome<<" construido"<<endl;
 
 		};
+		~Terrestre(){
+			cout<<"Veiculo terrestre <"<<nome<<"> destruído"<<endl;
+		};
+
 		int getCapacidadeMaxima();
 		void setCapacidadeMaxima(int cp);
 
@@ -50,6 +57,10 @@ class Aquatico : public  Veiculo{
 			this->carga_max = 10; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
 			cout<< "Veiculo Aquatico "<<nome<<" construído"<<endl;
 		};
+		~Aquatico(){
+			cout<<"Veiculo aquático <"<<nome<<"> destruído"<<endl;
+		}
+
 		int getCargaMaxima();
 		void setCargaMaxima(float cm);
 
@@ -65,6 +76,10 @@ class Aereo : public Veiculo{
 			this->vel_max=100; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
 			cout<<"Veiculo aéreo "<<nome<<" construído"<<endl;
 		};
+		~Aereo(){
+			cout<<"Veiculo aéreo <"<<nome<<"> destruído"<<endl;
+		}
+
 		int getVelocidadeMaxima();
 		void setVelocidadeMaxima(float vm);
 
