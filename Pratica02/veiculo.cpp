@@ -18,6 +18,7 @@ void Terrestre::setCapacidadeMaxima(int cp){
 	this->cap_pass = cp;
 	cout<<"Veiculo Terrestre - Utilização do Método setCapacidadeMaxima:  "<<cap_pass<<endl;
 }
+
 int Aquatico::getCargaMaxima(){
 	cout<<"Veiculo Aquatico - Carga Máxima: "<<carga_max<<endl;
 	return carga_max;
@@ -34,13 +35,20 @@ void Aereo::setVelocidadeMaxima(float vm){
 	this->vel_max = vm;
 	cout<<"Veiculo Aereo: Método setVelocidadeMáxima: "<<vel_max<<endl;
 }
+
+//Parte 4: Trabalhando com métodos virtuais
 void Veiculo::mover(){
 	cout<<"Veiculo "<<nome<<" moveu"<<endl;
 }
 void Terrestre::mover(){
 	cout<<"Veiculo terrestre "<<nome<<" moveu"<<endl;
 }
-
+void Aquatico::mover(){
+	cout<<"Veiculo aquático "<<nome<<" moveu"<<endl;
+}
+void Aereo::mover(){
+	cout<<"Veiculo aéreo "<<nome<<" moveu"<<endl;
+}
 
 
 

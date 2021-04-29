@@ -45,8 +45,10 @@ int main()
 	((Aereo *)aereo)->setVelocidadeMaxima(1040.5);
 
 //Parte 4: Trabalhando com métodos virtuais
-
+	cout<<endl;
 	terr->mover();
+	aqua->mover();
+	aereo->mover();
 
 
 return 0;
