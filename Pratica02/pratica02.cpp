@@ -36,7 +36,8 @@ int main()
 //	((Subclasse *)ponteiro)->metodoSubclasse();
 
 	Veiculo *terr = new Terrestre("VT1");
-	((Terrestre *) terr)->setCapacidadeMaxima(45);
+//	((Terrestre *) terr)->setCapacidadeMaxima(45);
+	dynamic_cast<Terrestre *>(terr)->setCapacidadeMaxima(45);
 
 	Veiculo *aqua =new Aquatico("VQ1");
 	((Aquatico *)aqua)->setCargaMaxima(12.5);

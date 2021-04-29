@@ -16,7 +16,7 @@ int Terrestre::getCapacidadeMaxima(){
 }
 void Terrestre::setCapacidadeMaxima(int cp){
 	this->cap_pass = cp;
-	cout<<"Veiculo Terrestre - Utilização do Método setCapacidadeMaxima:  "<<cap_pass<<endl;
+	cout<<"Veiculo Terrestre - Usando Método setCapacidadeMaxima:  "<<cap_pass<<endl;
 }
 
 int Aquatico::getCargaMaxima(){
