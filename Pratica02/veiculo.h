@@ -22,7 +22,7 @@ class Veiculo{
 			cout<<"Veículo "<<nome<<" destruido"<<endl;
 		};
 
-		virtual void mover();//Parte 4: Trabalhando com métodos virtuais
+		virtual void mover() =0;//Parte 4: Trabalhando com métodos virtuais. <=0> Torna a classe abstrata
 
 	protected:
 		string nome;

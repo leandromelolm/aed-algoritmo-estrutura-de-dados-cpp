@@ -37,9 +37,11 @@ void Aereo::setVelocidadeMaxima(float vm){
 }
 
 //Parte 4: Trabalhando com métodos virtuais
-void Veiculo::mover(){
-	cout<<"Veiculo "<<nome<<" moveu"<<endl;
-}
+//Classe Veiculo é abstrata, os métodos ficam sem implementação
+//void Veiculo::mover(){
+//	cout<<"Veiculo "<<nome<<" moveu"<<endl;
+//}
+
 void Terrestre::mover(){
 	cout<<"Veiculo terrestre "<<nome<<" moveu"<<endl;
 }
