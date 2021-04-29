@@ -18,7 +18,7 @@ class Veiculo{
 				cout << "Veiculo " << nome <<" construido"<<endl;
 				cout<<endl;
 		};
-		~Veiculo(){
+		virtual ~Veiculo(){
 			cout<<"Veículo "<<nome<<" destruido"<<endl;
 		};
 
@@ -37,7 +37,7 @@ class Terrestre : public Veiculo{
 			cout<<"Veiculo terrestre "<<nome<<" construido"<<endl;
 
 		};
-		~Terrestre(){
+		virtual ~Terrestre(){
 			cout<<"Veiculo terrestre <"<<nome<<"> destruído"<<endl;
 		};
 
@@ -57,7 +57,7 @@ class Aquatico : public  Veiculo{
 			this->carga_max = 10; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
 			cout<< "Veiculo Aquatico "<<nome<<" construído"<<endl;
 		};
-		~Aquatico(){
+		virtual ~Aquatico(){
 			cout<<"Veiculo aquático <"<<nome<<"> destruído"<<endl;
 		}
 
@@ -76,7 +76,7 @@ class Aereo : public Veiculo{
 			this->vel_max=100; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
 			cout<<"Veiculo aéreo "<<nome<<" construído"<<endl;
 		};
-		~Aereo(){
+		virtual ~Aereo(){
 			cout<<"Veiculo aéreo <"<<nome<<"> destruído"<<endl;
 		}
 
