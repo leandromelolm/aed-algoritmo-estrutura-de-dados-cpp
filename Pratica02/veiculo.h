@@ -12,10 +12,10 @@ using namespace std;
 
 class Veiculo{
 	public:
-		Veiculo(const char * n){
-				this-> nome= n;
+		Veiculo(const char * nome){
+				this-> nome= nome;
 				cout<<endl;
-				cout << "Veiculo " << nome <<" construido"<<endl;
+				cout << "Veiculo " << this->nome <<" construido"<<endl;
 				cout<<endl;
 		};
 		virtual ~Veiculo(){
@@ -28,14 +28,13 @@ class Veiculo{
 		string nome;
 };
 
-class Terrestre : public Veiculo{
+class Terrestre : public virtual Veiculo{
 	public:
 //construtor publico na subclasses
-		Terrestre(const char * n) : Veiculo(n){
-			this-> nome = n;
+		Terrestre(const char * nome) : Veiculo(nome){
+			this-> nome = nome;
 			this->cap_pass=5; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
-			cout<<"Veiculo terrestre "<<nome<<" construido"<<endl;
-
+			cout<<"Veiculo terrestre "<<this->nome<<" construido"<<endl;
 		};
 		virtual ~Terrestre(){
 			cout<<"Veiculo terrestre <"<<nome<<"> destruído"<<endl;
@@ -48,18 +47,24 @@ class Terrestre : public Veiculo{
 
 	private:
 		int cap_pass; // Número máximo de passageiros.
+
+	protected:
+		Terrestre():Veiculo(""){
+			this->cap_pass=5;
+			cout<<"Veiculo terrestre "<<nome<<" construído via construtor protegido"<<endl;
+		};
 };
 
-class Aquatico : public  Veiculo{
+class Aquatico : public virtual Veiculo{
 	public:
-		Aquatico(const char * n): Veiculo(n){
-			this->nome = n;
+		Aquatico(const char * nome): Veiculo(nome){
+			this->nome = nome;
 			this->carga_max = 10; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
 			cout<< "Veiculo Aquatico "<<nome<<" construído"<<endl;
 		};
 		virtual ~Aquatico(){
 			cout<<"Veiculo aquático <"<<nome<<"> destruído"<<endl;
-		}
+		};
 
 		int getCargaMaxima();
 		void setCargaMaxima(float cm);
@@ -68,6 +73,12 @@ class Aquatico : public  Veiculo{
 
 	private:
 		float carga_max; // Carga máxima em toneladas.
+
+	protected:
+		Aquatico():Veiculo("vvv"){
+			this->carga_max = 10;
+			cout<<"Veiculo aquático "<<nome<<" construído via construtor protegido"<<endl;
+		};
 };
 class Aereo : public Veiculo{
 	public:
@@ -78,7 +89,7 @@ class Aereo : public Veiculo{
 		};
 		virtual ~Aereo(){
 			cout<<"Veiculo aéreo <"<<nome<<"> destruído"<<endl;
-		}
+		};
 
 		int getVelocidadeMaxima();
 		void setVelocidadeMaxima(float vm);
@@ -88,5 +99,15 @@ class Aereo : public Veiculo{
 	private:
 		float vel_max; // Velocidade máxima em km/h.
 };
-
+class Anfibio: public Terrestre, public Aquatico{
+public:
+	Anfibio (const char * nome) : Veiculo(nome), Terrestre(), Aquatico() {
+		this->nome = nome;
+		cout<<"Veiculo anfíbio<"<<this->nome<<"> construído"<<endl;
+	};
+	virtual ~Anfibio(){
+		cout<<"Veiculo anfíbio<"<<nome<<"> destruído"<<endl;
+	};
+	virtual void mover();
+};
 #endif // VEICULO_H

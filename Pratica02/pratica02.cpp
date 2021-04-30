@@ -12,8 +12,7 @@ using namespace std;
 
 int main()
 {
-	cout<<"Prática 02"<<endl;
-	cout<<endl;
+	cout<<"Prática 02 - Métodos Virtuais e Herança"<<endl;
 	/*
 	Veiculo *v1 = new Veiculo("v1");
 	Veiculo v2 ("v2");
@@ -31,16 +30,19 @@ int main()
 	terr->setCapacidadeMaxima(45);
 */
 
-//	cast
+/*cast
+//	dynamic_cast<NovoTipo>(var)->metodo();
 //	Superclasse * ponteiro = new Subclasse();
 //	((Subclasse *)ponteiro)->metodoSubclasse();
+*/
 
 	Veiculo *terr = new Terrestre("VT1");
-//	((Terrestre *) terr)->setCapacidadeMaxima(45);
+//	((Terrestre *) terr)->setCapacidadeMaxima(45); //Devido ao uso de herança virtual, o compilador não permite casts estáticos da superclasse Veiculo para as subclasses virtuais Terrestre e Aquatico
 	dynamic_cast<Terrestre *>(terr)->setCapacidadeMaxima(45);
 
 	Veiculo *aqua =new Aquatico("VQ1");
-	((Aquatico *)aqua)->setCargaMaxima(12.5);
+//	((Aquatico *)aqua)->setCargaMaxima(12.5); //Devido ao uso de herança virtual, o compilador não permite casts estáticos da superclasse Veiculo para as subclasses virtuais Terrestre e Aquatico
+	dynamic_cast<Aquatico *>(aqua)->setCargaMaxima(12.5);
 
 	Veiculo *aereo = new Aereo("VA1");
 	((Aereo *)aereo)->setVelocidadeMaxima(1040.5);
@@ -56,6 +58,15 @@ int main()
 	delete(terr);
 	delete(aqua);
 	delete(aereo);
+
+	/*
+	 * Passo 7: Criando o ponteiro Veiculo * anfi na função main() de pratica2.cpp.
+		Inicialize esse ponteiro com uma instância de Anfibio usando new . Chame o método
+		mover() dessa instância em seguida.
+	 * */
+    Veiculo * anfi = new Anfibio("VANFIBIO");
+    dynamic_cast<Anfibio *>(anfi)->mover();
+    delete(anfi);
 
 
 return 0;

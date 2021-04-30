@@ -51,7 +51,10 @@ void Aquatico::mover(){
 void Aereo::mover(){
 	cout<<"Veiculo aéreo "<<nome<<" moveu"<<endl;
 }
-
+void Anfibio::mover(){
+	Terrestre::mover();
+	Aquatico::mover();
+}
 
 
 
