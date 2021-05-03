@@ -56,7 +56,9 @@ int main()
 	//Parte 4: Passo 6 destrua os objetos criados na função main() usando delete .
 	cout<<endl;
 	delete(terr);
+	cout<<endl;
 	delete(aqua);
+	cout<<endl;
 	delete(aereo);
 
 	/*
