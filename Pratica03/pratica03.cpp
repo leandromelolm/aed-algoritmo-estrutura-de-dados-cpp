@@ -43,13 +43,23 @@ int main()
 	cout<<"Quant caracteres: "<<minimo(str6,str3)<<endl;
 	cout<<"Quant caracteres: "<<minimo(str3,str2)<<endl;
 
-	cout<<"\nArray de inteiros"<<endl;
+	cout<<"\nArray do tipo inteiro"<<endl;
 	Arranjo<int> arr(10);
 	arr.set(4, 5);
 	arr.set(7, 15);
 	arr.set(8, 22);
+	arr.set(1, 19);
 	arr.exibir();
 
+	cout<<"\nArray do tipo Float"<<endl;
+	Arranjo<float> arr_float(10);
+	arr_float.set(4, 0.3);
+	arr_float.set(7, 15.5);
+	arr_float.set(8, 22.9);
+	arr_float.set(1, 19.1);
+	arr_float.set(0, 8.2);
+	arr_float.set(2, 50.356);
+	arr_float.exibir();
 
 
 }
