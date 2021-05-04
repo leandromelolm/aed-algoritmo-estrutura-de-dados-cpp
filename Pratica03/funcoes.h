@@ -2,7 +2,7 @@
 #define FUNCOES_H_INCLUDED
 #include <iostream>
 #include<cstring>
-#include<string>
+
 
 using namespace std;
 
@@ -38,30 +38,42 @@ char* maximo<char*>(char *a, char *b) {
 //	cout << "a diferença entre "<<a<<" e "<< b << " é  de "<< compara << endl;
 //	if (compara < 0) {
 	if (strcmp(a,b)<0){
+//		cout<<strcmp(a,b)<<endl;
 		cout << a << " na ordem alfabetica vem na frente de " << b << "."	<< endl;
 //		return a;
+	}	else if (strcmp(a,b)>0) {
+		cout << b << " na ordem alfabética vem na frente de " << a << "."	<< endl;
+//		return b;
 	} else if (strcmp(a,b)==0) {
 		cout << "As strings são iguais: "<<a<<" e "<<b << endl;
 //		return 0;
-	} else if (strcmp(a,b)>0) {
-		cout << b << " na ordem alfabética vem na frente de " << a << "."	<< endl;
-//		return b;
 	}
+	/*
+				=0 -> string são iguais
+				>0 -> a é maior que b
+				<0 -> b é maior que a
+	 */
 	return c;
 }
-
-//	int compara = strcmp(a,b);
-////	cout <<a<<"  "<<b<<endl;
-//	switch (compara) {
-//	case -1:
-//		cout<<a<<"\n vem primeiro na ordem alfabetica"<<endl;
-//		break;
-//	case 0 :
-//		cout<<"\nstring são iguais"<<endl;
-//		break;
-//	case 1:
-//		cout<<b<<"\n vem primeiro na ordem alfabetica"<<endl;
-//		break;
-//	}
-
+template<>
+char* minimo<char*>(char *a, char *b) {
+	int quant_a;
+	int quant_b;
+	quant_a=strlen(a);
+	quant_b=strlen(b);
+	if(quant_a<quant_b){
+		cout<<a<<":"<<quant_a<<"; "
+				<<b<<":"<<quant_b<<",  menos caracteres: ";
+		return a;
+	}else if(quant_a>quant_b){
+		cout<<a<<":"<<quant_a<<"; "
+				<<b<<":"<<quant_b<<",  menos caracteres: ";
+		return b;
+	}else{
+		cout<<a<<":"<<quant_a<<"; "
+				<<b<<":"<<quant_b<<",  iguais: ";
+	return a;
+	}
+//return 0;
+}
 #endif // FUNCOES_H_INCLUDED

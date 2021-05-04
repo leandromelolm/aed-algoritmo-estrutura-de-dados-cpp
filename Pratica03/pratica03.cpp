@@ -12,7 +12,12 @@ int main()
 //	int x = 10, y = 15, z = 30;
 	float x = 5.5, y = 10.15, z = 30.7;
 	char a = 'a', b = 'b', c = 'c';
-	char str1[20]="gato";  char str2[20]="pato";  char str3[20]="cachorro";  char str4[20]="boi";  char str5[20]="pato";
+	char str1[20]="gato";
+	char str2[20]="pato";
+	char str3[20]="cachorro";
+	char str4[20]="boi";
+	char str5[20]="pato";
+	char str6[20]="ornitorrinco";
 //	char str1[20]={'pato'}; char str2[20]={'gato'}; char str3[20]={'cachorro'};
 
 	cout<<"Valor de X e Y respectivamente: "<<x<<"   "<<y<<endl;
@@ -31,6 +36,11 @@ int main()
 	cout <<maximo(str4,str3) << endl;
 	cout <<maximo(str2,str5) << endl;
 
+	cout<<"\nVerificação de quantidade de caracteres\n"<<endl;
+	cout<<"Quant caracteres: "<<minimo(str1,str3)<<endl;
+	cout<<"Quant caracteres: "<<minimo(str2,str5)<<endl;
+	cout<<"Quant caracteres: "<<minimo(str6,str3)<<endl;
+	cout<<"Quant caracteres: "<<minimo(str3,str2)<<endl;
 }
 
 
