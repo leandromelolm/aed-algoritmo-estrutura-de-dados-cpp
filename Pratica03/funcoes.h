@@ -3,20 +3,23 @@
 #include <iostream>
 using namespace std;
 
-void trocar(int & a, int & b) {
-	int var;
+template<class  T>
+void trocar(T & a, T & b) {
+	T var;
 	var = a;
 	a=b;
 	b=var;
 }
-int maximo(const int a, const int b) {
+template<class T>
+T maximo(const T a, const T b) {
 	if(a>b){
 		return a;
 	}else{
 		return b;
 	}
 }
-int minimo(const int a, const int b) {
+template<class T>
+T minimo(const T a, const T b) {
 	if (a<b){
 		return a;
 	}else{
