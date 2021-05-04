@@ -74,6 +74,5 @@ char* minimo<char*>(char *a, char *b) {
 				<<b<<":"<<quant_b<<",  iguais: ";
 	return a;
 	}
-//return 0;
 }
 #endif // FUNCOES_H_INCLUDED
