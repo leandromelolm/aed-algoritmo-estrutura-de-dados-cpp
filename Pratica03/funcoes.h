@@ -32,19 +32,19 @@ T minimo(const T a, const T b) {
 }
 template<>
 char* maximo<char*>(char *a, char *b) {
-	 char * c="Teste de ordem alfabética";
-	int compara;
-	compara=strcmp(a,b);
-//	cout << "a diferença entre "<<a<<" e "<< b << " é  de "<< retorno << endl;
+	 char * c="";
+//	int compara;
+//	compara=strcmp(a,b);
+//	cout << "a diferença entre "<<a<<" e "<< b << " é  de "<< compara << endl;
 //	if (compara < 0) {
-	if (strcmp(a,b)<0) {
-		cout << a << " na ordem alfabetica vem na frente de " <<b<<"."<<endl;
+	if (strcmp(a,b)<0){
+		cout << a << " na ordem alfabetica vem na frente de " << b << "."	<< endl;
 //		return a;
-	} else if (compara == 0) {
-		cout << "strings são iguais" << endl;
+	} else if (strcmp(a,b)==0) {
+		cout << "As strings são iguais: "<<a<<" e "<<b << endl;
 //		return 0;
-	} else if (compara > 0) {
-		cout << b << " na ordem alfabética vem na frente de "<<a<<"."<< endl;
+	} else if (strcmp(a,b)>0) {
+		cout << b << " na ordem alfabética vem na frente de " << a << "."	<< endl;
 //		return b;
 	}
 	return c;
