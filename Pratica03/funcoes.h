@@ -48,12 +48,13 @@ char* maximo<char*>(char *a, char *b) {
 		cout << "As strings são iguais: "<<a<<" e "<<b << endl;
 //		return 0;
 	}
+	return c;
+//		return 0;
 	/*
 				=0 -> string são iguais
 				>0 -> a é maior que b
 				<0 -> b é maior que a
 	 */
-	return c;
 }
 template<>
 char* minimo<char*>(char *a, char *b) {

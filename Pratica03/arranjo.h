@@ -11,28 +11,31 @@ private:
 	T *itens; //items do arranjo
 public:
 	Arranjo(int tam) {
-// instanciar o array de items com new (pratica 1) e seta tamanho;
+// instancia o array de items com new (pratica 1) e seta tamanho;
 		itens= new T[tam];
 		this->tamanho=tam;
 	}
 	virtual ~Arranjo() {
-// destruir o array de items (prática 1);
+// destroi o array de items (prática 1);
 		delete[]itens;
 		cout<<"Array de itens deletado"<<endl;
 	}
 	virtual T get(int idx) {
-// retornar um item do array a partir do indice;
+// retorna um item do array a partir do indice;
 		return itens[idx];
 	}
 	virtual void set(int idx, const T &item) {
-// set o item do array apontado pelo indice usando =
+// seta o item do array apontado pelo indice usando =
+		if(idx>=tamanho){
+			throw "não é possível atribuir valor a essa posição do array";
+		}
 		itens[idx]=item;
 	}
 	virtual void exibir();
 };
 template<class T>
 void Arranjo<T>::exibir() {
-// exibir cada item numa linha da forma "<idx>: <item>"
+// exibi cada item numa linha da forma "<idx>: <item>"
 	for(int i=0; i<tamanho; i++){
 		cout<<"<"<<i<<">"<<": "<<"<"<<itens[i]<<">"<<endl;
 	}
