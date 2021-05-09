@@ -35,7 +35,7 @@ using namespace std;
 				}
 				delete obj1;
 		}
-	Veiculo * veiculo4 = new Veiculo("carro1");
+	Veiculo * veiculo4 = new Veiculo("carro4");
 	veiculo4->getNumRodas();
 	delete veiculo4;
 }
