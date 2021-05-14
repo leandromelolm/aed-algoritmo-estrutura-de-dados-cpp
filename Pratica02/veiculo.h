@@ -23,7 +23,7 @@ class Veiculo{
 		virtual ~Veiculo(){
 			cout<<"Veículo "<<nome<<" destruido"<<endl;
 		};
-
+//		virtual void mover();
 		virtual void mover() =0;//4.9 - Trabalhando com métodos virtuais. <=0> Torna a classe abstrata
 
 		Veiculo(int  n){ //5.3 - Construtor para  ser usando no construtor  protegido na classe Terrestre e Aquatico
