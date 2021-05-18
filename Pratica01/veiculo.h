@@ -26,6 +26,7 @@ class Veiculo{
 		int num_rodas;
 		Roda *rodas;
 	public:
+		/*Declaração do Método get e set*/
 		int getNumRodas();
 		void setNumRodas(int nr);
 
@@ -42,13 +43,17 @@ class Veiculo{
 //		cout << endl;
 //	}
 
+/*Protótipo do Método Construtor*/
 	Veiculo(const char *param);
+
 //	Veiculo(const char *param){
 //			this->nome = string(param);
 //			this->rodas = NULL;
 //			this->num_rodas=0;
 //			 cout << "Objeto " << this->nome << " construído." << endl;
 //   };
+
+/*Protótipo do Método Destrutor*/
 	~Veiculo();
 //	~Veiculo(){
 //			delete[]rodas;
@@ -57,9 +62,5 @@ class Veiculo{
 //
 //             cout << endl;
 //   }
-
-
-
-
 };
 #endif /* VEICULO_H_ */

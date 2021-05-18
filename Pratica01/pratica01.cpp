@@ -21,12 +21,13 @@ int main(){
 		cout << "Primeira Aplicação C++" << endl;
 		cout <<endl;
 
-// Objeto delcarado sem o operador new
-//		Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
+/*Objeto delcarado sem o operador new */
+		Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
 
-// Objeto declarado como ponteiro e estanciado com o operador new
+/* Objeto declarado como ponteiro e estanciado com o operador new */
 		Veiculo * obj1 = new Veiculo("v1");
-		{ obj1->setNumRodas(2);
+		{
+			obj1->setNumRodas(2);
 			Veiculo  * obj2 = new Veiculo("v2");
 				{
 						Veiculo * obj3 = new Veiculo("v3");
@@ -53,4 +54,14 @@ int main(){
 //	cout << "tempo[us] = " << elapsed << endl;
 
 }
+
+/*
+ * auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
+ *
+ * auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
+ * long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
+ * (finish-start).count() / 1000;
+ * cout << "tempo[us] = " << elapsed << endl;
+ *
+ * */
 
