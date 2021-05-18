@@ -5,15 +5,15 @@
  *      Author: lmelo
  */
 
-#ifndef VEICULO_H_INCLUDED
-#define VEICULO_H_INCLUDED
+#ifndef VEICULO_H_
+#define VEICULO_H_
 
 using namespace std;
 
 class Roda{
 	public:
 		Roda(){
-			cout<<"Objeto roda  construido"<<endl;
+			cout<<"Objeto roda construido"<<endl;
 		}
 		~Roda(){
 			cout <<"Objeto roda destruido"<<endl;
@@ -29,19 +29,37 @@ class Veiculo{
 		int getNumRodas();
 		void setNumRodas(int nr);
 
-//		Veiculo(const char *param);
-	Veiculo(const char *param){
-			this->nome = string(param);
-			this->rodas = NULL;
-			this->num_rodas=0;
-			 cout << "Objeto " << this->nome << " construído." << endl;
-   };
-	~Veiculo(){
-			delete[]rodas;
-			 cout<<"destruição de "<<num_rodas<<" roda(s) do objeto "<<nome<<endl;
-             cout << "Objeto " << this->nome << " destruido." << endl;
+//	int getNumRodas(){
+//		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
+//		return num_rodas;
+//	}
 
-             cout << endl;
-   }
+///*set permite a modificação do  atributo encapsulado*/
+//	void setNumRodas(int nr){
+//		this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
+//		this->rodas= new Roda[nr](); // executa o construtor Roda. cria a quantidade de objetos passado por nr, chamando o construtor padrão
+//		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
+//		cout << endl;
+//	}
+
+	Veiculo(const char *param);
+//	Veiculo(const char *param){
+//			this->nome = string(param);
+//			this->rodas = NULL;
+//			this->num_rodas=0;
+//			 cout << "Objeto " << this->nome << " construído." << endl;
+//   };
+	~Veiculo();
+//	~Veiculo(){
+//			delete[]rodas;
+//			 cout<<"destruição de "<<num_rodas<<" roda(s) do objeto "<<nome<<endl;
+//             cout << "Objeto " << this->nome << " destruido." << endl;
+//
+//             cout << endl;
+//   }
+
+
+
+
 };
 #endif /* VEICULO_H_ */

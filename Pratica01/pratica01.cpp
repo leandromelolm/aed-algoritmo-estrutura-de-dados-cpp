@@ -6,17 +6,23 @@
  */
 #include <iostream>
 #include "veiculo.h"
+#include <chrono>
 
 using namespace std;
 
-	int main(){
+int main(){
+
+
+//	auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
+//	int i;
+//	for(i=0;i<5000;i++){
 
 		cout << "Pratica01" << endl;
 		cout << "Primeira Aplicação C++" << endl;
 		cout <<endl;
 
 // Objeto delcarado sem o operador new
-		Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
+//		Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
 
 // Objeto declarado como ponteiro e estanciado com o operador new
 		Veiculo * obj1 = new Veiculo("v1");
@@ -38,6 +44,13 @@ using namespace std;
 	Veiculo * veiculo4 = new Veiculo("carro 4");
 	veiculo4->getNumRodas();
 	delete veiculo4;
-}
 
+
+//	}
+//	auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
+//	long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
+//	(finish-start).count() / 1000;
+//	cout << "tempo[us] = " << elapsed << endl;
+
+}
 

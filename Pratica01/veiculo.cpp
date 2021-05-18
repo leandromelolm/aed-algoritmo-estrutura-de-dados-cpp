@@ -8,12 +8,13 @@
 #include <iostream>
 #include "veiculo.h"
 
+
 int Veiculo::getNumRodas(){
 	cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
 	return num_rodas;
 }
 
-//set permite a modificação do  atributo encapsulado
+/*set permite a modificação do  atributo encapsulado*/
 void Veiculo::setNumRodas(int nr){
 		this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
 		this->rodas= new Roda[nr](); // executa o construtor Roda. cria a quantidade de objetos passado por nr, chamando o construtor padrão
@@ -22,11 +23,19 @@ void Veiculo::setNumRodas(int nr){
 }
 
 /*Construtor de Veiculo*/
-//Veiculo::Veiculo(const char *param){
-//				this->nome = string(param);
-//				cout << "Objeto " << this->nome << " construído." << endl;
-//				this->rodas = NULL;
-//				this->num_rodas=0;
-//}
+Veiculo::Veiculo(const char *param){
+				this->nome = string(param);
+				cout << "Objeto " << this->nome << " construído." << endl;
+				this->rodas = NULL;
+				this->num_rodas=0;
+}
+/*Destrutor de Veiculo*/
+Veiculo::~Veiculo(){
+			delete[]rodas;
+			 cout<<"destruição de "<<num_rodas<<" roda(s) do objeto "<<nome<<endl;
+             cout << "Objeto " << this->nome << " destruido." << endl;
+
+             cout << endl;
+}
 
 
