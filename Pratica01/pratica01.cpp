@@ -56,6 +56,8 @@ int main(){
 }
 
 /*
+ * //Codido para usar a biblioteca chrono : medir tempo de processamento do programa
+ *
  * auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
  *
  * auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
