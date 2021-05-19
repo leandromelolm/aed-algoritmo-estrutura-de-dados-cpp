@@ -2,7 +2,7 @@
  * veiculo.cpp
  *
  *  Created on: 22 de abr. de 2021
- *      Author: lmelo
+ *      Author: melo
  */
 
 #include <iostream>
@@ -39,5 +39,4 @@ Veiculo::~Veiculo(){
 
              cout << endl;
 }
-
 
