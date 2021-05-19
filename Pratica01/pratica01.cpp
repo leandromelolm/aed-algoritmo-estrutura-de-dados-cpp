@@ -75,9 +75,7 @@ int main(){
 }
 
 /*
-<<<<<<< HEAD
  * //Codido para usar a biblioteca chrono : medir tempo de processamento do programa
-=======
  * Medição de tempo - Prática 01
  *
  * Configure o projeto para utilizar C++11
@@ -86,7 +84,6 @@ int main(){
  *	“Dialect” e selecione “ISO C++11” em “Language standard” (Essa configuração permite
  *	usar o código a seguir)
  *
->>>>>>> refs/remotes/origin/master
  *
  * auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
  *
