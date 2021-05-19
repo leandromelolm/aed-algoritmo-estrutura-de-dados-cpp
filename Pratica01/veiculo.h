@@ -2,7 +2,7 @@
  * veiculo.h
  *
  *  Created on: 22 de abr. de 2021
- *      Author: lmelo
+ *      Author: melo
  */
 
 #ifndef VEICULO_H_
@@ -26,15 +26,21 @@ class Veiculo{
 		int num_rodas;
 		Roda *rodas;
 	public:
-		/*Declaração do Método get e set*/
+
 		int getNumRodas();
+
 		void setNumRodas(int nr);
+
+		/*Protótipo do Método Construtor*/
+			Veiculo(const char *param);
+		/*Protótipo do Método Destrutor*/
+				~Veiculo();
 
 //	int getNumRodas(){
 //		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
 //		return num_rodas;
 //	}
-
+//
 ///*set permite a modificação do  atributo encapsulado*/
 //	void setNumRodas(int nr){
 //		this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
@@ -42,19 +48,14 @@ class Veiculo{
 //		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
 //		cout << endl;
 //	}
-
-/*Protótipo do Método Construtor*/
-	Veiculo(const char *param);
-
+//
 //	Veiculo(const char *param){
 //			this->nome = string(param);
 //			this->rodas = NULL;
 //			this->num_rodas=0;
 //			 cout << "Objeto " << this->nome << " construído." << endl;
 //   };
-
-/*Protótipo do Método Destrutor*/
-	~Veiculo();
+//
 //	~Veiculo(){
 //			delete[]rodas;
 //			 cout<<"destruição de "<<num_rodas<<" roda(s) do objeto "<<nome<<endl;
@@ -62,5 +63,7 @@ class Veiculo{
 //
 //             cout << endl;
 //   }
+
 };
+
 #endif /* VEICULO_H_ */

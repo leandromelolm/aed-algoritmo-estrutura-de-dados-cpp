@@ -2,24 +2,30 @@
  * pratica01.cpp
  *
  *  Created on: 22 de abr. de 2021
- *      Author: lmelo
+ *      Author: melo
  */
 #include <iostream>
 #include "veiculo.h"
 #include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 int main(){
+	cout << "Pratica01" << endl;
+	cout << "Primeira Aplicação C++" << endl;
+	cout <<endl;
 
-
+	/*Medição de tempo - Prática 01 */
 //	auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
-//	int i;
-//	for(i=0;i<5000;i++){
 
-		cout << "Pratica01" << endl;
-		cout << "Primeira Aplicação C++" << endl;
-		cout <<endl;
+	/*Medição de tempo - steady_clock */
+//	steady_clock::time_point t1 = steady_clock::now();
+
+//	int i;//
+//	for(i=0;i<50000;i++){
+
+
 
 /*Objeto delcarado sem o operador new */
 		Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
@@ -47,16 +53,40 @@ int main(){
 	delete veiculo4;
 
 
-//	}
+
+
+//	} //fechando bloco de repetição "for"
+
+	/*Medição de tempo - steady_clock */
+//	steady_clock::time_point t2 = steady_clock::now();
+//	duration<double> tempo = duration_cast<duration<double>>(t2-t1);
+//	cout<< "Tempo de trabalho: " << tempo.count()<<" segundos"<<endl;
+
+
+	/*Medição de tempo - Prática 01 - continuação do código */
 //	auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
 //	long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
 //	(finish-start).count() / 1000;
 //	cout << "tempo[us] = " << elapsed << endl;
+//	int segundos = 0;
+//		segundos =elapsed/1000000;
+//	cout << "Tempo em segundos = " << segundos << endl;
 
 }
 
 /*
+ * Medição de tempo - Prática 01
+ *
+ * Configure o projeto para utilizar C++11
+ *
+ *  Vá em Project Properties > C++ Build > Settings: no caso do Cygwin procure por
+ *	“Dialect” e selecione “ISO C++11” em “Language standard” (Essa configuração permite
+ *	usar o código a seguir)
+ *
+ *
  * auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
+ *
+ * // Aqui fica o código
  *
  * auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
  * long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
