@@ -22,7 +22,10 @@ class Roda{
 //		~Roda(){
 //			cout <<"Objeto roda destruido"<<endl;
 //		}
+
 };
+
+
 
 class Veiculo{
 	private:

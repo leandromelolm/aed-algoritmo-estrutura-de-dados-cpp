@@ -52,9 +52,6 @@ int main(){
 	veiculo4->getNumRodas();
 	delete veiculo4;
 
-
-
-
 	} //FECHANDO BLOCO DE REPETIÇÃO "FOR"
 
 	/*Medição de tempo - steady_clock */
@@ -67,8 +64,9 @@ int main(){
 	auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
 	long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
 	(finish-start).count() / 1000;
+
 	cout << "tempo[us] = " << elapsed << endl;
-	int segundos = 0;
+	double segundos = 0;
 		segundos =elapsed/1000000;
 	cout << "Tempo em segundos = " << segundos << endl;
 
@@ -78,7 +76,7 @@ int main(){
  * //Codido para usar a biblioteca chrono : medir tempo de processamento do programa
  * Medição de tempo - Prática 01
  *
- * Configure o projeto para utilizar C++11
+ * Como Configurar o projeto para utilizar C++11
  *
  *  Vá em Project Properties > C++ Build > Settings: no caso do Cygwin procure por
  *	“Dialect” e selecione “ISO C++11” em “Language standard” (Essa configuração permite
