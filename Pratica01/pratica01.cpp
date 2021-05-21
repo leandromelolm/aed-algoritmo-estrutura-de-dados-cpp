@@ -53,8 +53,6 @@ int main(){
 	delete veiculo4;
 
 
-
-
 	} //Bloco For
 
 	/*Medição de tempo - steady_clock */
