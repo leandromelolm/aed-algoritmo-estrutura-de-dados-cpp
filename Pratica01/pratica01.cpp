@@ -75,10 +75,7 @@ int main(){
 }
 
 /*
-<<<<<<< HEAD
  * //Codido para usar a biblioteca chrono : medir tempo de processamento do programa
-=======
->>>>>>> branch 'master' of https://github.com/leandromelo2/aed.git
  * Medição de tempo - Prática 01
  *
  * Configure o projeto para utilizar C++11
