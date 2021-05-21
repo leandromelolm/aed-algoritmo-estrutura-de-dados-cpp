@@ -16,12 +16,12 @@ class Roda{
 	Roda();
 	~Roda();
 
-//		Roda(){
-//			cout<<"Objeto roda construido"<<endl;
-//		}
-//		~Roda(){
-//			cout <<"Objeto roda destruido"<<endl;
-//		}
+//	Roda(){
+//		cout<<"Objeto roda construido"<<endl;
+//	}
+//	~Roda(){
+//		cout <<"Objeto roda destruido"<<endl;
+//	}
 
 };
 
