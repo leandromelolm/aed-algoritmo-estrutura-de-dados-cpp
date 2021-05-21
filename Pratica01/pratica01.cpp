@@ -17,13 +17,13 @@ int main(){
 	cout <<endl;
 
 	/*Medição de tempo - Prática 01 */
-//	auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
+	auto start = std::chrono::high_resolution_clock::now();//Inicio de Medição de tempo
 
 	/*Medição de tempo - steady_clock */
 //	steady_clock::time_point t1 = steady_clock::now();
 
-//	int i;//
-//	for(i=0;i<50000;i++){
+	int i;//
+	for(i=0;i<50000;i++){
 
 
 
@@ -55,7 +55,7 @@ int main(){
 
 
 
-//	} //fechando bloco de repetição "for"
+	} //fechando bloco de repetição "for"
 
 	/*Medição de tempo - steady_clock */
 //	steady_clock::time_point t2 = steady_clock::now();
@@ -64,20 +64,21 @@ int main(){
 
 
 	/*Medição de tempo - Prática 01 - continuação do código */
-//	auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
-//	long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
-//	(finish-start).count() / 1000;
-//	cout << "tempo[us] = " << elapsed << endl;
-//	int segundos = 0;
-//		segundos =elapsed/1000000;
-//	cout << "Tempo em segundos = " << segundos << endl;
+	auto finish = std::chrono::high_resolution_clock::now(); //Fim da medição de tempo
+	long elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>
+	(finish-start).count() / 1000;
+
+	cout << "tempo[us] = " << elapsed << endl;
+	double segundos = 0;
+		segundos =elapsed/1000000;
+	cout << "Tempo em segundos = " << segundos << endl;
 
 }
 
 /*
  * Medição de tempo - Prática 01
  *
- * Configure o projeto para utilizar C++11
+ * Como Configurar o projeto para utilizar C++11
  *
  *  Vá em Project Properties > C++ Build > Settings: no caso do Cygwin procure por
  *	“Dialect” e selecione “ISO C++11” em “Language standard” (Essa configuração permite

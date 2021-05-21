@@ -12,13 +12,17 @@ using namespace std;
 
 class Roda{
 	public:
-		Roda(){
+//	Roda();
+
+	Roda(){
 			cout<<"Objeto roda construido"<<endl;
 		}
 		~Roda(){
 			cout <<"Objeto roda destruido"<<endl;
 		}
 };
+
+
 
 class Veiculo{
 	private:
