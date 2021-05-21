@@ -11,7 +11,7 @@
 using namespace std;
 
 class Roda{
-	public:
+public:
 
 	Roda();
 	~Roda();
@@ -22,53 +22,46 @@ class Roda{
 //	~Roda(){
 //		cout <<"Objeto roda destruido"<<endl;
 //	}
-
 };
 
 class Veiculo{
-	private:
-		string nome;
-		int num_rodas;
-		Roda *rodas;
-	public:
+private:
+	string nome;
+	int num_rodas;
+	Roda *rodas;
+public:
+	/*Definição do Método get*/
+	int getNumRodas();
+	/*Definição do Método set*/
+	void setNumRodas(int nr);
 
-		int getNumRodas();
+	/*Protótipo do Método Construtor*/
+	Veiculo(const char *param);
+	/*Protótipo do Método Destrutor*/
+	~Veiculo();
 
-		void setNumRodas(int nr);
-
-		/*Protótipo do Método Construtor*/
-		Veiculo(const char *param);
-		/*Protótipo do Método Destrutor*/
-		~Veiculo();
-
-		int getNumRodas(){
-		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
-		return num_rodas;
-	}
-
-
-		void setNumRodas(int nr){
-		this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
-		this->rodas= new Roda[nr](); // executa o construtor Roda. cria a quantidade de objetos passado por nr, chamando o construtor padrão
-		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
-		cout << endl;
-	}
-
-	Veiculo(const char *param){
-			this->nome = string(param);
-			this->rodas = NULL;
-			this->num_rodas=0;
-			 cout << "Objeto " << this->nome << " construído." << endl;
-   };
-
-	~Veiculo(){
-			delete[]rodas;
-			 cout<<"destruição de "<<num_rodas<<" roda(s) do objeto "<<nome<<endl;
-             cout << "Objeto " << this->nome << " destruido." << endl;
-
-             cout << endl;
-   }
-
+//	int getNumRodas(){
+//		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
+//	return num_rodas;
+//	}
+//	void setNumRodas(int nr){
+//		this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
+//		this->rodas= new Roda[nr](); // executa o construtor Roda. cria a quantidade de objetos passado por nr, chamando o construtor padrão
+//		cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
+//		cout << endl;
+//	}
+//	Veiculo(const char *param){
+//		this->nome = string(param);
+//		this->rodas = NULL;
+//		this->num_rodas=0;
+//			 cout << "Objeto " << this->nome << " construído." << endl;
+//	};
+//	~Veiculo(){
+//		delete[]rodas;
+//		cout<<"destruição de "<<num_rodas<<" roda(s) do objeto "<<nome<<endl;
+//        cout << "Objeto " << this->nome << " destruido." << endl;
+//        cout << endl;
+//	};
 };
 
 #endif /* VEICULO_H_ */
