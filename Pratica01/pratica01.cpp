@@ -76,6 +76,7 @@ int main(){
 }
 
 /*
+ * //Codido para usar a biblioteca chrono : medir tempo de processamento do programa
  * Medição de tempo - Prática 01
  *
  * Como Configurar o projeto para utilizar C++11
