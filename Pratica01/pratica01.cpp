@@ -55,7 +55,7 @@ int main(){
 
 
 
-	} //fechando bloco de repetição "for"
+	} //Bloco For
 
 	/*Medição de tempo - steady_clock */
 //	steady_clock::time_point t2 = steady_clock::now();
