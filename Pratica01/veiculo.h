@@ -23,8 +23,6 @@ class Roda{
 //	}
 };
 
-
-
 class Veiculo{
 	private:
 		string nome;
