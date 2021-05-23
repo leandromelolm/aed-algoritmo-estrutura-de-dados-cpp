@@ -13,6 +13,7 @@ int Veiculo::getNumRodas(){
 	cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
 	return num_rodas;
 }
+
 /*Corpo do método setNumRodas*/
 void Veiculo::setNumRodas(int nr){
 	this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
@@ -28,6 +29,7 @@ Veiculo::Veiculo(const char *param){
 	this->rodas = NULL;
 	this->num_rodas=0;
 }
+
 /*Corpo do Método Destrutor*/
 Veiculo::~Veiculo(){
 	delete[]rodas;
