@@ -22,7 +22,7 @@ int main(){
 	/*Medição de tempo - steady_clock */
 //	steady_clock::time_point t1 = steady_clock::now();
 
-for(int i=0;i<50000;i++){// Teste de tempo de execução com "FOR"
+//for(int i=0;i<50000;i++){// Teste de tempo de execução com "FOR"
 
 /*Objeto delcarado sem o operador new */
 //	Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
@@ -47,7 +47,7 @@ for(int i=0;i<50000;i++){// Teste de tempo de execução com "FOR"
 	veiculo4->getNumRodas();
 	delete veiculo4;
 
-} //Bloco "FOR"
+//} //Bloco "FOR"
 
 /*
  *  Medição de tempo - steady_clock
