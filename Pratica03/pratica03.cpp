@@ -87,7 +87,7 @@ int main() {
 		turma.set(2, Aluno("Jose", "2412"));
 		turma.set(3, Aluno("Carl", "2400"));
 		turma.set(7, Aluno("Leo", "2412"));
-//		turma.set(8, Aluno("Leo", "2412")); // erro (array vai até a posição 7)
+//		turma.set(8, Aluno("Leandro", "2412")); // erro (array vai até a posição 7)
 		turma.exibir();
 	} catch (const char *msg) {
 		cout << "Erro: " << msg << endl;

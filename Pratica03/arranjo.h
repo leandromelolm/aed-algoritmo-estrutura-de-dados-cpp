@@ -8,15 +8,15 @@ template<class T>
 class Arranjo {
 	private:
 		int tamanho; // tamanho do arranjo
-		T *itens; //items do arranjo
+		T *itens; //itens do arranjo
 	public:
 		Arranjo(int tam) {
-			// instancia o array de items com new (pratica 1) e seta tamanho;
+			// instancia o array de itens com new (pratica 1) e seta tamanho;
 			itens= new T[tam];
 			this->tamanho=tam;
 		}
 		virtual ~Arranjo() {
-			// destroi o array de items (prática 1);
+			// destroi o array de itens (prática 1);
 			delete[]itens;
 			cout<<"Array de itens deletado"<<endl;
 		}
@@ -27,7 +27,7 @@ class Arranjo {
 		virtual void set(int idx, const T &item) {
 			// seta o item do array apontado pelo indice usando =
 			if(idx>=tamanho){
-			throw "não é possível atribuir valor a essa posição do array";
+			throw "não é possível atribuir valor para uma posição do array";
 			}
 			itens[idx]=item;
 		}
