@@ -6,13 +6,13 @@
 using namespace std;
 
 class Aluno {
-private:
-string nome;
-string mat;
-public:
-Aluno() {}
-Aluno(const char * nome, const char * mat) : nome(nome), mat(mat) {}
-friend class Arranjo<Aluno>; //romper a proteção aos membros de uma classe usando o "friend"
+	private:
+		string nome;
+		string mat;
+	public:
+		Aluno() {}
+		Aluno(const char * nome, const char * mat) : nome(nome), mat(mat) {}
+	friend class Arranjo<Aluno>; //romper a proteção aos membros de uma classe usando o "friend"
 };
 template<>
  void Arranjo<Aluno>::set(int idx, const Aluno & aluno) {  //Member declaration not found - mesmo com esse problema o  projeto executa normalmente
