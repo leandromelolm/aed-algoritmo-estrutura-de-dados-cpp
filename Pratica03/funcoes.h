@@ -38,6 +38,11 @@ char* maximo<char*>(char *a, char *b) {
 	<0 -> b é maior que a
 */
 
+/*
+ * A função strcmp compara duas strings e devolve um valor inteiro
+ * que lhe diz qual das strings vem antes no código ASCII
+ * */
+
 	if (strcmp(a,b)<0){
 //		cout<<strcmp(a,b)<<endl;
 		cout << a << " e " << b << ". Quem vêm antes na ordem alfabética é: ";
@@ -55,6 +60,12 @@ char* maximo<char*>(char *a, char *b) {
 }
 template<>
 char* minimo<char*>(char *a, char *b) {
+/*
+ * strlen interpreta a cadeia de caracteres como uma cadeia de caracteres de byte único,
+ * portanto, seu valor de retorno é sempre igual ao número de bytes, mesmo que a cadeia
+ * de caracteres contenha caracteres multibyte.
+ * */
+
 	int quant_a;
 	int quant_b;
 	quant_a=strlen(a);

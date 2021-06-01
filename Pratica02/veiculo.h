@@ -15,7 +15,7 @@ class Veiculo{
 	public:
 		Veiculo(const char * nome){
 				this-> nome= nome;
-				this->n=n;
+//				this->n=n;
 				cout<<endl;
 				cout << "Veiculo " << this->nome <<" construido"<<endl;
 				cout<<endl;
@@ -26,13 +26,9 @@ class Veiculo{
 //		virtual void mover();
 		virtual void mover() =0;//4.9 - Trabalhando com métodos virtuais. <=0> Torna a classe abstrata
 
-		Veiculo(int  n){ //5.3 - Construtor para  ser usando no construtor  protegido na classe Terrestre e Aquatico
-			this->n=n;
-		};
-
 	protected:
 		string nome;
-		int n;
+		Veiculo(){}; //5.3 - Construtor para  ser usando no construtor  protegido na classe Terrestre e Aquatico
 };
 
 class Terrestre : public virtual Veiculo{
@@ -56,7 +52,7 @@ class Terrestre : public virtual Veiculo{
 		int cap_pass; // Número máximo de passageiros.
 
 	protected:
-		Terrestre():Veiculo(n){//5.3 - Criado construtor  sem parâmetro, chamando construtor de Veiculo com um parâmetro qualquer (n).
+		Terrestre():Veiculo(){//5.3 - Criado construtor  sem parâmetro, chamando construtor de Veiculo com um parâmetro qualquer.
 			this->cap_pass=5;
 			cout<<"Veiculo terrestre "<<nome<<" construído via construtor protegido"<<endl;
 		};
@@ -82,15 +78,15 @@ class Aquatico : public virtual Veiculo{
 		float carga_max; // Carga máxima em toneladas.
 
 	protected: // quando declarado como protected a instruções podem ser usadas na subclasse
-		Aquatico():Veiculo(n){ //5.3 - Criado construtor  sem parâmetro, chamando construtor de Veiculo com um parâmetro qualquer (n).
+		Aquatico():Veiculo(){ //5.3 - Criado construtor  sem parâmetro, chamando construtor de Veiculo com um parâmetro qualquer.
 			this->carga_max = 10;
 			cout<<"Veiculo aquático "<<nome<<" construído via construtor protegido"<<endl;
 		};
 };
 class Aereo : public Veiculo{
 	public:
-		Aereo(const char * n) : Veiculo(n){
-			this->nome = n;
+		Aereo(const char * nome) : Veiculo(nome){
+			this->nome = nome;
 			this->vel_max=100; // Parte 3 Passo 1 -  Inicialização da propriedade no construtor
 			cout<<"Veiculo aéreo "<<nome<<" construído"<<endl;
 		};

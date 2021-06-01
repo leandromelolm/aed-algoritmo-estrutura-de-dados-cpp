@@ -17,6 +17,7 @@ int Veiculo::getNumRodas(){
 /*Corpo do método setNumRodas*/
 void Veiculo::setNumRodas(int nr){
 	this->num_rodas=nr; // num_rodas exibe a quantidade de rodas
+	delete[]rodas;
 	this->rodas= new Roda[nr](); // executa o construtor Roda. cria a quantidade de objetos passado por nr, chamando o construtor padrão
 	cout << "Objeto "<< this->nome<<" com "<< this->num_rodas << " rodas." << endl;
 	cout << endl;
@@ -39,4 +40,3 @@ Veiculo::~Veiculo(){
     cout << "Objeto " << this->nome << " destruido." << endl;
     cout << endl;
 }
-

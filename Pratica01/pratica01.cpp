@@ -24,10 +24,10 @@ int main(){
 
 //for(int i=0;i<50000;i++){// Teste de tempo de execução com "FOR"
 
-/*Objeto delcarado sem o operador new */
+	/*Objeto delcarado sem o operador new */
 //	Veiculo veiculo5("v5"); // Objeto é destruido ao final do bloco automaticamente
 
-/* Objeto declarado como ponteiro e estanciado com o operador new */
+	/* Objeto declarado como ponteiro e estanciado com o operador new */
 	Veiculo * obj1 = new Veiculo("v1");
 	{
 		obj1->setNumRodas(2);
@@ -36,6 +36,7 @@ int main(){
 			Veiculo * obj3 = new Veiculo("v3");
 //			obj2->getNumRodas();
 			obj2->setNumRodas(3);
+			obj3 ->setNumRodas(4);
 			obj3 ->setNumRodas(4);
 			delete obj3;
 		}
@@ -89,4 +90,3 @@ int main(){
  * cout << "tempo[us] = " << elapsed << endl;
  *
  * */
-
