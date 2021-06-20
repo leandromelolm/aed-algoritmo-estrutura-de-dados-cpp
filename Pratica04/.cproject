@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.debug.912447145">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.912447145" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.debug.467816415">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.467816415" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -14,31 +14,31 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.912447145" name="Debug" parent="cdt.managedbuild.config.gnu.cross.exe.debug">
-					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.912447145." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.737104884" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1096832543" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/Pratica04}/Debug" id="cdt.managedbuild.builder.gnu.cross.1518285643" managedBuildOn="true" name="Gnu Make Builder.Debug" superClass="cdt.managedbuild.builder.gnu.cross"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1115512596" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.216430017" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.option.debugging.level.1915535110" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1281441266" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.467816415" name="Debug" parent="cdt.managedbuild.config.gnu.cross.exe.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.467816415." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.1153059969" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.42383157" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/Pratica04}/Debug" id="cdt.managedbuild.builder.gnu.cross.1487875365" managedBuildOn="true" name="Gnu Make Builder.Debug" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.188692177" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.40117964" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.option.debugging.level.195461584" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.954791268" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.371166018" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="gnu.cpp.compiler.option.optimization.level.58824354" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-								<option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.option.debugging.level.2114095131" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2047493050" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.807440378" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1007801216" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.option.debugging.level.413592759" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1269700792" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.720118080" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1311679472" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.107239370" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1988416460" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1902228777" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1041264719" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1422984928" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.32129610" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.242936962" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.249258238" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.508488452" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.30042660" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
@@ -46,8 +46,8 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
-		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.release.330527195">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.330527195" moduleId="org.eclipse.cdt.core.settings" name="Release">
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.release.2126241415">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.2126241415" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -59,31 +59,31 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.330527195" name="Release" parent="cdt.managedbuild.config.gnu.cross.exe.release">
-					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.330527195." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1160771188" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.190048000" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/Pratica04}/Release" id="cdt.managedbuild.builder.gnu.cross.1142137142" managedBuildOn="true" name="Gnu Make Builder.Release" superClass="cdt.managedbuild.builder.gnu.cross"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.212034385" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
-								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.284506955" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.178798912" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.100384935" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.2126241415" name="Release" parent="cdt.managedbuild.config.gnu.cross.exe.release">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.2126241415." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1135050476" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1356067778" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/Pratica04}/Release" id="cdt.managedbuild.builder.gnu.cross.956333471" managedBuildOn="true" name="Gnu Make Builder.Release" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.436310473" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1103993750" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1184067295" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1365553269" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.237856029" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="gnu.cpp.compiler.option.optimization.level.735490663" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
-								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.973844984" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1521512038" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.201940146" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1695995599" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.234485119" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.478683877" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.740181717" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1490787953" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.930501430" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1575761464" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1159033763" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1428171505" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.76908375" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1174884846" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1876838797" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1000037722" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.2013955263" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1532610267" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
@@ -93,22 +93,24 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="Pratica04.cdt.managedbuild.target.gnu.cross.exe.1635933462" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
+		<project id="Pratica04.cdt.managedbuild.target.gnu.cross.exe.1592144476" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.330527195;cdt.managedbuild.config.gnu.cross.exe.release.330527195.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.237856029;cdt.managedbuild.tool.gnu.cpp.compiler.input.1521512038">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.2126241415;cdt.managedbuild.config.gnu.cross.exe.release.2126241415.;cdt.managedbuild.tool.gnu.cross.c.compiler.436310473;cdt.managedbuild.tool.gnu.c.compiler.input.1365553269">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.330527195;cdt.managedbuild.config.gnu.cross.exe.release.330527195.;cdt.managedbuild.tool.gnu.cross.c.compiler.212034385;cdt.managedbuild.tool.gnu.c.compiler.input.100384935">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.467816415;cdt.managedbuild.config.gnu.cross.exe.debug.467816415.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.807440378;cdt.managedbuild.tool.gnu.cpp.compiler.input.1269700792">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.912447145;cdt.managedbuild.config.gnu.cross.exe.debug.912447145.;cdt.managedbuild.tool.gnu.cross.c.compiler.1115512596;cdt.managedbuild.tool.gnu.c.compiler.input.1281441266">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.2126241415;cdt.managedbuild.config.gnu.cross.exe.release.2126241415.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.201940146;cdt.managedbuild.tool.gnu.cpp.compiler.input.478683877">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.912447145;cdt.managedbuild.config.gnu.cross.exe.debug.912447145.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.371166018;cdt.managedbuild.tool.gnu.cpp.compiler.input.2047493050">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.467816415;cdt.managedbuild.config.gnu.cross.exe.debug.467816415.;cdt.managedbuild.tool.gnu.cross.c.compiler.188692177;cdt.managedbuild.tool.gnu.c.compiler.input.954791268">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>
