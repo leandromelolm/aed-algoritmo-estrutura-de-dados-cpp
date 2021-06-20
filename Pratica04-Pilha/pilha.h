@@ -49,7 +49,7 @@ T desempilha() {
 }
 int tamanho() {
 // retorna o número de elementos na pilha.
-//	return items;
+//	return sizeof items;
 }
 };
 
