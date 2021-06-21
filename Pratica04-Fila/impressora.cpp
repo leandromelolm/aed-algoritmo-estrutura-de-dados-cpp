@@ -15,11 +15,11 @@
 
 using namespace std;
 
-int mainImp() {
+int main() {
 	Fila<int> impressora(10);
 	int i = 0;
 	while (1) {
-		// 70% de chance do usuário mandar imprimir um documento
+		// 70% de chance do usuï¿½rio mandar imprimir um documento
 		if ((rand() % 100) < 70) {
 			if (!impressora.cheia()) {
 				cout << "Adicionado documento " << ++i << endl;
