@@ -37,7 +37,9 @@ public:
 		if(idx < 1 || idx - 1 > this->tam_lista){
 			throw"Item inválido";
 		}else{
+//			cout<<idx<<": "<<itens[idx-1]<<endl;
 			return this->itens[idx - 1];
+
 		}
 	}
 	void insere(int idx, const T & item) {
@@ -57,7 +59,7 @@ public:
 	}
 	void remove(int idx) {
 		if(idx < 1 || idx > tam_lista){
-			throw "Item invalido";
+			throw "Item inválido";
 		}else{
 			for(int i = idx - 1; i < tam_lista; i++){
 				this->itens[i] = this->itens[i + 1];
