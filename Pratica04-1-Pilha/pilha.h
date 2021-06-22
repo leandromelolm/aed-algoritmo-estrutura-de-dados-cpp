@@ -1,3 +1,4 @@
+
 #ifndef PILHA_H_
 #define PILHA_H_
 
@@ -75,5 +76,62 @@ public:
 		// retorna o número de elementos na pilha.
 	}
 };
+
+*/
+
+
+
+
+/*
+
+//Pilha.h - Testes OK
+
+#ifndef PILHA_H_INCLUDED
+#define PILHA_H_INCLUDED
+#include <iostream>
+using namespace std;
+
+template<class T>
+class Pilha {
+private:
+	int tam_maximo = 0;
+	int topo_pilha = 0;
+	T *items;
+public:
+	Pilha(int capacidade) {
+		this->tam_maximo = capacidade;
+		items = new T[this->tam_maximo];
+		cout<<"Tamanho do array "<<tam_maximo<<endl<<endl;
+	}
+	~Pilha() {
+		delete[] items;
+	}
+	void empilha(T item) {
+		if(topo_pilha < tam_maximo) {
+			items[this->topo_pilha] = item;
+			this->topo_pilha = this->topo_pilha + 1;
+		}else {
+			throw"Estouro da pilha!( pilha cheia)";
+		}
+
+	}
+	T desempilha() {
+
+		T item_atual;
+		if (topo_pilha > 0) {
+			this->topo_pilha = this->topo_pilha - 1;
+			item_atual = this->items[this->topo_pilha];
+//			cout<<item_atual<<endl;
+		} else {
+			throw"Pilha vazia";
+		}
+		return items[topo_pilha];
+	}
+	int tamanho() {
+		return this->topo_pilha;
+	}
+};
+#endif // PILHA_H_INCLUDED
+
 
 */
