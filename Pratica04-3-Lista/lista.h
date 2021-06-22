@@ -16,7 +16,6 @@ private:
 	T *itens;
 	int cap_maxima;
 	int tam_lista;
-
 public:
 	Lista(int capacidade) {
 		this->cap_maxima = capacidade;

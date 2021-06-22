@@ -14,7 +14,6 @@ private:
 	int tam_fila;
 	int pos_inicial;
 	int pos_final;
-
 public:
 	Fila(int cap) {
 		this->cap_maxima = cap;

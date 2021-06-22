@@ -21,7 +21,6 @@ public:
 		tam_pilha = 0;
 	}
 	~Pilha() {
-
 		delete []this->itens;
 	}
 	void empilha(T item) {
