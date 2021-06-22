@@ -20,7 +20,7 @@ void testaTamanho(Lista<int> & lista, const char * subcaso, int tamanho) {
 	cerr << "OK" << endl;
 }
 
-int mainL() {
+int main() {
 	Lista<int> lista(MAX);
 
 	try {
@@ -55,7 +55,7 @@ int mainL() {
 	}
 	cerr << "OK" << endl;
 
-	cerr << "Testando remove() [pares]: "; // remove elementos pares de trás pra frente
+	cerr << "Testando remove() [pares]: "; // remove elementos pares de trï¿½s pra frente
 	try {
 		for (int i = MAX/2; i >= 1; i--) {
 			lista.remove(2 * i);
@@ -77,7 +77,7 @@ int mainL() {
 				exit(1);
 			}
 		} catch (...) {
-			cerr << "FALHOU em " << i << "(exceção)" << endl;
+			cerr << "FALHOU em " << i << "(exceï¿½ï¿½o)" << endl;
 			exit(1);
 		}
 	}
@@ -88,7 +88,7 @@ int mainL() {
 		try {
 			lista.insere(i + 1, 2 * i);
 		} catch (...) {
-			cerr << "FALHOU em " << i << " (exceção)" << endl;
+			cerr << "FALHOU em " << i << " (exceï¿½ï¿½o)" << endl;
 			exit(1);
 		}
 	}
@@ -105,7 +105,7 @@ int mainL() {
 				exit(1);
 			}
 		} catch (...) {
-			cerr << "FALHOU em " << i << " (exceção)" << endl;
+			cerr << "FALHOU em " << i << " (exceï¿½ï¿½o)" << endl;
 			exit(1);
 		}
 	}
