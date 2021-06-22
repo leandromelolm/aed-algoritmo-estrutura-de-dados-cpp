@@ -39,7 +39,6 @@ public:
 		}else{
 //			cout<<idx<<": "<<itens[idx-1]<<endl;
 			return this->itens[idx - 1];
-
 		}
 	}
 	void insere(int idx, const T & item) {
