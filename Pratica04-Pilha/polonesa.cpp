@@ -48,9 +48,10 @@ int polonesa(const char * exp) {
 }
 
 
-int main5() {
+int mainPilha() {
 	cout << polonesa("23+31-*") << endl;
 	cout << polonesa("93*42/-") << endl;
+	cout << polonesa("55+25*-") << endl;
 
 	return 0;
 }
