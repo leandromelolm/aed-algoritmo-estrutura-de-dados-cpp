@@ -35,7 +35,7 @@ public:
 	}
 	T pega(int idx) {
 		if(idx < 1 || idx - 1 > this->tam_lista){
-			//        cout << "P Item invalido" << endl;
+			throw"Item inválido";
 		}else{
 			return this->itens[idx - 1];
 		}
