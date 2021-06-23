@@ -14,8 +14,8 @@ private:
 	int topo_pilha;
 public:
 	Pilha(int capacidade) {
-		this->cap_maxima= capacidade;
 		itens=new T[capacidade + 1];
+		this->cap_maxima= capacidade;
 		topo_pilha = 0;
 	}
 	~Pilha() {

@@ -28,8 +28,9 @@ class Arranjo {
 			// seta o item do array apontado pelo indice usando =
 			if(idx>=tamanho){
 			throw "não é possível atribuir valor para uma posição do array";
-			}
+			}else{
 			itens[idx]=item;
+			}
 		}
 	virtual void exibir();
 };
