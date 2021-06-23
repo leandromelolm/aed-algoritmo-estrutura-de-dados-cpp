@@ -15,7 +15,7 @@ private:
 public:
 	Pilha(int capacidade) {
 		this->cap_maxima= capacidade;
-		itens=new T[capacidade-1];
+		itens=new T[capacidade + 1];
 		topo_pilha = 0;
 	}
 	~Pilha() {
@@ -24,8 +24,7 @@ public:
 	void empilha(T item) {
 		if(topo_pilha<cap_maxima){
 			itens[topo_pilha]=item;
-//			cout<<itens[topo_pilha]<<": "<<item<<endl;
-			this->topo_pilha = this->topo_pilha+1;
+			this->topo_pilha = this->topo_pilha + 1;
 		}else{
 			throw "Estouro de pilha";
 		}
