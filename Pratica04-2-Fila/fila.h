@@ -12,33 +12,45 @@ private:
 	T *itens;
 	int cap_maxima;
 	int tam_fila;
-	int pos_inicial;
-	int pos_final;
+	int fila_inicio;
+	int fila_final;
 public:
 	Fila(int cap) {
 		this->cap_maxima = cap;
 		this->tam_fila = 0;
-		this->pos_final = 0;
-		this->pos_inicial = 0;
+		this->fila_final = 0;
+		this->fila_inicio = 0;
 		this->itens = new T[this->cap_maxima];
 	}
 	~Fila() {
 		delete[]this->itens;
 	}
 	void enfileira(const T &item) {
-		if(this->tam_fila < cap_maxima){
-			this->itens[(this->pos_final)] = item;
-			this->pos_final = (this->pos_final + 1) % this->cap_maxima;
+		if(tam_fila < cap_maxima){
+			itens[(fila_final)] = item;
+			fila_final = (fila_final + 1) % >cap_maxima;
+//			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
 			this->tam_fila++;
 		}else{
 			throw "Fila cheia";
 		}
 	}
+	/*
+	 *
+	 * proc enfileira (dado v, fila F) {
+			if tam_fila < cap_maxima {
+				itens_fila [(fila_inicio + tam_fila) mod cap_maxima] <- v
+				F.n <- F.n + 1
+		}
+	 *
+	 * */
+
+
 	T desenfileira() {
 		T aux;
-		if(this->tam_fila > 0){
-			aux = this->itens[this->pos_inicial];
-			this->pos_inicial = (this->pos_inicial + 1) % this->cap_maxima;
+		if(tam_fila > 0){
+			aux = this->itens[this->fila_inicio];
+			this->fila_inicio = (this->fila_inicio + 1) % this->cap_maxima;
 			this->tam_fila--;
 			return aux;
 		}else{
@@ -97,3 +109,23 @@ int tamanho() {
 }
 };
 */
+
+
+
+
+/*
+ 	// Método "Enfileira" - outra forma de implementação
+
+ 	void enfileira(const T &item) {
+		if(tam_fila < cap_maxima){
+			this->itens[(this->fila_final)] = item;
+			this->fila_final = (this->fila_final + 1) % this->cap_maxima;
+			this->tam_fila++;
+		}else{
+			throw "Fila cheia";
+		}
+	}
+ */
+
+
+

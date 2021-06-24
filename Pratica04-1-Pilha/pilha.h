@@ -46,18 +46,18 @@ public:
 
 
 
-/*
+/****************
 template <class T>
 class Pilha {
 private:
-	// Atributos para array de items, capacidade e topo da pilha
+	// Atributos para array de itens, capacidade e topo da pilha
 public:
 	Pilha(int capacidade) {
-		// instancia array de items, inicializa capacidade e topo
+		// instancia array de itens, inicializa capacidade e topo
 	}
 
 	~Pilha() {
-		// destroy array de items
+		// destroy array de itens
 	}
 
 	void empilha(T item) {
@@ -73,12 +73,12 @@ public:
 	}
 };
 
-*/
+****************/
 
 
 
 
-/*
+/****************
 
 //Pilha2.h - Testes OK
 
@@ -110,7 +110,6 @@ public:
 	void empilha(T item) {
 		if(tam_pilha<cap_maxima){
 			itens[topo]=item; //indexando item no array
-//			cout<<array[topo]<<": "<<item<<endl;
 			topo++;
 			tam_pilha = tam_pilha + 1;
 		}else{
@@ -132,12 +131,12 @@ public:
 };
 #endif // PILHA_H_
 
-*/
+****************/
 
 
 
 
-/*
+/****************
 
 //Pilha3.h - Testes OK
 
@@ -189,4 +188,20 @@ public:
 #endif // PILHA_H_INCLUDED
 
 
-*/
+****************/
+
+/****************
+
+// Método enpilhar
+
+ 	void empilha(T item) {
+		if(topo_pilha<cap_maxima){
+			itens[topo_pilha++]=item;
+		}else{
+			throw "Estouro de pilha";
+		}
+	}
+
+
+****************/
+
