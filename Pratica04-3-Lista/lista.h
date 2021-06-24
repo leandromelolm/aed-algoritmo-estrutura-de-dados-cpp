@@ -20,7 +20,7 @@ public:
 	Lista(int capacidade) {
 		tam_lista = 0;
 		cap_maxima = capacidade;
-		itens = new T[cap_maxima];
+		itens = new T[cap_maxima+1];
 	}
 	~Lista() {
 		delete this->itens;
