@@ -37,9 +37,7 @@ public:
 		if(idx < 1 || idx - 1 > tam_lista){
 			throw"Item inválido";
 		}else{
-//			cout<<idx<<": "<<itens[idx-1]<<endl;
 			return itens[idx - 1];
-
 		}
 	}
 	void insere(int idx, const T & item) {
@@ -78,6 +76,7 @@ public:
 	}
 };
 #endif /* LISTA_H_ */
+
 
 
 

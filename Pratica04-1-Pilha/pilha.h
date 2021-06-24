@@ -20,7 +20,7 @@ public:
 	Pilha(int capacidade) {
 		topo_pilha = 0;
 		cap_maxima= capacidade;
-		itens=new T[capacidade + 1];
+		itens=new T[capacidade - 1];
 	}
 	~Pilha() {
 		delete []itens;
