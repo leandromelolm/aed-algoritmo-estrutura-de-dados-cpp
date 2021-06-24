@@ -1,7 +1,11 @@
+/*
+ * pilha.h
+ *
+ *  Created on: 21 de jun. de 2021
+ *      Author: lsm
+ */
 #ifndef PILHA_H_
 #define PILHA_H_
-
-#include <iostream>
 
 using namespace std;
 
@@ -9,22 +13,22 @@ template<class T>
 
 class Pilha {
 private:
-	T *itens;
-	int cap_maxima;
 	int topo_pilha;
+	int cap_maxima;
+	T *itens;
 public:
 	Pilha(int capacidade) {
-		itens=new T[capacidade + 1];
-		this->cap_maxima= capacidade;
 		topo_pilha = 0;
+		cap_maxima= capacidade;
+		itens=new T[capacidade + 1];
 	}
 	~Pilha() {
-		delete []this->itens;
+		delete []itens;
 	}
 	void empilha(T item) {
 		if(topo_pilha<cap_maxima){
 			itens[topo_pilha]=item;
-			this->topo_pilha = this->topo_pilha + 1;
+			topo_pilha = topo_pilha + 1;
 		}else{
 			throw "Estouro de pilha";
 		}
@@ -38,15 +42,16 @@ public:
 		return itens[topo_pilha];
 	}
 	int tamanho() {
-		return this->topo_pilha;
+		return topo_pilha;
 	}
 };
-#endif // PILHA_H_
+#endif /* PILHA_H_ */
 
 
 
 
-/****************
+/*
+
 template <class T>
 class Pilha {
 private:
@@ -73,12 +78,12 @@ public:
 	}
 };
 
-****************/
+*/
 
 
 
 
-/****************
+/*
 
 //Pilha2.h - Testes OK
 
@@ -131,17 +136,17 @@ public:
 };
 #endif // PILHA_H_
 
-****************/
+*/
 
 
 
 
-/****************
+/*
 
 //Pilha3.h - Testes OK
 
-#ifndef PILHA_H_INCLUDED
-#define PILHA_H_INCLUDED
+#ifndef PILHA_H_
+#define PILHA_H_
 #include <iostream>
 using namespace std;
 
@@ -185,14 +190,14 @@ public:
 		return this->topo_pilha;
 	}
 };
-#endif // PILHA_H_INCLUDED
+#endif // PILHA_H_
+
+*/
 
 
-****************/
+/*
 
-/****************
-
-// Método enpilhar
+// Método enpilhar (outra forma)
 
  	void empilha(T item) {
 		if(topo_pilha<cap_maxima){
@@ -203,5 +208,5 @@ public:
 	}
 
 
-****************/
+*/
 

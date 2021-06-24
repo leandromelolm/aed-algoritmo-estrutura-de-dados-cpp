@@ -1,78 +1,69 @@
+/*
+ * fila.h
+ *
+ *  Created on: 21 de jun. de 2021
+ *      Author: lsm
+ */
 #ifndef FILA_H_
 #define FILA_H_
 
-#include <iostream>
-
 using namespace std;
 
-template <class T>
+template<class T>
 
 class Fila {
 private:
-	T *itens;
-	int cap_maxima;
 	int tam_fila;
 	int fila_inicio;
 	int fila_final;
+	int cap_maxima;
+	T *itens;
 public:
 	Fila(int cap) {
-		this->cap_maxima = cap;
-		this->tam_fila = 0;
-		this->fila_final = 0;
-		this->fila_inicio = 0;
-		this->itens = new T[this->cap_maxima];
+		tam_fila = 0;
+		fila_inicio = 0;
+		fila_final = 0;
+		cap_maxima = cap;
+		itens = new T[cap_maxima];
 	}
 	~Fila() {
-		delete[]this->itens;
+		delete[]itens;
 	}
 	void enfileira(const T &item) {
 		if(tam_fila < cap_maxima){
-			itens[(fila_final)] = item;
-			fila_final = (fila_final + 1) % >cap_maxima;
-//			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
-			this->tam_fila++;
+			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
+			tam_fila++;
 		}else{
 			throw "Fila cheia";
 		}
 	}
-	/*
-	 *
-	 * proc enfileira (dado v, fila F) {
-			if tam_fila < cap_maxima {
-				itens_fila [(fila_inicio + tam_fila) mod cap_maxima] <- v
-				F.n <- F.n + 1
-		}
-	 *
-	 * */
-
-
 	T desenfileira() {
 		T aux;
 		if(tam_fila > 0){
-			aux = this->itens[this->fila_inicio];
-			this->fila_inicio = (this->fila_inicio + 1) % this->cap_maxima;
-			this->tam_fila--;
+			aux = itens[fila_inicio];
+			fila_inicio = (fila_inicio + 1) % cap_maxima;
+			tam_fila--;
 			return aux;
 		}else{
 			throw"Fila vazia";
 		}
 	}
 	int cheia() {
-		if(this->tam_fila == this->cap_maxima){
+		if(tam_fila == cap_maxima){
 			return 1;
 		}else{
 			return 0;
 		}
 	}
 	int vazia() {
-		if(this->tam_fila == 0){
+		if(tam_fila == 0){
 			return 1;
 		}else{
 			return 0;
 		}
 	}
 	int tamanho() {
-		return this->tam_fila;
+		return tam_fila;
 	}
 };
 
@@ -81,6 +72,7 @@ public:
 
 
 /*
+
 template <class T>
 class Fila {
 private:
@@ -108,24 +100,40 @@ int tamanho() {
 // retorna a quantidade de itens atualmente na fila
 }
 };
+
 */
 
 
 
 
+
 /*
+
  	// Método "Enfileira" - outra forma de implementação
 
- 	void enfileira(const T &item) {
+	void enfileira(const T &item) {
 		if(tam_fila < cap_maxima){
-			this->itens[(this->fila_final)] = item;
-			this->fila_final = (this->fila_final + 1) % this->cap_maxima;
-			this->tam_fila++;
+			itens[(fila_final)] = item;
+			fila_final = (fila_final + 1) % cap_maxima;
+			tam_fila++;
 		}else{
 			throw "Fila cheia";
 		}
 	}
- */
 
+*/
+
+
+/*
+
+ // Método "Enfileira" - PseudoCódigo
+
+ * proc enfileira (dado v, fila F) {
+		if tamanho_fila < capacidade_maxima {
+			itens_fila [(fila_inicio + tamanho_fila) mod capacidade_maxima] <- v
+			tamanho_fila <- tamanho_fila + 1
+	}
+
+ */
 
 

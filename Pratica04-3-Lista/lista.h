@@ -2,43 +2,43 @@
  * lista.h
  *
  *  Created on: 21 de jun. de 2021
- *      Author: melo
+ *      Author: lsm
  */
-
 #ifndef LISTA_H_
 #define LISTA_H_
 
 using namespace std;
 
-template <class T>
+template<class T>
+
 class Lista {
 private:
-	T *itens;
-	int cap_maxima;
 	int tam_lista;
+	int cap_maxima;
+	T *itens;
 public:
 	Lista(int capacidade) {
-		this->cap_maxima = capacidade;
-		this->itens = new T[this->cap_maxima];
-		this->tam_lista = 0;
+		tam_lista = 0;
+		cap_maxima = capacidade;
+		itens = new T[cap_maxima];
 	}
 	~Lista() {
 		delete this->itens;
 	}
 	void adiciona (const T & item) {
-		if(this->tam_lista< cap_maxima){
-			this->itens[tam_lista] = item;
+		if(tam_lista< cap_maxima){
+			itens[tam_lista] = item;
 			tam_lista++;
 		}else{
 			throw"Lista cheia";
 		}
 	}
 	T pega(int idx) {
-		if(idx < 1 || idx - 1 > this->tam_lista){
+		if(idx < 1 || idx - 1 > tam_lista){
 			throw"Item inválido";
 		}else{
 //			cout<<idx<<": "<<itens[idx-1]<<endl;
-			return this->itens[idx - 1];
+			return itens[idx - 1];
 
 		}
 	}
@@ -62,14 +62,14 @@ public:
 			throw "Item inválido";
 		}else{
 			for(int i = idx - 1; i < tam_lista; i++){
-				this->itens[i] = this->itens[i + 1];
+				itens[i] = itens[i + 1];
 			}
 			tam_lista--;
 		}
 	}
 	void exibe() {
-		for(int i = 0; i < this->tam_lista; i++){
-			cout << this->itens[i] << " ";
+		for(int i = 0; i < tam_lista; i++){
+			cout << itens[i] << " ";
 		}
 		cout << endl;
 	}
@@ -127,15 +127,14 @@ public:
 	}
 };
 
- * */
-
-
+*/
 
 
 
 
 
 /*
+
 // Alternativa ao metodo insere
 void insere (int idx, const T & item) {
  insere um item na posicao indicada
@@ -156,4 +155,5 @@ if(this->tamanho_atual >= this->tamanho_max - 1){
     tamanho_atual++;
 }
 }
- */
+
+*/
