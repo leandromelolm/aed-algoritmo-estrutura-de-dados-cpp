@@ -23,7 +23,7 @@ public:
 		itens = new T[cap_maxima+1];
 	}
 	~Lista() {
-		delete this->itens;
+		delete []itens;
 	}
 	void adiciona (const T & item) {
 		if(tam_lista< cap_maxima){
