@@ -34,10 +34,11 @@ public:
 		}
 	}
 	T pega(int idx) {
-		if(idx < 1 || idx - 1 > tam_lista){
+		if(idx < 1 || idx > tam_lista){
 			throw"Item inválido";
 		}else{
-			return itens[idx - 1];
+//			cout<<idx<<": "<<itens[idx-1]<<endl;
+			return itens[idx -1];
 		}
 	}
 	void insere(int idx, const T & item) {
@@ -77,6 +78,15 @@ public:
 };
 #endif /* LISTA_H_ */
 
+
+/*
+ *
+ * 	ATENÇÃO: A lista deve ser indexada a partir de 1, e não de 0 como em arrays. Isto é,
+	numa lista com capacidade 10, os índices dos elementos vão de 1 a 10. A
+	implementação interna deve evitar desperdício de memória e acesso a áreas de
+	memória não alocadas.
+ *
+ * */
 
 
 
