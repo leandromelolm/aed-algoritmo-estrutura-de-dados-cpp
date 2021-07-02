@@ -26,48 +26,46 @@ public:
 		delete []itens;
 	}
 	void adiciona (const T & item) {
-		if(tam_lista< cap_maxima){
-			itens[tam_lista] = item;
-			tam_lista++;
-		}else{
+		if(tam_lista >= cap_maxima){
 			throw"Lista cheia";
+		}else{
+			itens[tam_lista+1] = item;
+			tam_lista++;
 		}
 	}
 	T pega(int idx) {
-		if(idx < 1 || idx > tam_lista){
+		if(idx < 1 || idx  > tam_lista){
 			throw"Item inválido";
 		}else{
-//			cout<<idx<<": "<<itens[idx-1]<<endl;
-			return itens[idx -1];
+			return itens[idx];
 		}
 	}
 	void insere(int idx, const T & item) {
-		if (idx >= 1 && idx <= cap_maxima) {
-			if (tam_lista + 1 <= cap_maxima) {
-				for ( int i = tam_lista+1;  i >=idx ; i--) {
-					itens[i] = itens[i-1];
-				}
-				itens[idx-1] = item;
-				tam_lista++;
-			} else {
-				throw "Lista cheia";
-			}
-		} else {
+		if(idx < 1 && idx > cap_maxima) {
 			throw "Item inválido";
+		}
+		if(tam_lista >= cap_maxima){
+			throw "Lista cheia";
+		}else{
+			for( int i = tam_lista+1;  i >= idx; i--) {
+				itens[i] = itens[i-1];
+			}
+			itens[idx] = item;
+			tam_lista++;
 		}
 	}
 	void remove(int idx) {
 		if(idx < 1 || idx > tam_lista){
 			throw "Item inválido";
 		}else{
-			for(int i = idx - 1; i < tam_lista; i++){
-				itens[i] = itens[i + 1];
+			for(int i = idx; i < tam_lista; i++){
+				itens[i] = itens[i+1];
 			}
 			tam_lista--;
 		}
 	}
 	void exibe() {
-		for(int i = 0; i < tam_lista; i++){
+		for(int i = 1; i <= tam_lista; i++){
 			cout << itens[i] << " ";
 		}
 		cout << endl;
@@ -79,14 +77,18 @@ public:
 #endif /* LISTA_H_ */
 
 
+
+
 /*
  *
- * 	ATENÇÃO: A lista deve ser indexada a partir de 1, e não de 0 como em arrays. Isto é,
+ 	ATENÇÃO: A lista deve ser indexada a partir de 1, e não de 0 como em arrays. Isto é,
 	numa lista com capacidade 10, os índices dos elementos vão de 1 a 10. A
 	implementação interna deve evitar desperdício de memória e acesso a áreas de
 	memória não alocadas.
  *
  * */
+
+
 
 
 
@@ -166,3 +168,89 @@ if(this->tamanho_atual >= this->tamanho_max - 1){
 }
 
 */
+
+
+/*
+
+lista2.h Testes OK
+
+#ifndef LISTA_H_
+#define LISTA_H_
+
+using namespace std;
+
+template<class T>
+
+class Lista {
+private:
+	int tam_lista;
+	int cap_maxima;
+	T *itens;
+public:
+	Lista(int capacidade) {
+		tam_lista = 0;
+		cap_maxima = capacidade;
+		itens = new T[cap_maxima + 1];
+	}
+	~Lista() {
+		delete []itens;
+	}
+	void adiciona (const T & item) {
+		if(tam_lista< cap_maxima){
+			itens[tam_lista] = item;
+			tam_lista++;
+		}else{
+			throw"Lista cheia";
+		}
+	}
+	T pega(int idx) {
+		if(idx < 1 || idx > tam_lista){
+			throw"Item inválido";
+		}else{
+//			cout<<idx<<": "<<itens[idx-1]<<endl;
+			return itens[idx-1];
+		}
+	}
+	void insere(int idx, const T & item) {
+		if (idx >= 1 && idx <= cap_maxima) {
+			if (tam_lista + 1 <= cap_maxima) {
+				for ( int i = tam_lista + 1;  i >=idx ; i--) {
+					itens[i] = itens[i-1];
+				}
+				itens[idx-1] = item;
+				tam_lista++;
+			} else {
+				throw "Lista cheia";
+			}
+		} else {
+			throw "Item inválido";
+		}
+	}
+	void remove(int idx) {
+		if(idx < 1 || idx > tam_lista){
+			throw "Item inválido";
+		}else{
+			for(int i = idx - 1; i < tam_lista; i++){
+				itens[i] = itens[i + 1];
+			}
+			tam_lista--;
+		}
+	}
+	void exibe() {
+		for(int i = 0; i < tam_lista; i++){
+			cout << itens[i] << " ";
+		}
+		cout << endl;
+	}
+	int tamanho() {
+		return tam_lista;
+	}
+};
+
+#endif // LISTA_H_
+
+
+*/
+
+
+

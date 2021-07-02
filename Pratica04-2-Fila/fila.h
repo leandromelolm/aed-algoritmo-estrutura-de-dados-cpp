@@ -27,7 +27,7 @@ public:
 		itens = new T[cap_maxima];
 	}
 	~Fila() {
-		delete[]itens;
+		delete []itens;
 	}
 	void enfileira(const T &item) {
 		if(tam_fila < cap_maxima){
