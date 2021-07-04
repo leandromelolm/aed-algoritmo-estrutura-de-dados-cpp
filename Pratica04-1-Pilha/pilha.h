@@ -14,19 +14,19 @@ template<class T>
 class Pilha {
 private:
 	int topo_pilha;
-	int cap_maxima;
+	int tam_maximo;
 	T *itens;
 public:
 	Pilha(int capacidade) {
 		topo_pilha = 0;
-		cap_maxima= capacidade;
+		tam_maximo= capacidade;
 		itens=new T[capacidade - 1];
 	}
 	~Pilha() {
 		delete []itens;
 	}
 	void empilha(T item) {
-		if(topo_pilha<cap_maxima){
+		if(topo_pilha<tam_maximo){
 			itens[topo_pilha]=item;
 			topo_pilha = topo_pilha + 1;
 		}else{
