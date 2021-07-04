@@ -14,6 +14,8 @@
 using namespace std;
 
 int main() {
+	cout<<"Prática05-Pilha com ponteiros"<<endl;
+
 	Pilha<int> pilha(MAX);
 
 	try {

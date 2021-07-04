@@ -1,51 +1,66 @@
 /*
  * pilha.h
  *
- *  Created on: 21 de jun. de 2021
+ *  Created on: 03 de jul. de 2021
  *      Author: lsm
  */
 #ifndef PILHA_LIGADA_H_
 #define PILHA_LIGADA_H_
+#include <iostream>
 
 using namespace std;
 
-template<class T>
-
+template <class T>
+struct nodePilha {
+    nodePilha *prox;
+    T item;
+};
+template <class T>
 class Pilha {
 private:
-	int topo_pilha;
-	int cap_maxima;
-	T *itens;
+    nodePilha<T> *topo_pilha;
+    int tam_maximo;
+    int tam_pilha;
 public:
-	Pilha(int capacidade) {
-		topo_pilha = 0;
-		cap_maxima= capacidade;
-		itens=new T[capacidade - 1];
-	}
-	~Pilha() {
-		delete []itens;
-	}
-	void empilha(T item) {
-		if(topo_pilha<cap_maxima){
-			itens[topo_pilha]=item;
-			topo_pilha = topo_pilha + 1;
-		}else{
-			throw "Estouro de pilha";
-		}
-	}
-	T desempilha() {
-		if(topo_pilha>0){
-			topo_pilha = topo_pilha -1;
-		}else{
-			throw"Pilha vazia";
-		}
-		return itens[topo_pilha];
-	}
+    Pilha(int capacidade) {
+        tam_maximo = capacidade;
+        tam_pilha = 0;
+        topo_pilha = NULL;
+    }
+    ~Pilha() {
+        for(int i = 0; i < tam_pilha; i++){
+        desempilha();
+        }
+    }
+    void empilha(T item) {
+        nodePilha<T> *NovoNodePilha = new nodePilha<T>;
+//        cout<<tam_pilha<< " > " <<tam_maximo<<endl;
+       if(tam_pilha +1 >tam_maximo){
+    	   throw"Pilha cheia";
+       }else{
+            NovoNodePilha->item = item;
+            NovoNodePilha->prox = topo_pilha;
+            topo_pilha = NovoNodePilha;
+            tam_pilha++;
+       }
+    }
+    T desempilha() {
+    	if(tam_pilha <= 0){
+        	throw"Pilha vazia";
+        } else{
+            T retunedItem = topo_pilha->item;
+            nodePilha<T> *auxNodePilha = topo_pilha;
+            topo_pilha = topo_pilha->prox;
+            delete auxNodePilha;
+            tam_pilha--;
+            return retunedItem;
+        }
+    }
 	int tamanho() {
-		return topo_pilha;
+		return tam_pilha;
 	}
 };
-#endif /* PILHA_LIGADA_H_ */
+#endif // PILHA_LIGADA_H_
 
 
 
