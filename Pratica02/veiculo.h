@@ -15,10 +15,9 @@ class Veiculo{
 	public:
 		Veiculo(const char * nome){
 				this-> nome= nome;
-//				this->n=n;
-				cout<<endl;
-				cout << "Veiculo " << this->nome <<" construido"<<endl;
-				cout<<endl;
+
+				cout << "Veiculo " << this->nome <<" construido"<<"\n";
+
 		};
 		virtual ~Veiculo(){
 			cout<<"Veículo "<<nome<<" destruido"<<endl;

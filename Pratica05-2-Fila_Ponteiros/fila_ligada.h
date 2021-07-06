@@ -6,50 +6,62 @@
  */
 #ifndef FILA_LIGADA_H_
 #define FILA_LIGADA_H_
-
 using namespace std;
 
 template<class T>
-
-class Fila {
+struct NoFila{
+	NoFila *prox;
+	T item;
+};
+template <class T>
+class FilaLigada {
 private:
 	int tam_fila;
-	int fila_inicio;
-	int fila_final;
-	int cap_maxima;
-	T *itens;
+	NoFila<T> *fila_inicio;
+	NoFila<T> *fila_final;
+	int tam_maximo;
 public:
-	Fila(int cap) {
+	FilaLigada(int cap) {
 		tam_fila = 0;
-		fila_inicio = 0;
-		fila_final = 0;
-		cap_maxima = cap;
-		itens = new T[cap_maxima];
+		fila_inicio = NULL;
+		fila_final = NULL;
+		tam_maximo = cap;
 	}
-	~Fila() {
-		delete []itens;
+	~FilaLigada() {
+		for(int i =0; i<tam_fila; i++){
+			desenfileira();
+		}
 	}
 	void enfileira(const T &item) {
-		if(tam_fila < cap_maxima){
-			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
-			tam_fila++;
-		}else{
+		NoFila<T> *NovoNo = new NoFila<T>;
+		if(cheia()){    //tam_fila+1 > tam_maximo
 			throw "Fila cheia";
 		}
+		NovoNo->item = item;
+		if(vazia()){
+			fila_inicio = NovoNo;
+		}else{
+			fila_final->prox = NovoNo;
+		}
+		fila_final = NovoNo;
+		tam_fila++;
 	}
 	T desenfileira() {
-		T aux;
-		if(tam_fila > 0){
-			aux = itens[fila_inicio];
-			fila_inicio = (fila_inicio + 1) % cap_maxima;
-			tam_fila--;
-			return aux;
-		}else{
-			throw"Fila vazia";
+		NoFila<T> *auxNo = fila_inicio;
+		if(fila_inicio == NULL){
+			throw"Fila Vazia";
 		}
+		T auxItem = fila_inicio->item;
+		fila_inicio = fila_inicio->prox;
+		delete auxNo;
+		if (fila_inicio == NULL){   //tam_fila == 0
+			fila_final = NULL;
+		}
+		tam_fila--;
+		return auxItem;
 	}
 	int cheia() {
-		if(tam_fila == cap_maxima){
+		if(tam_fila == tam_maximo){
 			return 1;
 		}else{
 			return 0;

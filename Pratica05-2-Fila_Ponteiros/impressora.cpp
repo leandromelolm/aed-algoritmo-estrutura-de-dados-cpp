@@ -16,7 +16,7 @@
 using namespace std;
 
 int mainFILA() {
-	Fila<int> impressora(10);
+	FilaLigada<int> impressora(10);
 	int i = 0;
 	while (1) {
 		// 70% de chance do usu�rio mandar imprimir um documento

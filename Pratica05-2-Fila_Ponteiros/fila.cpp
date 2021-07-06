@@ -14,7 +14,7 @@
 using namespace std;
 
 int main() {
-	Fila<int> fila(MAX);
+	FilaLigada<int> fila(MAX);
 
 	try {
 		cerr << "Testando enfileira() [normal]: ";
