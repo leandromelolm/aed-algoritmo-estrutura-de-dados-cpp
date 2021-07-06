@@ -34,7 +34,7 @@ public:
     }
     void empilha(T item) {
         NoPilha<T> *NovoNoPilha = new NoPilha<T>;
-//        cout<<tam_pilha<< " > " <<tam_maximo<<endl;
+        cout<<tam_pilha<< " > " <<tam_maximo<<"\n";
        if(tam_pilha +1 >tam_maximo){
     	   throw"Pilha cheia";
        }else{
@@ -45,15 +45,15 @@ public:
        }
     }
     T desempilha() {
-    	if(tam_pilha <= 0){
+    	if(topo_pilha == NULL){
         	throw"Pilha vazia";
         } else{
-            T retunedItem = topo_pilha->item;
+            T ItemPilha = topo_pilha->item;
             NoPilha<T> *auxNodePilha = topo_pilha;
             topo_pilha = topo_pilha->prox;
             delete auxNodePilha;
             tam_pilha--;
-            return retunedItem;
+            return ItemPilha;
         }
     }
 	int tamanho() {
@@ -61,6 +61,7 @@ public:
 	}
 };
 #endif // PILHA_LIGADA_H_
+
 
 
 
