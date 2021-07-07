@@ -6,70 +6,125 @@
  */
 #ifndef LISTA_LIGADA_H_
 #define LISTA_LIGADA_H_
-
 using namespace std;
 
+template <class T>
+struct NoLista {
+    NoLista *prox;
+    T item;
+};
 template<class T>
-
 class Lista {
 private:
 	int tam_lista;
-	int cap_maxima;
-	T *itens;
+	int tam_maximo;
+    NoLista<T> *no_Inicio;
+    NoLista<T> *no_Final;
+//	T *itens;
 public:
 	Lista(int capacidade) {
 		tam_lista = 0;
-		cap_maxima = capacidade;
-		itens = new T[cap_maxima+1];
-		cout<<"Lista Ligada"<<"\n";
+		no_Inicio = NULL;
+		no_Final = NULL;
+		tam_maximo = capacidade;
 	}
 	~Lista() {
-		delete []itens;
+        for(int i = 0; i < tam_lista; i++) {
+            remove(1);
+        }
 	}
 	void adiciona (const T & item) {
-		if(tam_lista >= cap_maxima){
-			throw"Lista cheia";
-		}else{
-			itens[tam_lista+1] = item;
-			tam_lista++;
+		NoLista<T> *NovoNo = new NoLista<T>;
+//		NovoNo->item = item;
+		if(tam_lista+1 > tam_maximo){
+			throw"Lista Cheia";
 		}
+		NovoNo->item = item;
+		if(tam_lista == 0){
+			no_Inicio = NovoNo;
+			no_Final = NovoNo;
+		}else{
+			no_Final->prox = NovoNo;
+			no_Final = NovoNo;
+		}
+		tam_lista++;
 	}
 	T pega(int idx) {
-		if(idx < 1 || idx  > tam_lista){
-			throw"Item inválido";
-		}else{
-			return itens[idx];
-		}
+//		NoLista<T> *auxNo = no_Inicio;
+//		if(idx < 1 || idx  > tam_lista){
+//			throw"Item inválido";
+//		}else{
+//
+//				for(int i = 1; i < idx; i++){
+//					auxNo = auxNo->prox;
+//				}
+//			return auxNo->item;
+//		}
+
+
+            NoLista<T> *auxNo = no_Inicio;
+            for(int i = 1; i < idx; i++) {
+                auxNo = auxNo->prox;
+            }
+//            cout<<auxNo->item<<"\n";
+//            return auxNo->item;
+         if(idx < 1 || idx  > tam_lista) {
+        	throw"Item inválido";
+        }return auxNo->item;
+
 	}
 	void insere(int idx, const T & item) {
-		if(idx < 1 && idx > cap_maxima) {
-			throw "Item inválido";
-		}
-		if(tam_lista >= cap_maxima){
-			throw "Lista cheia";
-		}else{
-			for( int i = tam_lista+1;  i >= idx; i--) {
-				itens[i] = itens[i-1];
+		NoLista<T> *novoNo = no_Inicio;
+
+			 if(idx == 1) {
+			       novoNo->prox = no_Inicio;
+			       no_Inicio = novoNo;
+
+		}else if(idx >= 1 && idx < tam_lista){
+			for(int i = 1; i < idx - 1; i++) {
+			  novoNo = novoNo->prox;
 			}
-			itens[idx] = item;
-			tam_lista++;
-		}
+            NoLista<T> *auxNo = new NoLista<T>;
+            auxNo->item = item;
+            auxNo->prox = novoNo->prox;
+            novoNo->prox = auxNo;
+//            tam_lista++;
+		}else if(tam_lista +1 > tam_maximo){
+			throw "Lista cheia";
+		} tam_lista++;
 	}
 	void remove(int idx) {
-		if(idx < 1 || idx > tam_lista){
-			throw "Item inválido";
-		}else{
-			for(int i = idx; i < tam_lista; i++){
-				itens[i] = itens[i+1];
-			}
-			tam_lista--;
-		}
-	}
+            NoLista<T> *noAnterior = no_Inicio;
+            if(idx == 1) {
+                noAnterior = no_Inicio;
+                no_Inicio = no_Inicio->prox;
+                if(no_Final == noAnterior) {
+                	no_Final = NULL;
+                }
+                tam_lista--;
+            } else if(idx > 1 && idx <= tam_lista) {
+                for(int i = 1; i < idx - 1; i++) {
+                    noAnterior = noAnterior->prox;
+                }
+                NoLista<T> *auxNo = noAnterior->prox;
+                noAnterior->prox = auxNo->prox;
+                if(no_Final == auxNo) {
+                	no_Final = noAnterior;
+                }
+                delete auxNo;
+                tam_lista--;
+            }else {
+            throw "Lista vazia";
+        }
+}
+
+
 	void exibe() {
-		for(int i = 1; i <= tam_lista; i++){
-			cout << itens[i] << " ";
-		}
-		cout << endl;
+		 NoLista<T> *auxNo = no_Inicio;
+		        for(int i = 0; i < tam_lista; i++) {
+		            cout << auxNo->item << " ";
+		            auxNo = auxNo->prox;
+		        }
 	}
 	int tamanho() {
 		return tam_lista;

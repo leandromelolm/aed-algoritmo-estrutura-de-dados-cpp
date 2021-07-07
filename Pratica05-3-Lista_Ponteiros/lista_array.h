@@ -6,7 +6,7 @@
  */
 #ifndef LISTA_ARRAY_H_
 #define LISTA_ARRAY_H_
-
+#include <iostream>
 using namespace std;
 
 template<class T>
@@ -68,7 +68,7 @@ public:
 		for(int i = 1; i <= tam_lista; i++){
 			cout << itens[i] << " ";
 		}
-		cout << endl;
+
 	}
 	int tamanho() {
 		return tam_lista;
