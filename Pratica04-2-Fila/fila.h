@@ -15,31 +15,32 @@ class Fila {
 private:
 	int tam_fila;
 	int fila_inicio;
-	int fila_final;
 	int cap_maxima;
 	T *itens;
 public:
 	Fila(int cap) {
 		tam_fila = 0;
 		fila_inicio = 0;
-		fila_final = 0;
 		cap_maxima = cap;
 		itens = new T[cap_maxima];
+		cout<<"Fila construída\n";
 	}
 	~Fila() {
+//		cout<<"Fila destruida\n";
 		delete []itens;
 	}
 	void enfileira(const T &item) {
-		if(tam_fila < cap_maxima){
+		if(cheia()){ // if (tam_fila < cap_maxima)
 			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
 			tam_fila++;
+//			cout<<tam_fila<<" ";
 		}else{
 			throw "Fila cheia";
 		}
 	}
 	T desenfileira() {
 		T aux;
-		if(tam_fila > 0){
+		if(tam_fila > 0){ // if (vazia())
 			aux = itens[fila_inicio];
 			fila_inicio = (fila_inicio + 1) % cap_maxima;
 			tam_fila--;
@@ -49,24 +50,24 @@ public:
 		}
 	}
 	int cheia() {
-		if(tam_fila == cap_maxima){
+		if(tam_fila < cap_maxima){
 			return 1;
-		}else{
-			return 0;
 		}
+		return 0;
 	}
 	int vazia() {
-		if(tam_fila == 0){
+		if(tam_fila > 0){
 			return 1;
-		}else{
-			return 0;
 		}
+		return 0;
 	}
 	int tamanho() {
 		return tam_fila;
 	}
 };
 #endif /* FILA_H_ */
+
+
 
 
 

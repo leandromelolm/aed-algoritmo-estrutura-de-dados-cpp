@@ -15,12 +15,15 @@ class Pilha {
 private:
 	int topo_pilha;
 	int tam_maximo;
+	int tam_pilha;
 	T *itens;
 public:
 	Pilha(int capacidade) {
 		topo_pilha = 0;
+		tam_pilha = 0;
 		tam_maximo= capacidade;
-		itens=new T[capacidade - 1];
+		itens=new T[capacidade];
+		cout<<"Pilha construída\n";
 	}
 	~Pilha() {
 		delete []itens;
@@ -29,6 +32,7 @@ public:
 		if(topo_pilha<tam_maximo){
 			itens[topo_pilha]=item;
 			topo_pilha = topo_pilha + 1;
+			tam_pilha++;
 		}else{
 			throw "Estouro de pilha";
 		}
@@ -36,16 +40,19 @@ public:
 	T desempilha() {
 		if(topo_pilha>0){
 			topo_pilha = topo_pilha -1;
+			tam_pilha--;
 		}else{
 			throw"Pilha vazia";
 		}
 		return itens[topo_pilha];
 	}
 	int tamanho() {
-		return topo_pilha;
+		return tam_pilha;
 	}
 };
 #endif /* PILHA_H_ */
+
+
 
 
 
@@ -193,6 +200,7 @@ public:
 #endif // PILHA_H_
 
 */
+
 
 
 /*

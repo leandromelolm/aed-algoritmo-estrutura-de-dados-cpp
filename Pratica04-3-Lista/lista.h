@@ -20,16 +20,19 @@ public:
 	Lista(int capacidade) {
 		tam_lista = 0;
 		cap_maxima = capacidade;
-		itens = new T[cap_maxima+1];
+		itens = new T[capacidade];
+
+//		cout<<"Lista construída\n";
 	}
 	~Lista() {
 		delete []itens;
 	}
 	void adiciona (const T & item) {
-		if(tam_lista >= cap_maxima){
+		if(tam_lista >= cap_maxima)
 			throw"Lista cheia";
-		}else{
-			itens[tam_lista+1] = item;
+		else{
+			itens[tam_lista] = item;
+//			cout<<"item: "<<item<<" itens[tam_lista]: "<<itens[tam_lista]<<"\n";
 			tam_lista++;
 		}
 	}
@@ -37,7 +40,7 @@ public:
 		if(idx < 1 || idx  > tam_lista){
 			throw"Item inválido";
 		}else{
-			return itens[idx];
+			return itens[idx-1];
 		}
 	}
 	void insere(int idx, const T & item) {
@@ -50,7 +53,7 @@ public:
 			for( int i = tam_lista+1;  i >= idx; i--) {
 				itens[i] = itens[i-1];
 			}
-			itens[idx] = item;
+			itens[idx-1] = item;
 			tam_lista++;
 		}
 	}
@@ -58,7 +61,7 @@ public:
 		if(idx < 1 || idx > tam_lista){
 			throw "Item inválido";
 		}else{
-			for(int i = idx; i < tam_lista; i++){
+			for(int i = idx -1; i < tam_lista; i++){
 				itens[i] = itens[i+1];
 			}
 			tam_lista--;
@@ -74,7 +77,9 @@ public:
 		return tam_lista;
 	}
 };
-#endif /* LISTA_H_ */
+#endif // LISTA_H_
+
+
 
 
 
@@ -87,8 +92,6 @@ public:
 	memória não alocadas.
  *
  * */
-
-
 
 
 
@@ -143,7 +146,6 @@ public:
 
 
 
-
 /*
 
 // Alternativa ao metodo insere
@@ -168,6 +170,8 @@ if(this->tamanho_atual >= this->tamanho_max - 1){
 }
 
 */
+
+
 
 
 /*
