@@ -1,15 +1,8 @@
-/*
- * pratica04.cpp
- *
- *  Created on: 28 de set de 2017
- *      Author: ramide
- */
 #include <iostream>
-
 #include "pilha_ligada.h"
 
 using namespace std;
-
+/*
 int ehOperador(char token) {
 	switch(token) {
 	case '+':
@@ -47,16 +40,12 @@ int polonesa(const char * exp) {
 	}
 	return pilha.desempilha();
 }
-
-
-int mainPilha() {
-	cout << polonesa("23+31-*") << endl;
-	cout << polonesa("93*42/-") << endl;
-	cout << polonesa("55+26*+") << endl;
-	return 0;
+*/
+int mainPolonesa() {
+    cout<<"Calculadora Polonesa"<<endl<<endl;
+//	cout <<"Valor calculado('23+31-*'): "<<polonesa("23+31-*") << endl;
+//    cout <<"Valor calculado('93*42/-'): "<< polonesa("93*42/-") << endl;
+//    cout <<"Valor calculado('42*93/-'): "<< polonesa("42*93/-") << endl;
+//    cout <<"Valor calculado('31+23-*'): "<<polonesa("31+23-*") << endl;
+//    cout <<"Valor calculado('39*24+-'): "<< polonesa("39*24/-") << endl;
 }
-
-
-
-
-

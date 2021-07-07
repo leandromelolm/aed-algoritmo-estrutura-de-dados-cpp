@@ -7,6 +7,7 @@
 #ifndef PILHA_LIGADA_H_
 #define PILHA_LIGADA_H_
 #include <iostream>
+#include "pilha.h"
 
 using namespace std;
 
@@ -16,25 +17,26 @@ struct NoPilha {
     T item;
 };
 template <class T>
-class Pilha {
+class PilhaLigada : public Pilha{
 private:
     NoPilha<T> *topo_pilha;
     int tam_maximo;
     int tam_pilha;
 public:
-    Pilha(int capacidade) {
+    PilhaLigada(int capacidade):Pilha() {
         tam_maximo = capacidade;
         tam_pilha = 0;
         topo_pilha = NULL;
+        cout<<"Pilha Ligada"<<"\n";
     }
-    ~Pilha() {
+    virtual ~PilhaLigada() {
         for(int i = 0; i < tam_pilha; i++){
         desempilha();
         }
     }
     void empilha(T item) {
         NoPilha<T> *NovoNoPilha = new NoPilha<T>;
-        cout<<tam_pilha<< " > " <<tam_maximo<<"\n";
+//        cout<<tam_pilha<< " > " <<tam_maximo<<"\n";
        if(tam_pilha +1 >tam_maximo){
     	   throw"Pilha cheia";
        }else{
@@ -61,8 +63,6 @@ public:
 	}
 };
 #endif // PILHA_LIGADA_H_
-
-
 
 
 /*
@@ -94,3 +94,4 @@ public:
 };
 
 */
+

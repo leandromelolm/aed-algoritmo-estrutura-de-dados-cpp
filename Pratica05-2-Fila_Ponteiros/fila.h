@@ -4,82 +4,70 @@
  *  Created on: 21 de jun. de 2021
  *      Author: lsm
  */
-#ifndef FILA_LIGADA_H_
-#define FILA_LIGADA_H_
+#ifndef FILA_H_
+#define FILA_H_
+
 using namespace std;
 
 template<class T>
-struct NoFila{
-	NoFila *prox;
-	T item;
-};
-template <class T>
-class FilaLigada {
+
+class Fila {
 private:
 	int tam_fila;
-	NoFila<T> *fila_inicio;
-	NoFila<T> *fila_final;
-	int tam_maximo;
+	int fila_inicio;
+	int cap_maxima;
+	T *itens;
 public:
-	FilaLigada(int cap) {
+	Fila(int cap) {
 		tam_fila = 0;
-		fila_inicio = NULL;
-		fila_final = NULL;
-		tam_maximo = cap;
-		cout<<"Fila Ligada"<<"\n";
+		fila_inicio = 0;
+		cap_maxima = cap;
+		itens = new T[cap_maxima];
+		cout<<"Fila construída\n";
 	}
-	~FilaLigada() {
-		for(int i =0; i<tam_fila; i++){
-			desenfileira();
-		}
+	~Fila() {
+//		cout<<"Fila destruida\n";
+		delete []itens;
 	}
 	void enfileira(const T &item) {
-		NoFila<T> *NovoNo = new NoFila<T>;
-		if(cheia()){    //tam_fila+1 > tam_maximo
+		if(cheia()){ // if (tam_fila < cap_maxima)
+			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
+			tam_fila++;
+//			cout<<tam_fila<<" ";
+		}else{
 			throw "Fila cheia";
 		}
-		NovoNo->item = item;
-		if(vazia()){
-			fila_inicio = NovoNo;
-		}else{
-			fila_final->prox = NovoNo;
-		}
-		fila_final = NovoNo;
-		tam_fila++;
 	}
 	T desenfileira() {
-		NoFila<T> *auxNo = fila_inicio;
-		if(fila_inicio == NULL){
-			throw"Fila Vazia";
+		T aux;
+		if(tam_fila > 0){ // if (vazia())
+			aux = itens[fila_inicio];
+			fila_inicio = (fila_inicio + 1) % cap_maxima;
+			tam_fila--;
+			return aux;
+		}else{
+			throw"Fila vazia";
 		}
-		T auxItem = fila_inicio->item;
-		fila_inicio = fila_inicio->prox;
-		delete auxNo;
-		if (fila_inicio == NULL){   //tam_fila == 0
-			fila_final = NULL;
-		}
-		tam_fila--;
-		return auxItem;
 	}
 	int cheia() {
-		if(tam_fila == tam_maximo){
+		if(tam_fila < cap_maxima){
 			return 1;
-		}else{
-			return 0;
 		}
+		return 0;
 	}
 	int vazia() {
-		if(tam_fila == 0){
+		if(tam_fila > 0){
 			return 1;
-		}else{
-			return 0;
 		}
+		return 0;
 	}
 	int tamanho() {
 		return tam_fila;
 	}
 };
-#endif /* FILA_LIGADA_H_ */
+#endif /* FILA_H_ */
+
+
 
 
 

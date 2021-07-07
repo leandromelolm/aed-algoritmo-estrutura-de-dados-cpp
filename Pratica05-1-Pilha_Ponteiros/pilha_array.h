@@ -1,28 +1,23 @@
-/*
- * pilha.h
- *
- *  Created on: 21 de jun. de 2021
- *      Author: lsm
- */
 #ifndef PILHA_ARRAY_H_
 #define PILHA_ARRAY_H_
+#include <iostream>
+#include "pilha.h"
 
 using namespace std;
 
 template<class T>
-
-class Pilha {
+class PilhaArray : public Pilha {
 private:
 	int topo_pilha;
 	int cap_maxima;
 	T *itens;
 public:
-	Pilha(int capacidade) {
+	PilhaArray(int capacidade) : Pilha() {
 		topo_pilha = 0;
 		cap_maxima= capacidade;
 		itens=new T[capacidade - 1];
 	}
-	~Pilha() {
+	virtual ~PilhaArray() {
 		delete []itens;
 	}
 	void empilha(T item) {

@@ -21,6 +21,7 @@ public:
 		tam_lista = 0;
 		cap_maxima = capacidade;
 		itens = new T[cap_maxima+1];
+		cout<<"Lista Ligada"<<"\n";
 	}
 	~Lista() {
 		delete []itens;
