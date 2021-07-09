@@ -9,7 +9,7 @@
 #include "lista_ligada.h"
 using namespace std;
 
-int mainLista() {
+int mainChar() {
 	Lista<char> lista(10);
 
 	lista.adiciona('a');	// a
@@ -31,8 +31,11 @@ int mainLista() {
 	lista.pega(2); 			// f
 	lista.exibe(); 			// a f b h d e g (saída)
 
-	lista.insere(1, 'Z');
-	lista.exibe(); 			// Z a f b h d e g (saída)
+	lista.insere(2, 'Z');
+	lista.exibe(); 			// a Z f b h d e g (saída)
+
+	lista.insere(1, 'K');
+	lista.exibe(); 			// K a Z f b h d e g (saída)
 
 	return 0;
 }
