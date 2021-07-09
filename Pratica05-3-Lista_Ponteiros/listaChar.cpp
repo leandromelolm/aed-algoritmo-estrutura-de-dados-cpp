@@ -8,8 +8,8 @@
 
 #include "lista_ligada.h"
 using namespace std;
-
-int mainChar() {
+//mainChar
+int main() {
 	Lista<char> lista(10);
 
 	lista.adiciona('a');	// a

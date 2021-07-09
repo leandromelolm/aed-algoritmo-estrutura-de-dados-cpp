@@ -65,7 +65,9 @@ public:
 			throw "Item inválido";
 		}
 		if(tam_lista >= tam_maximo){
-			throw "Lista cheia";}
+			throw "Lista cheia";
+		}
+//		noAnterior->item = item;
 		if(idx == 1) {
 			noAnterior->next = inicialNo;
 			inicialNo->next = inicialNo;
