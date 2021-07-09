@@ -115,6 +115,7 @@ public:
 		for(int i = 0; i < tam_lista; i++) {
 			cout << noAux->item << " ";
 			noAux = noAux->next;
+//			cout << noAux->item << " ";
 		}
 		cout << endl;
 	}
