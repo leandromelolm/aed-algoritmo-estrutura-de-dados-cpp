@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 
-//template <class T>
 template <class T>
 struct No{
     No *prox;
