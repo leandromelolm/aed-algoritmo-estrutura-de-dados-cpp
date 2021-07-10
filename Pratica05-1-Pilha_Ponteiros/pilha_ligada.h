@@ -23,11 +23,11 @@ private:
     int tam_maximo;
     int tam_pilha;
 public:
-    PilhaLigada(int capacidade):Pilha() {
+    PilhaLigada(int capacidade):Pilha(capacidade) {
         tam_maximo = capacidade;
         tam_pilha = 0;
         topo_pilha = NULL;
-        cout<<"Pilha Ligada"<<"\n";
+		cout<<"Pilha Encadeada\n";
     }
     virtual ~PilhaLigada() {
         for(int i = 0; i < tam_pilha; i++){

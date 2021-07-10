@@ -12,10 +12,11 @@ private:
 	int cap_maxima;
 	T *itens;
 public:
-	PilhaArray(int capacidade) : Pilha() {
+	PilhaArray(int capacidade) : Pilha(capacidade) {
 		topo_pilha = 0;
 		cap_maxima= capacidade;
 		itens=new T[capacidade - 1];
+		cout<<"Pilha Array\n";
 	}
 	virtual ~PilhaArray() {
 		delete []itens;
