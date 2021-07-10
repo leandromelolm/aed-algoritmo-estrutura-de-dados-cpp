@@ -61,17 +61,17 @@ public:
 	}
 	void insere (int idx, const T & item) {
 		nodeLista<T> *noAnterior = inicialNo;
-		if (idx < 1 && idx > tam_maximo){
-			throw "Item inválido";
-		}
+		nodeLista<T> *newNo = new nodeLista<T>;
+//		if (idx < 1 && idx > tam_maximo){
+//			throw "Item inválido";
+//		}
 		if(tam_lista >= tam_maximo){
 			throw "Lista cheia";
 		}
-//		noAnterior->item = item;
+		newNo->item = item;
 		if(idx == 1) {
-			noAnterior->next = inicialNo;
-			inicialNo->next = inicialNo;
-//			cout<<"insereInicio->"<<item<<"\n";
+			newNo->next = inicialNo;
+			inicialNo = newNo;
 		} else if(idx >= 1 && idx-1 <= tam_lista) {
 			for(int i = 1; i < idx-1; i++) {
 				noAnterior = noAnterior->next;
@@ -125,3 +125,59 @@ public:
 };
 
 #endif // LISTA_LIGADA_H_INCLUDED
+
+
+/*
+void insere (int idx, const T & item) {
+		nodeLista<T> *newNo = new nodeLista<T>;
+
+		nodeLista<T> *noAnterior = inicialNo;
+
+//		if (idx < 1 && idx > tam_maximo){
+//			throw "Item inválido";
+//		}
+		if(tam_lista >= tam_maximo){
+			throw "Lista cheia";
+		}
+//		noAnterior->item = item; // ERRO - altera no inicio
+		newNo->item = item;
+
+
+		if(idx == 1) { //Primeiro elemento
+//			noAnterior->next = inicialNo;
+//			noAnterior->next = inicialNo;
+//			newNo->next = inicialNo;
+			newNo->next = inicialNo;
+
+
+			cout<<newNo<<" "<<inicialNo<<"\n";
+//			inicialNo->next = inicialNo;
+//			inicialNo->next = newNo->item;
+//			newNo = inicialNo->next;
+			inicialNo = newNo;
+
+
+			cout<<"insereInicio->"<<newNo->item<<"\n";
+
+
+			cout<<"insereInicio->"<<item<<"\n";
+
+//			cout<<"insereInicio->"<<(*newNo).item<<"\n";  // "(*newNo).item" é igual a "newNo->item"
+
+
+		} else if(idx >= 1 && idx-1 <= tam_lista) {
+			for(int i = 1; i < idx-1; i++) {
+				noAnterior = noAnterior->next;
+			}
+			nodeLista<T> *noAux = new nodeLista<T>;
+			noAux->item = item;
+			noAux->next = noAnterior->next;
+			noAnterior->next = noAux;
+			tam_lista++;
+//			cout<<"insere->"<<item<<"\n";
+		}
+	}
+
+*/
+
+

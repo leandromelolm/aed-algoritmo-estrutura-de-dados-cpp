@@ -9,7 +9,7 @@
 #include "lista_ligada.h"
 using namespace std;
 //mainChar
-int main() {
+int mainChar() {
 	Lista<char> lista(10);
 
 	lista.adiciona('a');	// a
