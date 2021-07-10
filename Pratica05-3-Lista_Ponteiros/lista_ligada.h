@@ -4,16 +4,16 @@
 using namespace std;
 
 template <class T>
-struct nodeLista {
-	nodeLista *next;
+struct Node {
+	Node *next; //Ponteiro para próximo elemento
 	T item;
 };
 
 template <class T>
 class Lista {
 private:
-	nodeLista<T> *inicialNo;
-	nodeLista<T> *finalNo;
+	Node<T> *head;	//Ponteiro para início da lista
+	Node<T> *tail; //Ponteiro para último elemento
 	int tam_lista;
 	int tam_maximo;
 public:
@@ -21,8 +21,8 @@ public:
 
 		tam_lista = 0;
 		tam_maximo = capacidade;
-		inicialNo = NULL;
-		finalNo = NULL;
+		head = NULL;
+		tail = NULL;
 		cout<<"Lista Encadeada\n";
 	}
 	~Lista() {
@@ -31,91 +31,97 @@ public:
 		}
 	}
 	void adiciona (const T & item) {
-		nodeLista<T> *newNo = new nodeLista<T>;
+		Node<T> *newNo = new Node<T>;
 		newNo->item = item;
 		if(tam_lista >= tam_maximo){
 			throw "Lista cheia";
 		}
-		if(inicialNo == NULL) {
-			inicialNo = newNo;
-			finalNo = newNo;
+		if(head == NULL) {
+			head = newNo;
+			tail = newNo;
 			tam_lista++;
-//			cout<<"add->"<<newNo->item<<"\n";
+			cout<<"add->"<<newNo->item<<"\n";
 		} else {
-			finalNo->next = newNo;
-			finalNo = newNo;
+			tail->next = newNo;
+			tail = newNo;
 			tam_lista++;
-//			cout<<"add->"<<newNo->item<<"\n";
+			cout<<"add->"<<newNo->item<<"\n";
 		}
 	}
 	T pega(int idx) {
 		if(idx < 1 || idx  > tam_lista) {
 		} else {
-			nodeLista<T> *noAux = inicialNo;
+			Node<T> *noAux = head;
 			for(int i = 1; i < idx; i++) {
 				noAux = noAux->next;
 			}
-//			cout<<"pega->"<<noAux->item<<"\n";
+			cout<<"pega->"<<noAux->item<<"\n";
 			return noAux->item;
 		}
 	}
 	void insere (int idx, const T & item) {
-		nodeLista<T> *noAnterior = inicialNo;
-		nodeLista<T> *newNo = new nodeLista<T>;
-//		if (idx < 1 && idx > tam_maximo){
-//			throw "Item inválido";
-//		}
+		Node<T> *newNo = new Node<T>;
+		Node<T> *tmp = head;
+
+		if (idx < 1 || idx > tam_maximo){ // Verifica se o índice é maior que o tamanho da lista
+			// (idx < 1 || idx > tam_lista+1) Verifica se é um indice maior que a lista
+			throw "Posição inválida";
+		}
 		if(tam_lista >= tam_maximo){
 			throw "Lista cheia";
 		}
 		newNo->item = item;
-		if(idx == 1) {
-			newNo->next = inicialNo;
-			inicialNo = newNo;
-		} else if(idx >= 1 && idx-1 <= tam_lista) {
-			for(int i = 1; i < idx-1; i++) {
-				noAnterior = noAnterior->next;
-			}
-			nodeLista<T> *noAux = new nodeLista<T>;
-			noAux->item = item;
-			noAux->next = noAnterior->next;
-			noAnterior->next = noAux;
+		if(idx == 1) { //Primeiro elemento
+			newNo->next = head;
+			head = newNo;
+			cout<<"insereInicio->"<<newNo->item<<"\n"; // "(*newNo).item" é igual a "newNo->item"
 			tam_lista++;
-//			cout<<"insere->"<<item<<"\n";
+		}
+		else if(idx >= 1 && idx-1 <= tam_lista) {
+			for(int i = 1; i < idx-1; i++) {
+				tmp = tmp->next;
+			}
+			Node<T> *noAux = new Node<T>;
+			noAux->item = item;
+			noAux->next = tmp->next;
+			tmp->next = noAux;
+			tam_lista++;
+			cout<<"insere(MEIO)-> "<<item<<" na posição "<<idx<<"\n"; // Insere entre a posição 2 e a penultima posição da lista
 		}
 	}
 	void remove(int idx) {
 		if(idx < 1 || idx > tam_lista){
 			throw "Item inválido";
 		}else {
-			nodeLista<T> *noAnterior = inicialNo;
+			Node<T> *temp = head;
 			if(idx == 1) {
-				noAnterior = inicialNo;
-				inicialNo = inicialNo->next;
-				if(finalNo == noAnterior) {
-					finalNo = NULL;
+				temp = head;
+				head = head->next;
+				if(tail == temp) {
+					tail = NULL;
 				}
+				cout<<"remove->"<<tam_lista<<"\n";
 				tam_lista--;
 			} else if(idx > 1 && idx <= tam_lista) {
 				for(int i = 1; i < idx-1; i++) {
-					noAnterior = noAnterior->next;
+					temp = temp->next;
 				}
-				nodeLista<T> *noAux = noAnterior->next;
-				noAnterior->next = noAux->next;
-				if(finalNo == noAux) {
-					finalNo = noAnterior;
+				Node<T> *noAux = temp->next;
+				temp->next = noAux->next;
+				if(tail == noAux) {
+					tail = temp;
 				}
 				delete noAux;
+				cout<<"remove2->"<<tam_lista<<"\n";
 				tam_lista--;
 			}
 		}
 	}
 	void exibe() {
-		nodeLista<T> *noAux = inicialNo;
-		for(int i = 0; i < tam_lista; i++) {
+		Node<T> *noAux = head;
+		while(noAux != NULL ){
 			cout << noAux->item << " ";
 			noAux = noAux->next;
-//			cout << noAux->item << " ";
 		}
 		cout << endl;
 	}
