@@ -18,7 +18,7 @@ public:
 		itens=new T[capacidade - 1];
 		cout<<"Pilha Array\n";
 	}
-	virtual ~PilhaArray() {
+	~PilhaArray() {
 		delete []itens;
 	}
 	void empilha(T item) {

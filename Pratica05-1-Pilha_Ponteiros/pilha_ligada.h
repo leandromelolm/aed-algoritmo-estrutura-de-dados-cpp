@@ -1,9 +1,3 @@
-/*
- * pilha.h
- *
- *  Created on: 03 de jul. de 2021
- *      Author: lsm
- */
 #ifndef PILHA_LIGADA_H_
 #define PILHA_LIGADA_H_
 #include <iostream>
@@ -29,7 +23,7 @@ public:
         topo_pilha = NULL;
 		cout<<"Pilha Encadeada\n";
     }
-    virtual ~PilhaLigada() {
+    ~PilhaLigada() {
         for(int i = 0; i < tam_pilha; i++){
         desempilha();
         }
