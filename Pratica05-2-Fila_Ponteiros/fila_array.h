@@ -1,17 +1,11 @@
-/*
- * fila.h
- *
- *  Created on: 21 de jun. de 2021
- *      Author: lsm
- */
 #ifndef FILA_ARRAY_H_
 #define FILA_ARRAY_H_
-
+#include <iostream>
+#include "fila.h"
 using namespace std;
 
 template<class T>
-
-class Fila {
+class FilaArray : public Fila {
 private:
 	int tam_fila;
 	int fila_inicio;
@@ -19,14 +13,15 @@ private:
 	int cap_maxima;
 	T *itens;
 public:
-	Fila(int cap) {
+	FilaArray(int cap): Fila(cap) {
 		tam_fila = 0;
 		fila_inicio = 0;
 		fila_final = 0;
 		cap_maxima = cap;
 		itens = new T[cap_maxima];
+		cout<<"Fila Array\n";
 	}
-	~Fila() {
+	~FilaArray() {
 		delete []itens;
 	}
 	void enfileira(const T &item) {

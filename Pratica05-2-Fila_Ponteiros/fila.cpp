@@ -6,7 +6,8 @@
  */
 
 #include <iostream>
-
+#include "fila.h"
+#include "fila_array.h"
 #include "fila_ligada.h"
 
 #define MAX 100
@@ -14,12 +15,16 @@
 using namespace std;
 
 int main() {
-	FilaLigada<int> fila(MAX);
+//	FilaLigada<int> fila(MAX);
+
+	Fila *fila;
+	fila = new FilaLigada<int>(MAX); // Fila Ligada
+//	fila = new FilaArray<int>(MAX); // Fila Array
 
 	try {
 		cerr << "Testando enfileira() [normal]: ";
 		for (int i = 0; i < MAX; i++) {
-			fila.enfileira(i);
+			fila->enfileira(i);
 		}
 		cerr << "OK" << endl;
 	} catch (...) {
@@ -28,15 +33,15 @@ int main() {
 	}
 
 	cerr << "Testando tamanho() [cheia]: ";
-	if (fila.tamanho() != MAX) {
-		cerr << "FALHOU (tam = " << fila.tamanho() << ")" << endl;
+	if (fila->tamanho() != MAX) {
+		cerr << "FALHOU (tam = " << fila->tamanho() << ")" << endl;
 		exit(1);
 	}
 	cerr << "OK" << endl;
 
 	try {
 		cerr << "Testando enfileira() [overflow]: ";
-		fila.enfileira(MAX + 1);
+		fila->enfileira(MAX + 1);
 		cerr << "FALHOU!" << endl;
 		exit(1);
 	} catch (const char * ex) {
@@ -45,7 +50,7 @@ int main() {
 
 	cerr << "Testando desenfileira() [normal]: ";
 	for (int i = 0; i < MAX; i++) {
-		if (fila.desenfileira() != i) {
+		if (fila->desenfileira() != i) {
 			cerr << "FALHOU em " << i << endl;
 			exit(1);
 		}
@@ -54,8 +59,8 @@ int main() {
 
 
 	cerr << "Testando tamanho() [vazia]: ";
-	if (fila.tamanho() != 0) {
-		cerr << "FALHOU (tam = " << fila.tamanho() << ")" << endl;
+	if (fila->tamanho() != 0) {
+		cerr << "FALHOU (tam = " << fila->tamanho() << ")" << endl;
 		exit(1);
 	}
 	cerr << "OK" << endl;
@@ -63,7 +68,7 @@ int main() {
 
 	try {
 		cerr << "Testando desenfileira() [underflow]: ";
-		fila.desenfileira();
+		fila->desenfileira();
 		cerr << "FALHOU!" << endl;
 		exit(1);
 	} catch (const char * ex) {

@@ -1,69 +1,17 @@
-/*
- * fila.h
- *
- *  Created on: 21 de jun. de 2021
- *      Author: lsm
- */
 #ifndef FILA_H_
 #define FILA_H_
-
+#include <iostream>
 using namespace std;
 
-template<class T>
-
 class Fila {
-private:
-	int tam_fila;
-	int fila_inicio;
-	int cap_maxima;
-	T *itens;
-public:
-	Fila(int cap) {
-		tam_fila = 0;
-		fila_inicio = 0;
-		cap_maxima = cap;
-		itens = new T[cap_maxima];
-		cout<<"Fila construída\n";
-	}
-	~Fila() {
-//		cout<<"Fila destruida\n";
-		delete []itens;
-	}
-	void enfileira(const T &item) {
-		if(cheia()){ // if (tam_fila < cap_maxima)
-			itens[(fila_inicio + tam_fila) % cap_maxima] = item;
-			tam_fila++;
-//			cout<<tam_fila<<" ";
-		}else{
-			throw "Fila cheia";
-		}
-	}
-	T desenfileira() {
-		T aux;
-		if(tam_fila > 0){ // if (vazia())
-			aux = itens[fila_inicio];
-			fila_inicio = (fila_inicio + 1) % cap_maxima;
-			tam_fila--;
-			return aux;
-		}else{
-			throw"Fila vazia";
-		}
-	}
-	int cheia() {
-		if(tam_fila < cap_maxima){
-			return 1;
-		}
-		return 0;
-	}
-	int vazia() {
-		if(tam_fila > 0){
-			return 1;
-		}
-		return 0;
-	}
-	int tamanho() {
-		return tam_fila;
-	}
+	public:
+		Fila(int cap){}
+		virtual ~Fila(){};
+		virtual void enfileira(const int &item)=0;
+		virtual int desenfileira()=0;
+		virtual int cheia()=0;
+		virtual int vazia()=0;
+		virtual int tamanho()=0;
 };
 #endif /* FILA_H_ */
 

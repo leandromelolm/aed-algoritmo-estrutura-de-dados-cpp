@@ -1,11 +1,7 @@
-/*
- * fila.h
- *
- *  Created on: 21 de jun. de 2021
- *      Author: lsm
- */
 #ifndef FILA_LIGADA_H_
 #define FILA_LIGADA_H_
+#include "fila.h"
+
 using namespace std;
 
 template<class T>
@@ -14,14 +10,14 @@ struct NoFila{
 	T item;
 };
 template <class T>
-class FilaLigada {
+class FilaLigada : public Fila {
 private:
 	int tam_fila;
 	NoFila<T> *fila_inicio;
 	NoFila<T> *fila_final;
 	int tam_maximo;
 public:
-	FilaLigada(int cap) {
+	FilaLigada(int cap) : Fila(cap) {
 		tam_fila = 0;
 		fila_inicio = NULL;
 		fila_final = NULL;
