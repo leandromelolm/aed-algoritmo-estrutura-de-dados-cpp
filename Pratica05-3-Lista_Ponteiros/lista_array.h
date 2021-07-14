@@ -7,22 +7,24 @@
 #ifndef LISTA_ARRAY_H_
 #define LISTA_ARRAY_H_
 #include <iostream>
+#include "lista.h"
+
 using namespace std;
 
 template<class T>
-
-class Lista {
+//class ListaArray : Lista<T> { //Roda sem erros
+class ListaArray : public Lista<T> {
 private:
 	int tam_lista;
 	int cap_maxima;
 	T *itens;
 public:
-	Lista(int capacidade) {
+	ListaArray(int capacidade): Lista<T>(capacidade) {
 		tam_lista = 0;
 		cap_maxima = capacidade;
 		itens = new T[cap_maxima+1];
 	}
-	~Lista() {
+	~ListaArray() {
 		delete []itens;
 	}
 	void adiciona (const T & item) {

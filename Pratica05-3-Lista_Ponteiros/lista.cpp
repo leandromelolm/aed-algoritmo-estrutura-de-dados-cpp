@@ -27,14 +27,16 @@ int main() {
 
 //	ListaLigada<int> lista(MAX);
 
-	Lista<int> *lista;
+	Lista<int> *lista; //46:15: error: invalid conversion from ‘Lista<int>*’ to ‘int’ [-fpermissive]
+//	Lista<int> lista;
 //	lista = new ListaLigada<int>(MAX);
-	lista = new ListaArray<int>(MAX);
+	lista = new ListaArray<int>(MAX); //33:10: error: invalid user-defined conversion from ‘ListaArray<int>*’ to ‘const Lista<int>&’ [-fpermissive]
 
 	try {
 		cerr << "Testando adiciona() [normal]: ";
 		for (int i = 1; i <= MAX; i++) {
 			lista->adiciona(i);
+//			lista.adiciona(i);
 		}
 		cerr << "OK" << endl;
 	} catch (...) {

@@ -1,23 +1,25 @@
 #ifndef LISTA_LIGADA_H_INCLUDED
 #define LISTA_LIGADA_INCLUDED
-#include <iostream>
+//#include <iostream>
+#include "lista.h"
+
 using namespace std;
 
 template <class T>
-struct Node {
-	Node *next; //Ponteiro para próximo elemento
+struct NodeList {
+	NodeList *next; //Ponteiro para próximo elemento
 	T item;
 };
 
 template <class T>
-class Lista {
+class ListaLigada : public Lista<T> {
 private:
-	Node<T> *head;	//Ponteiro para início da lista
-	Node<T> *tail; //Ponteiro para último elemento
+	NodeList<T> *head;	//Ponteiro para início da lista
+	NodeList<T> *tail; //Ponteiro para último elemento
 	int tam_lista;
 	int tam_maximo;
 public:
-	Lista(int capacidade) {
+	ListaLigada(int capacidade) : Lista<T>(capacidade) {
 
 		tam_lista = 0;
 		tam_maximo = capacidade;
@@ -25,13 +27,13 @@ public:
 		tail = NULL;
 		cout<<"Lista Encadeada\n";
 	}
-	~Lista() {
+	~ListaLigada() {
 		for(int i = 0; i < tam_lista; i++) {
 			remove(1);
 		}
 	}
 	void adiciona (const T & item) {
-		Node<T> *newNo = new Node<T>;
+		NodeList<T> *newNo = new NodeList<T>;
 		newNo->item = item;
 		if(tam_lista >= tam_maximo){
 			throw "Lista cheia";
@@ -49,7 +51,7 @@ public:
 	T pega(int idx) {
 		if(idx < 1 || idx  > tam_lista) {
 		} else {
-			Node<T> *noAux = head;
+			NodeList<T> *noAux = head;
 			for(int i = 1; i < idx; i++) {
 				noAux = noAux->next;
 			}
@@ -57,8 +59,8 @@ public:
 		}
 	}
 	void insere (int idx, const T & item) {
-		Node<T> *newNo = new Node<T>;
-		Node<T> *tmp = head;
+		NodeList<T> *newNo = new NodeList<T>;
+		NodeList<T> *tmp = head;
 
 		if (idx < 1 || idx > tam_maximo){ // Verifica se o índice é maior que o tamanho da lista
 			throw "Posição inválida";
@@ -76,7 +78,7 @@ public:
 			for(int i = 1; i < idx-1; i++) {
 				tmp = tmp->next;
 			}
-			Node<T> *noAux = new Node<T>;
+			NodeList<T> *noAux = new NodeList<T>;
 			noAux->item = item;
 			noAux->next = tmp->next;
 			tmp->next = noAux;
@@ -87,7 +89,7 @@ public:
 		if(idx < 1 || idx > tam_lista){
 			throw "Item inválido";
 		}else {
-			Node<T> *temp = head;
+			NodeList<T> *temp = head;
 			if(idx == 1) {
 				temp = head;
 				head = head->next;
@@ -99,7 +101,7 @@ public:
 				for(int i = 1; i < idx-1; i++) {
 					temp = temp->next;
 				}
-				Node<T> *noAux = temp->next;
+				NodeList<T> *noAux = temp->next;
 				temp->next = noAux->next;
 				if(tail == noAux) {
 					tail = temp;
@@ -110,7 +112,7 @@ public:
 		}
 	}
 	void exibe() {
-		Node<T> *noAux = head;
+		NodeList<T> *noAux = head;
 		while(noAux != NULL ){
 			cout << noAux->item << " ";
 			noAux = noAux->next;

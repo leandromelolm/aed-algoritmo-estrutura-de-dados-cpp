@@ -11,9 +11,22 @@
 using namespace std;
 
 template<class T>
-
 class Lista {
-
+	int tam_lista=0;
+	public:
+		Lista(int capacidade){}
+		virtual ~Lista(){}
+		virtual void adiciona (const int & item);
+//		virtual int pega(int idx)=0;
+		virtual T pega(int idx)=0;
+//		virtual void insere(int idx, const int & item)=0;
+		virtual void insere(int idx, const T & item)=0;
+		virtual void remove(int idx)=0;;
+		virtual void exibe()=0;;
+//		virtual int tamanho()=0;
+		int tamanho(){
+			return tam_lista;
+		};
 };
 #endif // LISTA_H_
 
@@ -37,3 +50,17 @@ Passo 3: Repita os passos acima para as estruturas Fila e Lista e seus respectiv
 */
 
 
+/*
+template<class T>
+class Lista {
+	public:
+		Lista(int capacidade){}
+		virtual ~Lista(){}
+		virtual void adiciona (const T & item);
+		virtual T pega(int idx);
+		virtual void insere(int idx, const T & item);
+		virtual void remove(int idx);
+		virtual void exibe();
+		virtual int tamanho();
+};
+*/
