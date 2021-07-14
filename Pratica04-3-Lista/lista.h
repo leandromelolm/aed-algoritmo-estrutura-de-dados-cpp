@@ -11,20 +11,20 @@ using namespace std;
 
 template<class T>
 
-class Lista {
+class ListaLigada {
 private:
 	int tam_lista;
 	int cap_maxima;
 	T *itens;
 public:
-	Lista(int capacidade) {
+	ListaLigada(int capacidade) {
 		tam_lista = 0;
 		cap_maxima = capacidade;
 		itens = new T[capacidade];
 
 //		cout<<"Lista construída\n";
 	}
-	~Lista() {
+	~ListaLigada() {
 		delete []itens;
 	}
 	void adiciona (const T & item) {

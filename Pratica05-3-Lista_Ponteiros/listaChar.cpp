@@ -11,7 +11,7 @@ using namespace std;
 //mainChar
 int mainChar() {
 	try{
-		Lista<char> listaChar(10);
+		ListaLigada<char> listaChar(10);
 
 		listaChar.adiciona('a');	// a
 		listaChar.adiciona('b');	// a b

@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void testaTamanho(Lista<int> & lista, const char * subcaso, int tamanho) {
+void testaTamanho(ListaLigada<int> & lista, const char * subcaso, int tamanho) {
 	cerr << "Testando tamanho() [" << subcaso << "]: " ;
 	if (lista.tamanho() != tamanho) {
 		cerr << "FALHOU (tam = " << lista.tamanho() << ")" << endl;
@@ -21,7 +21,7 @@ void testaTamanho(Lista<int> & lista, const char * subcaso, int tamanho) {
 }
 
 int main() {
-	Lista<int> lista(MAX);
+	ListaLigada<int> lista(MAX);
 
 	try {
 		cerr << "Testando adiciona() [normal]: ";

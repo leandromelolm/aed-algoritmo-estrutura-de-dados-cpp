@@ -7,6 +7,8 @@
 #include <iostream>
 
 #include "lista_ligada.h"
+#include "lista_array.h"
+#include "lista.h"
 
 #define MAX 100
 
@@ -22,12 +24,17 @@ void testaTamanho(Lista<int> & lista, const char * subcaso, int tamanho) {
 }
 //main Teste
 int main() {
-	Lista<int> lista(MAX);
+
+//	ListaLigada<int> lista(MAX);
+
+	Lista<int> *lista;
+//	lista = new ListaLigada<int>(MAX);
+	lista = new ListaArray<int>(MAX);
 
 	try {
 		cerr << "Testando adiciona() [normal]: ";
 		for (int i = 1; i <= MAX; i++) {
-			lista.adiciona(i);
+			lista->adiciona(i);
 		}
 		cerr << "OK" << endl;
 	} catch (...) {
@@ -39,7 +46,7 @@ int main() {
 
 	try {
 		cerr << "Testando adiciona() [overflow]: ";
-		lista.adiciona(MAX + 1);
+		lista->adiciona(MAX + 1);
 		cerr << "FALHOU!" << endl;
 		exit(1);
 	} catch (const char *ex) {
@@ -48,9 +55,9 @@ int main() {
 
 	cerr << "Testando pega() [todos]: ";
 	for (int i = MAX; i >= 1; i--) {
-		if (lista.pega(i) != i) {
+		if (lista->pega(i) != i) {
 			cerr << "FALHOU em " << i << endl;
-			lista.exibe();
+			lista->exibe();
 			exit(1);
 		}
 	}
@@ -59,7 +66,7 @@ int main() {
 	cerr << "Testando remove() [pares]: "; // remove elementos pares de tr�s pra frente
 	try {
 		for (int i = MAX/2; i >= 1; i--) {
-			lista.remove(2 * i);
+			lista->remove(2 * i);
 		}
 	} catch (const char * ex) {
 		cerr << "FALHOU (" << ex << ")" << endl;
@@ -72,9 +79,9 @@ int main() {
 	cerr << "Testando pega() [impares]: ";
 	for (int i = 1; i <= MAX/2; i++) {
 		try {
-			if (lista.pega(i) != ((i - 1)* 2) + 1) {
+			if (lista->pega(i) != ((i - 1)* 2) + 1) {
 				cerr << "FALHOU em " << i << endl;
-				lista.exibe();
+				lista->exibe();
 				exit(1);
 			}
 		} catch (...) {
@@ -87,7 +94,7 @@ int main() {
 	cerr << "Testando insere() [pares]: ";
 	for (int i = MAX/2; i >= 1; i--) {
 		try {
-			lista.insere(i + 1, 2 * i);
+			lista->insere(i + 1, 2 * i);
 		} catch (...) {
 			cerr << "FALHOU em " << i << " (exce��o)" << endl;
 			exit(1);
@@ -100,9 +107,9 @@ int main() {
 	cerr << "Testando pega() [todos, 2o round]: ";
 	for (int i = MAX; i >= 1; i--) {
 		try {
-			if (lista.pega(i) != i) {
+			if (lista->pega(i) != i) {
 				cerr << "FALHOU em " << i << " (valor = " << lista.pega(i) << ")" << endl;
-				lista.exibe();
+				lista->exibe();
 				exit(1);
 			}
 		} catch (...) {
@@ -115,7 +122,7 @@ int main() {
 	cerr << "Testando remove() [tudo]: ";
 	try {
 		for (int i = 1; i <= MAX; i++) {
-			lista.remove(1);
+			lista->remove(1);
 		}
 	} catch (const char * ex) {
 		cerr << "FALHOU (" << ex << ")" << endl;
@@ -127,7 +134,7 @@ int main() {
 
 	try {
 		cerr << "Testando remove() [underflow]: ";
-		lista.remove(1);
+		lista->remove(1);
 		cerr << "FALHOU!" << endl;
 		exit(1);
 	} catch (const char *ex) {
