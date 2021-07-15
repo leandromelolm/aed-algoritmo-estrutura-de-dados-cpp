@@ -3,18 +3,14 @@
 #include <iostream>
 using namespace std;
 
+
 template <class T>
-struct No{
-    No *prox;
-    T item;
-};
-//template <class T>
 class Pilha {
 	public:
 		Pilha(int capacidade){}
 		virtual ~Pilha(){};
-		virtual void empilha(int item)=0;
-		virtual int desempilha()=0;
+		virtual void empilha(T item)=0;
+		virtual T desempilha()=0;
 		virtual int tamanho()=0;
 };
 #endif // PILHA_H_INCLUDED

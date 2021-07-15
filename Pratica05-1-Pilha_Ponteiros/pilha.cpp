@@ -13,7 +13,7 @@ int main() {
 
 //	PilhaLigada<int> pilha(MAX);
 
-	Pilha *pilha;
+	Pilha<int> *pilha;
 	pilha = new PilhaLigada<int>(MAX); // Pilha Ligada
 //	pilha = new PilhaArray<int>(MAX); //  Pilha Array
 

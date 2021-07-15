@@ -6,13 +6,13 @@
 using namespace std;
 
 template<class T>
-class PilhaArray : public Pilha {
+class PilhaArray : public Pilha<T> {
 private:
 	int topo_pilha;
 	int cap_maxima;
 	T *itens;
 public:
-	PilhaArray(int capacidade) : Pilha(capacidade) {
+	PilhaArray(int capacidade) : Pilha<T>(capacidade) {
 		topo_pilha = 0;
 		cap_maxima= capacidade;
 		itens=new T[capacidade - 1];

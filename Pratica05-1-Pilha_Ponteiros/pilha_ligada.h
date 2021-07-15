@@ -11,13 +11,13 @@ struct NoPilha {
     T item;
 };
 template <class T>
-class PilhaLigada : public Pilha{
+class PilhaLigada : public Pilha<T>{
 private:
     NoPilha<T> *topo_pilha;
     int tam_maximo;
     int tam_pilha;
 public:
-    PilhaLigada(int capacidade):Pilha(capacidade) {
+    PilhaLigada(int capacidade):Pilha<T>(capacidade) {
         tam_maximo = capacidade;
         tam_pilha = 0;
         topo_pilha = NULL;
