@@ -14,42 +14,42 @@ struct NodeList {
 template <class T>
 class ListaLigada : public Lista<T> {
 private:
-	NodeList<T> *head;	//Ponteiro para início da lista
-	NodeList<T> *tail; //Ponteiro para último elemento
-	int tam_lista;
-	int tam_maximo;
+	NodeList<T> *head;	//Ponteiro para início da lista (cabeça)
+	NodeList<T> *tail; //Ponteiro para último elemento (calda)
+	int list_size;
+	int max_size;
 public:
 	ListaLigada(int capacidade) : Lista<T>(capacidade) {
 
-		tam_lista = 0;
-		tam_maximo = capacidade;
+		list_size = 0;
+		max_size = capacidade;
 		head = NULL;
 		tail = NULL;
-		cout<<"Lista Encadeada\n";
+		cout<<"Lista Encadeada criada\n";
 	}
 	~ListaLigada() {
-		for(int i = 0; i < tam_lista; i++) {
+		for(int i = 0; i < list_size; i++) {
 			remove(1);
 		}
 	}
 	void adiciona (const T & item) {
 		NodeList<T> *newNo = new NodeList<T>;
 		newNo->item = item;
-		if(tam_lista >= tam_maximo){
+		if(list_size >= max_size){
 			throw "Lista cheia";
 		}
 		if(head == NULL) {
 			head = newNo;
 			tail = newNo;
-			tam_lista++;
+			list_size++;
 		} else {
 			tail->next = newNo;
 			tail = newNo;
-			tam_lista++;
+			list_size++;
 		}
 	}
 	T pega(int idx) {
-		if(idx < 1 || idx  > tam_lista) {
+		if(idx < 1 || idx  > list_size) {
 		} else {
 			NodeList<T> *noAux = head;
 			for(int i = 1; i < idx; i++) {
@@ -62,19 +62,19 @@ public:
 		NodeList<T> *newNo = new NodeList<T>;
 		NodeList<T> *tmp = head;
 
-		if (idx < 1 || idx > tam_maximo){ // Verifica se o índice é maior que o tamanho da lista
+		if (idx < 1 || idx > max_size){ // Verifica se o índice é maior que o tamanho da lista
 			throw "Posição inválida";
 		}
-		if(tam_lista >= tam_maximo){
+		if(list_size >= max_size){
 			throw "Lista cheia";
 		}
 		newNo->item = item;
 		if(idx == 1) { //Primeiro elemento
 			newNo->next = head;
 			head = newNo;
-			tam_lista++;
+			list_size++;
 		}
-		else if(idx >= 1 && idx-1 <= tam_lista) {
+		else if(idx >= 1 && idx-1 <= list_size) {
 			for(int i = 1; i < idx-1; i++) {
 				tmp = tmp->next;
 			}
@@ -82,11 +82,11 @@ public:
 			noAux->item = item;
 			noAux->next = tmp->next;
 			tmp->next = noAux;
-			tam_lista++;
+			list_size++;
 		}
 	}
 	void remove(int idx) {
-		if(idx < 1 || idx > tam_lista){
+		if(idx < 1 || idx > list_size){
 			throw "Item inválido";
 		}else {
 			NodeList<T> *temp = head;
@@ -96,31 +96,31 @@ public:
 				if(tail == temp) {
 					tail = NULL;
 				}
-				tam_lista--;
-			} else if(idx > 1 && idx <= tam_lista) {
+				list_size--;
+			} else if(idx > 1 && idx <= list_size) {
 				for(int i = 1; i < idx-1; i++) {
 					temp = temp->next;
 				}
-				NodeList<T> *noAux = temp->next;
-				temp->next = noAux->next;
-				if(tail == noAux) {
+				NodeList<T> *nodeAux = temp->next;
+				temp->next = nodeAux->next;
+				if(tail == nodeAux) {
 					tail = temp;
 				}
-				delete noAux;
-				tam_lista--;
+				delete nodeAux;
+				list_size--;
 			}
 		}
 	}
 	void exibe() {
-		NodeList<T> *noAux = head;
-		while(noAux != NULL ){
-			cout << noAux->item << " ";
-			noAux = noAux->next;
+		NodeList<T> *nodeAux = head;
+		while(nodeAux != NULL ){
+			cout << nodeAux->item << " ";
+			nodeAux = nodeAux->next;
 		}
 		cout << endl;
 	}
 	int tamanho() {
-		return tam_lista;
+		return list_size;
 	}
 };
 

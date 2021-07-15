@@ -12,7 +12,7 @@
 using namespace std;
 
 template<class T>
-//class ListaArray : Lista<T> { //Roda sem erros
+//class ListaArray : Lista<T> { //linha executa sem erros também
 class ListaArray : public Lista<T> {
 private:
 	int tam_lista;
@@ -23,13 +23,14 @@ public:
 		tam_lista = 0;
 		cap_maxima = capacidade;
 		itens = new T[cap_maxima+1];
+		cout<<"Lista com Array criada\n";
 	}
 	~ListaArray() {
 		delete []itens;
 	}
 	void adiciona (const T & item) {
 		if(tam_lista >= cap_maxima){
-			throw"Lista cheia";
+			throw"Lista cheia[Array]";
 		}else{
 			itens[tam_lista+1] = item;
 			tam_lista++;
@@ -58,7 +59,7 @@ public:
 	}
 	void remove(int idx) {
 		if(idx < 1 || idx > tam_lista){
-			throw "Item inválido";
+			throw "Item inválido[Array]";
 		}else{
 			for(int i = idx; i < tam_lista; i++){
 				itens[i] = itens[i+1];

@@ -12,7 +12,7 @@
 
 #define MAX 100
 
-void testaTamanho(Lista<int> & lista, const char * subcaso, int tamanho) {
+void testaTamanho2(Lista<int> & lista, const char * subcaso, int tamanho) {
 	cerr << "Testando tamanho() [" << subcaso << "]: " ;
 	if (lista.tamanho() != tamanho) {
 		cerr << "FALHOU (tam = " << lista.tamanho() << ")" << endl;
@@ -20,10 +20,13 @@ void testaTamanho(Lista<int> & lista, const char * subcaso, int tamanho) {
 	}
 	cerr << "OK" << endl;
 }
-int mainPratica05ListTest() {
-//int main(){
 
+//int mainPratica05ListaTest(){
+int main() {
 //	Lista<int> lista(MAX); //linha original
+
+//	Lista<int>*lista = new ListaLigada<int>(MAX);
+//	Lista<int>*lista = new ListaArray<int>(MAX);
 
 	Lista<int> *lista;
 
@@ -42,7 +45,7 @@ int mainPratica05ListTest() {
 		exit(1);
 	}
 //	testaTamanho(lista, "cheia", MAX); //linha original
-	testaTamanho(*lista, "cheia", MAX);
+	testaTamanho2(*lista, "cheia", MAX);
 
 	try {
 		cerr << "Testando adiciona() [overflow]: ";
@@ -74,7 +77,7 @@ int mainPratica05ListTest() {
 	}
 	cerr << "OK" << endl;
 
-	testaTamanho(*lista, "metade", MAX/2);
+	testaTamanho2(*lista, "metade", MAX/2);
 
 	cerr << "Testando pega() [impares]: ";
 	for (int i = 1; i <= MAX/2; i++) {
@@ -102,7 +105,7 @@ int mainPratica05ListTest() {
 	}
 	cerr << "OK" << endl;
 
-	testaTamanho(*lista, "cheia", MAX);
+	testaTamanho2(*lista, "cheia", MAX);
 
 	cerr << "Testando pega() [todos, 2o round]: ";
 	for (int i = MAX; i >= 1; i--) {
@@ -130,7 +133,7 @@ int mainPratica05ListTest() {
 	}
 	cerr << "OK" << endl;
 
-	testaTamanho(*lista, "vazia", 0);
+	testaTamanho2(*lista, "vazia", 0);
 
 	try {
 		cerr << "Testando remove() [underflow]: ";
@@ -141,6 +144,67 @@ int mainPratica05ListTest() {
 		cerr << "OK (" << ex << ")" << endl;
 	}
 
+
+//		Código para atrasar a execução do teste da calculadora Polonesa
+		time_t start_t, end_t;
+		double diff_t;
+//		  cout<<"Inicio Teste ListandoChar\n";
+		time(&start_t);
+		while(diff_t<=2.000000){
+			time(&end_t);
+			diff_t = difftime(end_t, start_t);
+		}
+
+	try{
+		cout<<endl<<endl;
+		ListaLigada<char> listaChar(10);
+
+		listaChar.adiciona('a');	// a
+		listaChar.adiciona('b');	// a b
+		listaChar.adiciona('c');	// a b c
+		listaChar.adiciona('d');	// a b c d
+		listaChar.adiciona('e');	// a b c d e
+		listaChar.exibe(); 			// a b c d e (saída)
+
+		listaChar.remove(3); 		// a b d e
+		listaChar.exibe(); 			// a b d e (saída)
+
+		listaChar.pega(4); 			// e
+		listaChar.insere(2, 'f'); 	// a f b d e
+		listaChar.exibe(); 			// a f b d e (saída)
+
+		listaChar.adiciona('g'); 	// a f b d e g
+		listaChar.insere(4, 'h'); 	// a f b h d e g
+		listaChar.pega(2); 			// f
+		listaChar.exibe(); 			// a f b h d e g (saída)
+
+		listaChar.insere(2, 'Z');
+		listaChar.exibe(); 			// a Z f b h d e g (saída)
+
+		listaChar.insere(1, 'K');
+		listaChar.exibe(); 			// K a Z f b h d e g (saída)
+
+		listaChar.insere(1, 'Y');
+		listaChar.exibe(); 			// Y K a Z f b h d e g (saída) 10 itens
+
+//		listaChar.insere(1, 'P');
+//		listaChar.exibe(); 			// P Y K a Z f b h d e g (saída) 11 itens
+//
+//		listaChar.insere(1, 'j');
+//		listaChar.exibe(); 			// j P Y K a Z f b h d e g (saída) 12 itens
+//
+//		listaChar.insere(7, 'c');
+//		listaChar.exibe(); 			// c j P Y K a Z f b h d e g (saída) 13 itens
+//
+//		listaChar.insere(17, 'E');  // Erro (Posição inválida
+//		listaChar.exibe(); 			// E c j P Y K a Z f b h d e g (saída) 14 itens
+
+		listaChar.tamanho();
+
+		cout<<"Tamanho da listaChar: "<<listaChar.tamanho();
+	}catch(const char *ex){
+		cerr << "Erro (" << ex << ")" << endl;
+	}
 	return 0;
 }
 
