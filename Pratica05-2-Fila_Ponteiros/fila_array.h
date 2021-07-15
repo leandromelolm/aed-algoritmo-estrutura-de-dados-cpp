@@ -5,7 +5,7 @@
 using namespace std;
 
 template<class T>
-class FilaArray : public Fila {
+class FilaArray : public Fila<T> {
 private:
 	int tam_fila;
 	int fila_inicio;
@@ -13,7 +13,7 @@ private:
 	int cap_maxima;
 	T *itens;
 public:
-	FilaArray(int cap): Fila(cap) {
+	FilaArray(int cap): Fila<T>(cap) {
 		tam_fila = 0;
 		fila_inicio = 0;
 		fila_final = 0;

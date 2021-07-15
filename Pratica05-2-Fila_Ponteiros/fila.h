@@ -3,11 +3,12 @@
 #include <iostream>
 using namespace std;
 
+template<class T>
 class Fila {
 	public:
 		Fila(int cap){}
 		virtual ~Fila(){};
-		virtual void enfileira(const int &item)=0;
+		virtual void enfileira(const T &item)=0;
 		virtual int desenfileira()=0;
 		virtual int cheia()=0;
 		virtual int vazia()=0;
@@ -16,7 +17,15 @@ class Fila {
 #endif /* FILA_H_ */
 
 
+/*
+Parte 4: Refatoração e reorganização do código
 
+Refatoração de código: FilaArray e FilaLigada são subclasses da Classe Fila(abstrata)
+que define a interface dessas estruturas.
+a classe Fila do arquivo fila.h é uma classe Abstrata.
+Em fila.cpp há um ponteiro para lista genérica que pode ser instanciado
+tanto com FilaArray ou FilaLigada
+*/
 
 
 

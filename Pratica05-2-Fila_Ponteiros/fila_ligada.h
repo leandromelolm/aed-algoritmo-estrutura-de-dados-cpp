@@ -10,14 +10,14 @@ struct NoFila{
 	T item;
 };
 template <class T>
-class FilaLigada : public Fila {
+class FilaLigada : public Fila<T> {
 private:
 	int tam_fila;
 	NoFila<T> *fila_inicio;
 	NoFila<T> *fila_final;
 	int tam_maximo;
 public:
-	FilaLigada(int cap) : Fila(cap) {
+	FilaLigada(int cap) : Fila<T>(cap) {
 		tam_fila = 0;
 		fila_inicio = NULL;
 		fila_final = NULL;

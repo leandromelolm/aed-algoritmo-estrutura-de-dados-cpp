@@ -48,8 +48,8 @@ int polonesa(const char * exp) {
 }
 
 
-int mainTest() {
-//int main() {
+//int mainTest() {
+int main() {
 
 //	PilhaLigada<int> pilha(MAX);
 
