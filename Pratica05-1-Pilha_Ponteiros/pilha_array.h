@@ -16,7 +16,7 @@ public:
 		topo_pilha = 0;
 		cap_maxima= capacidade;
 		itens=new T[capacidade - 1];
-		cout<<"Pilha Array\n";
+		cout<<"Pilha Array criada\n";
 	}
 	~PilhaArray() {
 		delete []itens;

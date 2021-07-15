@@ -30,32 +30,36 @@ int avalia(char token, int valorEsq, int valorDir) {
 }
 
 int polonesa(const char * exp) {
-	PilhaLigada<int> pilha(10);
+//	PilhaLigada<int> pilha(10); //Linha original
+
+	Pilha<int> *pilhaPolonesa;
+//	pilhaPolonesa = new PilhaLigada<int>(10); // Pilha Ligada
+	pilhaPolonesa = new PilhaArray<int>(10); //  Pilha Array
+
 	while (*exp) {
 		char token = *exp;
 		if (ehOperador(token)) {
-			int valorDir = pilha.desempilha();
-			int valorEsq = pilha.desempilha();
+			int valorDir = pilhaPolonesa->desempilha();
+			int valorEsq = pilhaPolonesa->desempilha();
 			int resultado = avalia(token, valorEsq, valorDir);
-			pilha.empilha(resultado);
+			pilhaPolonesa->empilha(resultado);
 		} else {
 			int valor = (int)(token - '0');
-			pilha.empilha(valor);
+			pilhaPolonesa->empilha(valor);
 		}
 		exp++;
 	}
-	return pilha.desempilha();
+	return pilhaPolonesa->desempilha();
 }
 
-
-//int mainTest() {
-int main() {
+int mainTest() {
+//int main() {
 
 //	PilhaLigada<int> pilha(MAX);
 
 	Pilha<int> *pilha;
-	pilha = new PilhaLigada<int>(MAX); // Pilha Ligada
-//	pilha = new PilhaArray<int>(MAX); //  Pilha Array
+//	pilha = new PilhaLigada<int>(MAX); // Pilha Ligada
+	pilha = new PilhaArray<int>(MAX); //  Pilha Array
 
 
 	try {
@@ -124,11 +128,11 @@ int main() {
 	cout<<"\n";
 	cout<<"Inicio do teste de calculadora Polonesa\n";
 
-	cout <<"Valor calculado('23+31-*'): "<<polonesa("23+31-*") << endl;
-	cout <<"Valor calculado('93*42/-'): "<< polonesa("93*42/-") << endl;
-	cout <<"Valor calculado('42*93/-'): "<< polonesa("42*93/-") << endl;
-	cout <<"Valor calculado('31+23-*'): "<<polonesa("31+23-*") << endl;
-	cout <<"Valor calculado('39*24+-'): "<< polonesa("39*24/-") << endl;
+	cout<<"('23+31-*'): "<<polonesa("23+31-*") << endl;
+	cout<<"('93*42/-'): "<<polonesa("93*42/-") << endl;
+	cout<<"('42*93/-'): "<<polonesa("42*93/-") << endl;
+	cout<<"('31+23-*'): "<<polonesa("31+23-*") << endl;
+	cout<<"('39*24+-'): "<<polonesa("39*24/-") << endl;
 
 
 

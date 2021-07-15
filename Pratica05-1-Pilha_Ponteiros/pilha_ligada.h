@@ -21,7 +21,7 @@ public:
         tam_maximo = capacidade;
         tam_pilha = 0;
         topo_pilha = NULL;
-		cout<<"Pilha Encadeada\n";
+		cout<<"Pilha Encadeada criada\n";
     }
     ~PilhaLigada() {
         for(int i = 0; i < tam_pilha; i++){

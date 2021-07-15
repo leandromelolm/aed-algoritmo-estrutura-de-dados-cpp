@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int mainT() {
+int main() {
 
 //	PilhaLigada<int> pilha(MAX);
 

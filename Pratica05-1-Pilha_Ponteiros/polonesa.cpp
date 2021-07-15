@@ -1,9 +1,11 @@
 #include <iostream>
 #include "pilha_ligada.h"
+#include "pilha_array.h"
+#include "pilha.h"
 
 using namespace std;
-/*
-int ehOperador(char token) {
+
+int ehOperadorTest(char token) {
 	switch(token) {
 	case '+':
 	case '-':
@@ -13,7 +15,7 @@ int ehOperador(char token) {
 	}
 }
 
-int avalia(char token, int valorEsq, int valorDir) {
+int avaliaTest(char token, int valorEsq, int valorDir) {
 	switch(token) {
 	case '+': return valorEsq + valorDir;
 	case '-': return valorEsq - valorDir;
@@ -23,29 +25,32 @@ int avalia(char token, int valorEsq, int valorDir) {
 	}
 }
 
-int polonesa(const char * exp) {
-	Pilha<int> pilha(10);
+int polonesaTest(const char * exp) {
+//	Pilha<int> pilha(10);
+	Pilha<int> *pilhaPolonesa;
+	pilhaPolonesa = new PilhaArray<int>(10);
+
 	while (*exp) {
 		char token = *exp;
-		if (ehOperador(token)) {
-			int valorDir = pilha.desempilha();
-			int valorEsq = pilha.desempilha();
-			int resultado = avalia(token, valorEsq, valorDir);
-			pilha.empilha(resultado);
+		if (ehOperadorTest(token)) {
+			int valorDir = pilhaPolonesa->desempilha();
+			int valorEsq = pilhaPolonesa->desempilha();
+			int resultado = avaliaTest(token, valorEsq, valorDir);
+			pilhaPolonesa->empilha(resultado);
 		} else {
 			int valor = (int)(token - '0');
-			pilha.empilha(valor);
+			pilhaPolonesa->empilha(valor);
 		}
 		exp++;
 	}
-	return pilha.desempilha();
+	return pilhaPolonesa->desempilha();
 }
-*/
+
 int mainPolonesa() {
     cout<<"Calculadora Polonesa"<<endl<<endl;
-//	cout <<"Valor calculado('23+31-*'): "<<polonesa("23+31-*") << endl;
-//    cout <<"Valor calculado('93*42/-'): "<< polonesa("93*42/-") << endl;
-//    cout <<"Valor calculado('42*93/-'): "<< polonesa("42*93/-") << endl;
-//    cout <<"Valor calculado('31+23-*'): "<<polonesa("31+23-*") << endl;
-//    cout <<"Valor calculado('39*24+-'): "<< polonesa("39*24/-") << endl;
+	cout <<"('23+31-*'): "<<polonesaTest("23+31-*") << endl;
+    cout <<"('93*42/-'): "<<polonesaTest("93*42/-") << endl;
+    cout <<"('42*93/-'): "<<polonesaTest("42*93/-") << endl;
+    cout <<"('31+23-*'): "<<polonesaTest("31+23-*") << endl;
+    cout <<"('39*24+-'): "<<polonesaTest("39*24/-") << endl;
 }
