@@ -21,8 +21,8 @@ void testaTamanho2(Lista<int> & lista, const char * subcaso, int tamanho) {
 	cerr << "OK" << endl;
 }
 
-//int mainPratica05LinkedListTest(){
-int main() {
+int mainPratica05LinkedListTest(){
+//int main() {
 
 //	Lista<int> lista(MAX); //linha original
 
