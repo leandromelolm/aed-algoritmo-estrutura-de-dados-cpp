@@ -9,7 +9,7 @@
 using namespace std;
 
 int mainLista() {
-	ListaLigada<char> lista(10);
+	Lista<char> lista(10);
 
 	lista.adiciona('a');	// a
 	lista.adiciona('b');	// a b
