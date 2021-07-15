@@ -21,7 +21,7 @@ void testaTamanho2(Lista<int> & lista, const char * subcaso, int tamanho) {
 	cerr << "OK" << endl;
 }
 
-//int mainPratica05ListaTest(){
+//int mainPratica05LinkedListTest(){
 int main() {
 //	Lista<int> lista(MAX); //linha original
 
@@ -145,10 +145,10 @@ int main() {
 	}
 
 
-//		Código para atrasar a execução do teste da calculadora Polonesa
+//		Código para atrasar a execução do trecho "Teste Lista Char"
 		time_t start_t, end_t;
 		double diff_t;
-//		  cout<<"Inicio Teste ListandoChar\n";
+//		  cout<<"Inicio\n";
 		time(&start_t);
 		while(diff_t<=2.000000){
 			time(&end_t);
@@ -156,7 +156,7 @@ int main() {
 		}
 
 	try{
-		cout<<endl<<endl;
+		cout<<"\nTeste Lista Char"<<endl<<endl;
 		ListaLigada<char> listaChar(10);
 
 		listaChar.adiciona('a');	// a
