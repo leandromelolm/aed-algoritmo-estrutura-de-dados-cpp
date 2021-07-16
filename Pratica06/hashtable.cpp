@@ -44,6 +44,8 @@ public:
 
 	/* Insere item (chave, valor) na tabela */
 	void insert(T_key key, T_value value) {
+		int idx = hash(key);
+		__insert(data[idx], key, value);
 		// Calcular o hash da chave e o índice na tabela
 		// Pegar o ponteiro de início da lista correspondente na tabela
 		// Inserir na lista (usando o ponteiro)
@@ -51,6 +53,8 @@ public:
 
 	/* Remove item da tabela usando a chave */
 	T_value remove(T_key key) {
+		int idx = hash(key);
+		return remove(data[idx], key);
 		// Calcular o hash da chave e o índice na tabela
 		// Pegar o ponteiro de início da lista correspondente na tabela
 		// Remover da lista (usando o ponteiro)
@@ -58,6 +62,8 @@ public:
 
 	/* Busca e retorna o valor na tabela usando a chave */
 	T_value search(T_key key) {
+		int idx = hash(key);
+		return __search(data[idx], key);
 		// Calcular o hash da chave e o índice na tabela
 		// Pegar o ponteiro de início da lista correspondente na tabela
 		// Buscar na lista (usando o ponteiro)
@@ -77,10 +83,15 @@ private:
 	// Serão necessária funções diferentes para tipos de chaves diferentes.
 
 	int hash(int x) {
+		return x % cap;
 		// Calcula o hash para chaves do tipo inteiro
 	}
 
 	int hash(string key) {
+		const char * str = key.c_str();
+		int hash = 1;
+		while (*str) hash = (*str++ + hash) % cap;
+		return hash;
 		// Calcula o hash para chaves do tipo string
 	}
 
@@ -128,7 +139,7 @@ private:
 
 };
 
-
+//int main_Hastable(){
 int main() {
 	/* Tabela de alunos por matricula: mat = aluno */
 	Hashtable<int, string> alunos(10, "NAO ENCONTRADO");

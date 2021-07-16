@@ -52,7 +52,8 @@ private:
 };
 
 
-int main () {
+int main_Ordenada () {
+//int main() {
 
 	ListaOrdenada lista(10);
 
@@ -62,7 +63,7 @@ int main () {
 		lista.insere(elementos[i]);
 	}
 
-	cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
+	cout << "Lista vï¿½lida: " << (lista.valida()?"sim":"nï¿½o") << endl;
 	lista.exibe();
 
 	int teste [] = {5, 7, 16, 99, 45, 12, 33, 1, 60, 6};
