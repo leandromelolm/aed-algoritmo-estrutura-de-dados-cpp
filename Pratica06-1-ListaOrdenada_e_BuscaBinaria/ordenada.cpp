@@ -29,10 +29,10 @@ public:
 
 	int buscaSequencial(int key) {
 		for(int i=0; i < tamanho; i++) {
+			if (key < items[i])
+				return -1;
 			if(key == items[i])
 				return i;
-			if (key <= items[i])
-				return -1;
 	    }
 	}
 
@@ -123,4 +123,27 @@ int main() {
 
 } 
 
+
+
+
+
+
+
+
+
+
+
+/*
+
+	int buscaSequencial(int key) {
+		for(int i=0; i < tamanho; i++) {
+			cout<<" ("<<key<<" = "<<items[i]<<") ";
+			if (key < items[i])
+				return -1;
+			if(key == items[i])
+				return i;
+	    }
+	}
+
+*/
 
