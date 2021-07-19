@@ -29,6 +29,7 @@ public:
 
 	int buscaSequencial(int key) {
         for(int i=0; i < tamanho; i++) {
+//        	if(key > items[i]){return -1;} //ERRO: Não encontra elementos repetidos
             if(key == items[i]) {
                 return i;
             }
@@ -52,6 +53,18 @@ public:
 			cout << i << ": " << items[i] << "; ";
 		}
 		cout << endl;
+	}
+
+    void remove(int item){
+        int id = buscaBinaria(item);
+        if(id != -1){
+            for(int i = id; i < tamanho; i++){
+                items[i] = items[i + 1];
+            }
+            tamanho--;
+        }
+        cout << "Lista valida: " << (valida()?"sim":"não") << endl;
+        exibe();
 	}
 
 private:
@@ -91,6 +104,18 @@ int main() {
 	lista.exibe();
 
 	int teste [] = {5, 7, 16, 99, 45, 12, 33, 1, 60, 6};
+
+	for (int i = 0; i < 10; i++) {
+		cout << "Buscando " << teste[i] << ": sequencial = " << lista.buscaSequencial(teste[i]) << " binaria = " << lista.buscaBinaria(teste[i]) << endl;
+
+	}
+
+
+    lista.remove(13);
+	lista.remove(25);
+	lista.remove(99);
+	lista.remove(12);
+	lista.remove(1);
 
 	for (int i = 0; i < 10; i++) {
 		cout << "Buscando " << teste[i] << ": sequencial = " << lista.buscaSequencial(teste[i]) << " binaria = " << lista.buscaBinaria(teste[i]) << endl;
