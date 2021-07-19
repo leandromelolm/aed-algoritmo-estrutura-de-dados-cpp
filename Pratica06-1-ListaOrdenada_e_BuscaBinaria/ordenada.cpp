@@ -18,12 +18,23 @@ public:
 	}
 
 	void insere(int key) {
-		// implementar
-	}
+    	int i =tamanho;
+		while(( i>0) &&  (key < items[i-1])) {
+			items[i] = items[i-1];
+			i--;
+		}
+		items[i] = key;
+		tamanho++;
+    }
 
 	int buscaSequencial(int key) {
-		// implementar
-	}
+        for(int i=0; i < tamanho; i++) {
+            if(key == items[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
 	int buscaBinaria(int item) {
 		return buscaBinaria(0, tamanho - 1, item);
@@ -46,8 +57,19 @@ public:
 private:
 
 	int buscaBinaria(int inicio, int final, int item) {
-		// implementar
-	}
+        if(inicio > final){
+            return -1;
+        }else{
+            int meio = (inicio + final)/2;
+            if(items[meio] == item){
+                return meio;
+            }else if(items[meio] > item){
+                return buscaBinaria(inicio, meio -1, item);
+            }else{
+                return buscaBinaria(meio + 1, final, item);
+            }
+        }
+    }
 
 };
 
@@ -58,6 +80,8 @@ int main() {
 	ListaOrdenada lista(10);
 
 	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33, 12};
+
+	cout<<"Ordem de inserção: {10, 5, 25, 1, 5, 13, 50, 99, 33, 12} \n";
 
 	for (int i = 0; i < 10; i++) {
 		lista.insere(elementos[i]);
