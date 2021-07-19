@@ -28,14 +28,13 @@ public:
     }
 
 	int buscaSequencial(int key) {
-        for(int i=0; i < tamanho; i++) {
-//        	if(key > items[i]){return -1;} //ERRO: Não encontra elementos repetidos
-            if(key == items[i]) {
-                return i;
-            }
-        }
-        return -1;
-    }
+		for(int i=0; i < tamanho; i++) {
+			if(key == items[i])
+				return i;
+			if (key <= items[i])
+				return -1;
+	    }
+	}
 
 	int buscaBinaria(int item) {
 		return buscaBinaria(0, tamanho - 1, item);
