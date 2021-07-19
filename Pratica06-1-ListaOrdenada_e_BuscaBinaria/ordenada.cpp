@@ -25,6 +25,7 @@ public:
 		}
 		items[i] = key;
 		tamanho++;
+		exibe();
     }
 
 	int buscaSequencial(int key) {
@@ -62,7 +63,6 @@ public:
             }
             tamanho--;
         }
-        cout << "Lista valida: " << (valida()?"sim":"não") << endl;
         exibe();
 	}
 
@@ -84,7 +84,6 @@ private:
     }
 
 };
-
 
 //int main_Ordenada () {
 int main() {
