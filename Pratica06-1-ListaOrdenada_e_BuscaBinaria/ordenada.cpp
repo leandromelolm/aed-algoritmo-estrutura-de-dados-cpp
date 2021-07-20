@@ -114,7 +114,7 @@ int main() {
 	lista.remove(12);
 	lista.remove(1);
 
-	cout<<"Lista pós remoção - ";
+	cout<<"---Lista pós remoção---\n ";
 	cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
 	lista.exibe();
 
