@@ -29,14 +29,13 @@ public:
         }
     }
     void empilha(T item) {
-        NoPilha<T> *NovoNoPilha = new NoPilha<T>;
-//        cout<<tam_pilha<< " > " <<tam_maximo<<"\n";
        if(tam_pilha +1 >tam_maximo){
     	   throw"Pilha cheia";
        }else{
-            NovoNoPilha->item = item;
-            NovoNoPilha->prox = topo_pilha;
-            topo_pilha = NovoNoPilha;
+    	   NoPilha<T> *NovoNo = new NoPilha<T>;
+            NovoNo->item = item;
+            NovoNo->prox = topo_pilha;
+            topo_pilha = NovoNo;
             tam_pilha++;
        }
     }
@@ -45,9 +44,9 @@ public:
         	throw"Pilha vazia";
         } else{
             T ItemPilha = topo_pilha->item;
-            NoPilha<T> *auxNodePilha = topo_pilha;
+            NoPilha<T> *auxNo = topo_pilha;
             topo_pilha = topo_pilha->prox;
-            delete auxNodePilha;
+            delete auxNo;
             tam_pilha--;
             return ItemPilha;
         }
