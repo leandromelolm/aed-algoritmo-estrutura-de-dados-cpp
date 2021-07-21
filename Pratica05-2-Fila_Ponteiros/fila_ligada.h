@@ -22,7 +22,7 @@ public:
 		fila_inicio = NULL;
 		fila_final = NULL;
 		tam_maximo = cap;
-		cout<<"Fila Ligada"<<"\n";
+		cout<<"Fila Ligada criada"<<"\n";
 	}
 	~FilaLigada() {
 		for(int i =0; i<tam_fila; i++){
@@ -30,11 +30,13 @@ public:
 		}
 	}
 	void enfileira(const T &item) {
-		NoFila<T> *NovoNo = new NoFila<T>;
 		if(cheia()){    //tam_fila+1 > tam_maximo
 			throw "Fila cheia";
 		}
+		NoFila<T> *NovoNo = new NoFila<T>;
 		NovoNo->item = item;
+//		if(tam_fila == 0){   // Condição válida
+//		if(tam_fila == NULL){   // Condição válida
 		if(vazia()){
 			fila_inicio = NovoNo;
 		}else{
@@ -44,33 +46,32 @@ public:
 		tam_fila++;
 	}
 	T desenfileira() {
-		NoFila<T> *auxNo = fila_inicio;
-		if(fila_inicio == NULL){
+//		if(fila_inicio == NULL){ // condição válida (funciona igual ao if(vazia())
+		if(vazia()){
 			throw"Fila Vazia";
 		}
+		NoFila<T> *auxNo = fila_inicio;
 		T auxItem = fila_inicio->item;
 		fila_inicio = fila_inicio->prox;
 		delete auxNo;
-		if (fila_inicio == NULL){   //tam_fila == 0
+//		if (fila_inicio == NULL){   //tam_fila == 0
+		if (vazia()){   //tam_fila == 0
 			fila_final = NULL;
 		}
 		tam_fila--;
 		return auxItem;
 	}
 	int cheia() {
-		if(tam_fila == tam_maximo){
+		if (tam_fila == tam_maximo)
 			return 1;
-		}else{
-			return 0;
-		}
+		return 0; //código simplificado | return 0 significa que a função definida pelo usuário está retornando false.
 	}
 	int vazia() {
-		if(tam_fila == 0){
+		if (fila_inicio == NULL)
 			return 1;
-		}else{
-			return 0;
-		}
+		return 0;
 	}
+
 	int tamanho() {
 		return tam_fila;
 	}
@@ -116,33 +117,50 @@ int tamanho() {
 
 
 
-/*
+ 	/* Método "Enfileira" - outra forma de implementação */
 
- 	// Método "Enfileira" - outra forma de implementação
-
-	void enfileira(const T &item) {
-		if(tam_fila < cap_maxima){
-			itens[(fila_final)] = item;
-			fila_final = (fila_final + 1) % cap_maxima;
-			tam_fila++;
-		}else{
-			throw "Fila cheia";
-		}
-	}
-
-*/
+//	void enfileira(const T &item) {
+//		if(tam_fila < cap_maxima){
+//			itens[(fila_final)] = item;
+//			fila_final = (fila_final + 1) % cap_maxima;
+//			tam_fila++;
+//		}else{
+//			throw "Fila cheia";
+//		}
+//	}
 
 
-/*
 
- // Método "Enfileira" - PseudoCódigo
+	/* Método "Enfileira" - PseudoCódigo  */
 
- * proc enfileira (dado v, fila F) {
-		if tamanho_fila < capacidade_maxima {
-			itens_fila [(fila_inicio + tamanho_fila) mod capacidade_maxima] <- v
-			tamanho_fila <- tamanho_fila + 1
-	}
+// * proc enfileira (dado v, fila F) {
+//		if tamanho_fila < capacidade_maxima {
+//			itens_fila [(fila_inicio + tamanho_fila) mod capacidade_maxima] <- v
+//			tamanho_fila <- tamanho_fila + 1
+//	}
 
- */
 
+
+
+	/* Outras implementação para função vazia() */
+//	int vazia() {
+//		if(tam_fila == 0){
+//			return 1;
+//		}return 0;
+//	}
+
+//	int vazia() {
+//		if (fila_inicio == NULL) return 1;
+//		else return 0;
+//	}
+
+
+	/* Outras implementação para função cheia()*/
+//	int cheia() {
+//		if(tam_fila == tam_maximo){
+//			return 1;
+//		}else{
+//			return 0;
+//		}
+//	}
 
