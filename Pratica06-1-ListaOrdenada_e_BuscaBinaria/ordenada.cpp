@@ -57,19 +57,25 @@ public:
 		for (int i = 0; i < tamanho; i++) {
 			cout << i << ": " << items[i] << "; ";
 		}
-		cout<<"Tamanho da lista: "<<tamanho<<"\n";
+		cout<<"Tamanho: "<<tamanhoLista();
 		cout << endl;
 	}
 
     void remove(int item){
         int idx = buscaBinaria(item);
         if(idx != -1){
+        	cout<<"remove "<<idx<<":"<<item<<" ";
             for(int i = idx; i < tamanho; i++){
                 items[i] = items[i + 1];
             }
             tamanho--;
         }
 	}
+
+    int tamanhoLista(){
+    	return tamanho;
+    }
+
 
 private:
 
@@ -94,36 +100,31 @@ int main() {
 
 	ListaOrdenada lista(10);
 
-	try{
+	/*- A lista criada "lista(10)" vai da posição 0 até a posição 9, ou seja 10 posições.*/
 
-		/*- A lista criada "lista(10)" vai da posição 0 até a posição 9, ou seja 10 posições.*/
+	//	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33, 12}; // 10 elementos
+	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33}; // 9 elementos
 
-		//	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33, 12}; // 10 elementos
-		int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33}; // 9 elementos
+	for (int i = 0; i < 9; i++) {
+		lista.insere(elementos[i]);
+	}
 
-		for (int i = 0; i < 9; i++) {
-			lista.insere(elementos[i]);
-		}
+	elementos[2] = 16; // 1 elemento
+	lista.insere(elementos[2]);
 
-		elementos[30] = 16; // 1 elemento
-		lista.insere(elementos[30]);
-
-//		elementos[13] = 51; // 1 elemento //Teste para gerar "Erro"
-//		lista.insere(elementos[13]);
-
-		cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
-		lista.exibe();
-
-
+	cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
+	lista.exibe();
 
 		int teste [] = {5, 7, 16, 99, 45, 12, 33, 1, 60, 6};
 
 		for (int i = 0; i < 10; i++) {
-			cout << "Buscando " << teste[i] << ": sequencial = " << lista.buscaSequencial(teste[i])
+			cout << "Buscando " << teste[i] << ": sequencial = "
+					<< lista.buscaSequencial(teste[i])
 						<< " binaria = " << lista.buscaBinaria(teste[i]) << endl;
 
 		}
 
+		cout<<endl;
 
 		lista.remove(13);
 		lista.remove(25);
@@ -137,15 +138,40 @@ int main() {
 		lista.exibe();
 
 		for (int i = 0; i < 10; i++) {
-			cout << "Buscando " << teste[i] << ": sequencial = " << lista.buscaSequencial(teste[i])
+			cout << "Buscando " << teste[i] << ": sequencial = "
+					<< lista.buscaSequencial(teste[i])
 						<< " binaria = " << lista.buscaBinaria(teste[i]) << endl;
 
 		}
 
-	}catch(const char *ex){
-		cerr << "Erro (" << ex <<")"<< endl;
-		exit(1);
-	}
+		cout<<"\n---executando novamente com exceção de lista cheia---\n";
+
+		try{
+
+			/*- A lista criada "lista(10)" vai da posição 0 até a posição 9, ou seja 10 posições.*/
+
+			//	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33, 12}; // 10 elementos
+			int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33}; // 9 elementos
+
+			for (int i = 0; i < 9; i++) {
+				lista.insere(elementos[i]);
+			}
+
+			elementos[2] = 16; // 1 elemento
+			lista.insere(elementos[2]);
+
+			elementos[13] = 51; // 1 elemento
+			lista.insere(elementos[13]);
+
+			cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
+			lista.exibe();
+
+		}catch(const char *ex){
+			cerr << "Erro (" << ex <<")"<<" Tamanho: "<<lista.tamanhoLista()<< endl;
+			exit(1);
+		}
+
+
 
 } 
 
