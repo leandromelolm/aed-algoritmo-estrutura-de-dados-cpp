@@ -33,23 +33,22 @@ public:
 		}
 	}
 	void adiciona (const T & item) {
-		NodeList<T> *newNo = new NodeList<T>;
-		newNo->item = item;
 		if(list_size >= max_size){
 			throw "Lista cheia";
 		}
+		NodeList<T> *newNo = new NodeList<T>;
+		newNo->item = item;
 		if(head == NULL) {
 			head = newNo;
-			tail = newNo;
-			list_size++;
 		} else {
 			tail->next = newNo;
-			tail = newNo;
-			list_size++;
 		}
+		tail = newNo;
+		list_size++;
 	}
 	T pega(int idx) {
 		if(idx < 1 || idx  > list_size) {
+			throw" posição inválida";
 		} else {
 			NodeList<T> *noAux = head;
 			for(int i = 1; i < idx; i++) {
@@ -59,15 +58,14 @@ public:
 		}
 	}
 	void insere (int idx, const T & item) {
-		NodeList<T> *newNo = new NodeList<T>;
-		NodeList<T> *tmp = head;
-
 		if (idx < 1 || idx > max_size){ // Verifica se o índice é maior que o tamanho da lista
 			throw "Posição inválida";
 		}
 		if(list_size >= max_size){
 			throw "Lista cheia";
 		}
+		NodeList<T> *newNo = new NodeList<T>;
+		NodeList<T> *tmp = head;
 		newNo->item = item;
 		if(idx == 1) { //Primeiro elemento
 			newNo->next = head;
