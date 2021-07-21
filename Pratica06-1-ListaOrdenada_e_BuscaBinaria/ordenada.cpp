@@ -115,64 +115,61 @@ int main() {
 	cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
 	lista.exibe();
 
-		int teste [] = {5, 7, 16, 99, 45, 12, 33, 1, 60, 6};
+	int teste [] = {5, 7, 16, 99, 45, 12, 33, 1, 60, 6};
 
-		for (int i = 0; i < 10; i++) {
-			cout << "Buscando " << teste[i] << ": sequencial = "
-					<< lista.buscaSequencial(teste[i])
-						<< " binaria = " << lista.buscaBinaria(teste[i]) << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "Buscando " << teste[i] << ": sequencial = "
+				<< lista.buscaSequencial(teste[i])
+				<< " binaria = " << lista.buscaBinaria(teste[i]) << endl;
 
+	}
+
+	cout<<endl;
+
+	lista.remove(13);
+	lista.remove(25);
+	lista.remove(99);
+	lista.remove(12);
+	lista.remove(1);
+	lista.remove(16);
+
+	cout<<"\n---Lista pós remoção---\n ";
+	cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
+	lista.exibe();
+
+	for (int i = 0; i < 10; i++) {
+		cout << "Buscando " << teste[i] << ": sequencial = "
+				<< lista.buscaSequencial(teste[i])
+				<< " binaria = " << lista.buscaBinaria(teste[i]) << endl;
+
+	}
+
+	cout<<"\n---executando novamente com exceção de lista cheia---\n";
+
+	try{
+
+		/*- A lista criada "lista(10)" vai da posição 0 até a posição 9, ou seja 10 posições.*/
+
+		//	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33, 12}; // 10 elementos
+		int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33}; // 9 elementos
+
+		for (int i = 0; i < 9; i++) {
+			lista.insere(elementos[i]);
 		}
 
-		cout<<endl;
+		elementos[2] = 16; // 1 elemento
+		lista.insere(elementos[2]);
 
-		lista.remove(13);
-		lista.remove(25);
-		lista.remove(99);
-		lista.remove(12);
-		lista.remove(1);
-		lista.remove(16);
+		elementos[13] = 51; // 1 elemento
+		lista.insere(elementos[13]);
 
-		cout<<"\n---Lista pós remoção---\n ";
 		cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
 		lista.exibe();
 
-		for (int i = 0; i < 10; i++) {
-			cout << "Buscando " << teste[i] << ": sequencial = "
-					<< lista.buscaSequencial(teste[i])
-						<< " binaria = " << lista.buscaBinaria(teste[i]) << endl;
-
-		}
-
-		cout<<"\n---executando novamente com exceção de lista cheia---\n";
-
-		try{
-
-			/*- A lista criada "lista(10)" vai da posição 0 até a posição 9, ou seja 10 posições.*/
-
-			//	int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33, 12}; // 10 elementos
-			int elementos [] = {10, 5, 25, 1, 5, 13, 50, 99, 33}; // 9 elementos
-
-			for (int i = 0; i < 9; i++) {
-				lista.insere(elementos[i]);
-			}
-
-			elementos[2] = 16; // 1 elemento
-			lista.insere(elementos[2]);
-
-			elementos[13] = 51; // 1 elemento
-			lista.insere(elementos[13]);
-
-			cout << "Lista válida: " << (lista.valida()?"sim":"não") << endl;
-			lista.exibe();
-
-		}catch(const char *ex){
-			cerr << "Erro (" << ex <<")"<<" Tamanho: "<<lista.tamanhoLista()<< endl;
-			exit(1);
-		}
-
-
-
+	}catch(const char *ex){
+		cerr << "Erro (" << ex <<")"<<" Tamanho: "<<lista.tamanhoLista()<< endl;
+		exit(1);
+	}
 } 
 
 
