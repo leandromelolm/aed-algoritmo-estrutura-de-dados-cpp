@@ -9,14 +9,18 @@ struct NoFila{
 	NoFila *prox;
 	T item;
 };
+
 template <class T>
 class FilaLigada : public Fila<T> {
+
 private:
 	int tam_fila;
 	NoFila<T> *fila_inicio;
 	NoFila<T> *fila_final;
 	int tam_maximo;
+
 public:
+
 	FilaLigada(int cap) : Fila<T>(cap) {
 		tam_fila = 0;
 		fila_inicio = NULL;
@@ -24,11 +28,13 @@ public:
 		tam_maximo = cap;
 		cout<<"Fila Ligada criada"<<"\n";
 	}
+
 	~FilaLigada() {
 		for(int i =0; i<tam_fila; i++){
 			desenfileira();
 		}
 	}
+
 	void enfileira(const T &item) {
 		if(cheia()){    //tam_fila+1 > tam_maximo
 			throw "Fila cheia";
@@ -45,6 +51,7 @@ public:
 		fila_final = NovoNo;
 		tam_fila++;
 	}
+
 	T desenfileira() {
 //		if(fila_inicio == NULL){ // condição válida (funciona igual ao if(vazia())
 		if(vazia()){
@@ -61,20 +68,21 @@ public:
 		tam_fila--;
 		return auxItem;
 	}
+
 	int cheia() {
-		if (tam_fila == tam_maximo)
-			return 1;
-		return 0; //código simplificado | return 0 significa que a função definida pelo usuário está retornando false.
+//		if (tam_fila == tam_maximo)	return 1; return 0; //return 0 significa que a função definida pelo usuário está retornando false.
+		return tam_fila == tam_maximo; //Simplificado - quando satisfazer a condição vai retorna 1 ( true)
 	}
+
 	int vazia() {
-		if (fila_inicio == NULL)
-			return 1;
-		return 0;
+//		if (fila_inicio == NULL) return 1; return 0;
+		return fila_inicio == NULL; // simplificado - quando satisfazer a condição vai retornar 1 (true)
 	}
 
 	int tamanho() {
 		return tam_fila;
 	}
+
 };
 #endif /* FILA_LIGADA_H_ */
 
