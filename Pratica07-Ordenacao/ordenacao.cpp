@@ -41,24 +41,83 @@ void noopsort(int * array, int size) {
 	// no-op
 }
 
-
+/* Parte 1: Implementando BubbleSort  */
 void bubblesort(int * array, int size) {
-	//TO DO
+
+	int last_unordered = size - 1;
+	bool change = false;
+	do{
+    change = false;
+        for(int i = 0; i < last_unordered; i++){
+            if(array[i] > array[i + 1]){
+                swap(array[i], array[i + 1]);
+                change = true;
+            }
+        }
+	}while(change);
+
 }
 
-
+/* Parte 2: Implementando SelectionSort  */
 void selectionsort(int * array, int size) {
-	//TO DO
+
+	for(int i = 0; i < size; i++){
+        int minId = i;
+        for(int j = i + 1; j < size; j++){
+            if(array[minId] > array[j])
+                minId = j;
+        }
+        swap(array[i], array[minId]);
+	}
+
 }
 
-
+/* Parte 2: Implementando InsertionSort  */
 void insertionsort(int * array, int size) {
-	//TO DO
+
+	for(int i = 1; i < size; i++){
+        int tmp = array[i];
+        int j= i - 1;
+        while(array[j] > tmp && j >= 0){
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = tmp;
+	}
+
 }
 
+/* Parte 3: Implementando a junção do MergeSort  */
 void merge(int * target, int * buffer, int start, int mid, int finish) {
-	//TO DO
+
+	int idx1 = start;
+	int idx2 = mid;
+	int arrPos = start;
+
+	while(idx1 < mid && idx2 <= finish){
+        if(buffer[idx1] < buffer[idx2]){
+            target[arrPos] = buffer[idx1];
+            idx1++;
+        }else{
+            target[arrPos] = buffer[idx2];
+            idx2++;
+        }
+        arrPos++;
+	}
+
+	while(idx1 < mid){
+        target[arrPos] = buffer[idx1];
+        idx1++;
+        arrPos++;
+    }
+
+    while(idx2 <= finish){
+        target[arrPos] = buffer[idx2];
+        idx2++;
+        arrPos++;
+    }
 }
+
 
 void mergesort(int * target, int * buffer, int start, int finish) {
 	if (start >= finish) return;
@@ -77,9 +136,19 @@ void mergesort(int * array, int size) {
 	delete [] copy;
 }
 
+/* Parte 4: Implementando a partição do QuickSort */
 int partition(int * array, int start, int finish) {
-	//TO DO
-	return 0;
+
+	int p = array[finish];
+	int menor = start - 1;
+	for(int i = start; i <= finish - 1; i++){
+        if(array[i] <= p){
+            menor++;
+            swap(array[menor], array[i]);
+        }
+	}
+    swap(array[menor + 1], array[finish]);
+	return menor + 1;
 }
 
 void quicksort(int * array, int start, int finish) {
@@ -112,7 +181,7 @@ void show(int * array, int size, const char * name, void function(int *, int), i
 }
 
 int main() {
-	int size = 10;
+	int size = 20000;
 	int print = 1;
 
 	int * array = new int[size];
