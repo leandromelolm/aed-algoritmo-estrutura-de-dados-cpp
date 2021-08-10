@@ -14,6 +14,14 @@
 // Inserção, ver material.
 BinaryTree::Node * BinaryTree::insert(BinaryTree::Node * root, int key) {
 	// TODO
+    if(root == NULL){
+        root = new Node(key);
+    }else if(key > root->key)
+        root->right = insert(root->right, key);
+    else
+        root->left = insert(root->left, key);
+
+    updateH(root);
 
 	return root;
 }
@@ -21,8 +29,14 @@ BinaryTree::Node * BinaryTree::insert(BinaryTree::Node * root, int key) {
 // Busca, ver material.
 BinaryTree::Node * BinaryTree::search(BinaryTree::Node * root, int key) {
 	// TODO
+	if (root == NULL) return NULL;
 
-	return root;
+	if (root->key == key) return root;
+
+	if (root->key < key)
+		return search(root->right, key);
+	else
+		return search(root->left, key);
 }
 
 // Exibir a árvore EM ORDEM
@@ -30,6 +44,11 @@ void BinaryTree::show(Node * root) {
 	if (root == NULL) return;
 	// TODO
 	// Percorrer a árvore: esquerda, raiz, direita
+	if (root == NULL) return;
+
+	show(root->left);
+	cout << "(" << root->key << ", " << root->height << ") ";
+	show(root->right);
 }
 
 // Acha nó sucessor (succ) a chave (key)
