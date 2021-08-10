@@ -41,8 +41,8 @@ int main() {
 	int sorted [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // ordem natural, para testes
 	int size = 10;
 
-	BinaryTree * tree = new BinaryTree();
-	//BinaryTree * tree = new AVLTree();
+	//BinaryTree * tree = new BinaryTree();
+	BinaryTree * tree = new AVLTree();
 
 	try {
 

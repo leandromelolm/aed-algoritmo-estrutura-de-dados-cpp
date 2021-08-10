@@ -64,6 +64,13 @@ BinaryTree::Node * AVLTree::rebalance(Node * root) {
 BinaryTree::Node * AVLTree::rotateLeft(Node * root) {
 	// TODO siga as ilustrações do material
 	// dê updateH() nos nós modificados ao final
+
+	Node * aux = root;
+	root = root->right;
+	aux->right = root->left;
+	root->left = aux;
+	BinaryTree::updateH(aux);
+
 	return root;
 }
 
@@ -71,6 +78,13 @@ BinaryTree::Node * AVLTree::rotateLeft(Node * root) {
 BinaryTree::Node * AVLTree::rotateRight(Node * root) {
 	// TODO siga as ilustrações do material
 	// dê updateH() nos nós modificados ao final
+
+    Node * aux = root;
+    root = root->left;
+    aux->left = root->right;
+    root->right=aux;
+    BinaryTree::updateH(aux);
+
 	return root;
 }
 
@@ -78,6 +92,14 @@ BinaryTree::Node * AVLTree::rotateRight(Node * root) {
 void AVLTree::show(Node * root) {
 	// Deve exibir o valor da chave e o fator de balancemento (BF()) por nó da árvore
 	// TODO
+
+    if(root == NULL){
+        return;
+    }
+    show(root->left);
+    cout << "(" << root->key << "," << root->height << "," <<BF(root) << ")";
+    show(root->right);
+
 }
 
 int AVLTree::validate(Node * root, int &min, int &max) {

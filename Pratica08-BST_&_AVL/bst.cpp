@@ -30,8 +30,8 @@ BinaryTree::Node * BinaryTree::insert(BinaryTree::Node * root, int key) {
 
 // Busca, ver material.
 BinaryTree::Node * BinaryTree::search(BinaryTree::Node * root, int key) {
-
 	// TODO
+
 	if (root == NULL) return NULL;
 
 	if (root->key == key) return root;
