@@ -62,12 +62,12 @@ void bubblesort(int * array, int size) {
 void selectionsort(int * array, int size) {
 
 	for(int i = 0; i < size; i++){
-        int minId = i;
+        int min = i;
         for(int j = i + 1; j < size; j++){
-            if(array[minId] > array[j])
-                minId = j;
+            if(array[min] > array[j])
+                min = j;
         }
-        swap(array[i], array[minId]);
+        swap(array[i], array[min]);
 	}
 
 }
@@ -90,30 +90,29 @@ void insertionsort(int * array, int size) {
 /* Parte 3: Implementando a junção do MergeSort  */
 void merge(int * target, int * buffer, int start, int mid, int finish) {
 
-	int idx1 = start;
-	int idx2 = mid;
+	int auxMid = mid;
 	int arrPos = start;
 
-	while(idx1 < mid && idx2 <= finish){
-        if(buffer[idx1] < buffer[idx2]){
-            target[arrPos] = buffer[idx1];
-            idx1++;
+	while(start < mid && auxMid <= finish){
+        if(buffer[start] < buffer[auxMid]){
+            target[arrPos] = buffer[start];
+            start++;
         }else{
-            target[arrPos] = buffer[idx2];
-            idx2++;
+            target[arrPos] = buffer[auxMid];
+            auxMid++;
         }
         arrPos++;
 	}
 
-	while(idx1 < mid){
-        target[arrPos] = buffer[idx1];
-        idx1++;
+	while(start < mid){
+        target[arrPos] = buffer[start];
+        start++;
         arrPos++;
     }
 
-    while(idx2 <= finish){
-        target[arrPos] = buffer[idx2];
-        idx2++;
+    while(auxMid <= finish){
+        target[arrPos] = buffer[auxMid];
+        auxMid++;
         arrPos++;
     }
 }

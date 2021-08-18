@@ -54,6 +54,16 @@ void BinaryTree::show(Node * root) {
 	cout << "(" << root->key << ", " << root->height << ") ";
 	show(root->right);
 
+	//Exibir em PRÉ ORDEM
+//	cout << "(" << root->key << ", " << root->height << ") ";
+//	show(root->left);
+//	show(root->right);
+
+	//Exibir em PÓS ORDEM
+//	show(root->left);
+//	show(root->right);
+//	cout << "(" << root->key << ", " << root->height << ") ";
+
 }
 
 // Acha nó sucessor (succ) a chave (key)

@@ -38,8 +38,13 @@ void searchRemoveShow(BinaryTree &tree, int value, int show) {
 
 int main() {
 	int values [10] = {10, 35, 22, 16, 1, 45, 17, 88, 62, 7}; // ordem de inserção
+	//int values [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // inserção em ordem
 	int sorted [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // ordem natural, para testes
 	int size = 10;
+
+//	int values [11] = {10, 35, 22, 16, 1, 45, 17, 88, 62, 7,63}; // ordem de inserção
+//	int sorted [11] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 63, 88}; // ordem natural, para testes
+//	int size = 11;
 
 	//BinaryTree * tree = new BinaryTree();
 	BinaryTree * tree = new AVLTree();
