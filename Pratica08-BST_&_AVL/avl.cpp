@@ -49,7 +49,7 @@ BinaryTree::Node * AVLTree::rebalance(Node * root) {
 			root->left = rotateLeft(root->left);
 
 		root = rotateRight(root);
-	} else { // rightHeavy
+	} else {
 		if (leftHeavy(root->right))
 			root->right = rotateRight(root->right);
 
