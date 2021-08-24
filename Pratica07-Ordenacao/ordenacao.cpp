@@ -180,7 +180,7 @@ void show(int * array, int size, const char * name, void function(int *, int), i
 }
 
 int main() {
-	int size = 20000;
+	int size = 10000;
 	int print = 1;
 
 	int * array = new int[size];
