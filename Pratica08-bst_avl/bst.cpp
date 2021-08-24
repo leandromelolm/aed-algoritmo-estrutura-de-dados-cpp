@@ -51,7 +51,7 @@ void BinaryTree::show(Node * root) {
 	// Percorrer a árvore: esquerda, raiz, direita
 
 	show(root->left);
-	cout << "(" << root->key << ", " << root->height << ") ";
+	cout << "(" << root->key << "," << root->height << ")";
 	show(root->right);
 
 	//Exibir em PRÉ ORDEM
