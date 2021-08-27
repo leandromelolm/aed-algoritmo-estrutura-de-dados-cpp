@@ -13,7 +13,7 @@
 
 using namespace std;
 
-/* funções força bruta -----------------*/
+/* funï¿½ï¿½es forï¿½a bruta -----------------*/
 
 void reset(int * array, int len) {
 	for (int i = 0; i < len; i++) array[i] = 0;
@@ -53,7 +53,7 @@ int subsetSumBF(int * array, int len, int value, int * subset, long & count) {
 	return tmp == value;
 }
 
-/* funções Backtracking V1 ----------------- */
+/* funï¿½ï¿½es Backtracking V1 ----------------- */
 
 int __subsetSumBT(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	// Sucesso!
@@ -62,11 +62,11 @@ int __subsetSumBT(int * array, int len, int value, int * subset, int pos, int su
 	if (pos >= len) return 0;
 	count++;
 
-	// Adicionando número na posição atual ao conjunto
+	// Adicionando nï¿½mero na posiï¿½ï¿½o atual ao conjunto
 	subset[pos] = 1;
 	if (__subsetSumBT(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque não deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque nï¿½o deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subsetSumBT(array, len, value, subset, pos + 1, sum, count)) return 1;
 
@@ -77,7 +77,7 @@ int subsetSumBT(int * array, int len, int value, int * subset, long & count) {
 	return __subsetSumBT(array, len, value, subset, 0, 0, count);
 }
 
-/* funções Backtracking V2 ----------------- */
+/* funï¿½ï¿½es Backtracking V2 ----------------- */
 
 int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	// Sucesso!
@@ -86,11 +86,13 @@ int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int 
 	if (pos >= len) return 0;
 	count++;
 
-	// Adicionando número na posição atual ao conjunto
+	if (sum > value) return 0;
+
+	// Adicionando nï¿½mero na posiï¿½ï¿½o atual ao conjunto
 	subset[pos] = 1;
 	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque não deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque nï¿½o deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum, count)) return 1;
 
@@ -132,8 +134,8 @@ void runSubseqMax(const char * name,	int func(int *, int, int, int *, long &), i
 	delete [] subset;
 }
 
-int main_SUBSETSUM() {
-
+//int main_SUBSETSUM() {
+int main() {
 	int size = 20;
 
 	int * array = new int[size];

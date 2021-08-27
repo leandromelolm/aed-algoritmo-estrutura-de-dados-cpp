@@ -125,8 +125,8 @@ void runSubseqMax(const char * name, int func(int *, int, int&, int&, long &), i
 
 }
 
-//int main_SUBSEQMAX() {
-int main() {
+int main_SUBSEQMAX() {
+//int main() {
 	int printSeq = 0;
 	int size = 20;
 
