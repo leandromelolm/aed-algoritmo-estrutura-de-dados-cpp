@@ -101,6 +101,12 @@ int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int 
 
 int subsetSumBTv2(int * array, int len, int value, int * subset, long & count) {
 
+    int total = 0;
+	for(int i = 0; i < len; i++){
+        total += array[i];
+	}
+	if(value > total) return 0;
+
 	return __subsetSumBTv2(array, len, value, subset, 0, 0, count);
 }
 
