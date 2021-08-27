@@ -80,6 +80,31 @@ int subseqMaxMiddle(int * array, int start, int middle, int finish, int & ini, i
 int __subseqMaxDC(int * array, int start, int finish, int & ini, int & end, long & count) {
 	if (start > finish) return -9999; // caso de retorno
 
+	 int middle = (start + finish)/2;
+
+	 int iniL = ini;
+	 int endL = end;
+	 int maxSumL = __subseqMaxDC(array, start, middle-1, iniL, endL, count);
+
+	 int iniR = ini;
+	 int endR = end;
+	 int maxSumR = __subseqMaxDC(array, middle+1, finish, iniR, endR, count);
+
+	 int maxSumM = subseqMaxMiddle(array, start, middle, finish, ini, end, count);
+
+	if(maxSumL > maxSumM && maxSumL > maxSumR){
+	    ini = iniL;
+	    end = endL;
+	    return maxSumL;
+	}else if(maxSumR > maxSumM && maxSumR > maxSumL){
+	    ini = iniR;
+	    end = endR;
+	    return maxSumR;
+	}else{
+	    return maxSumM;
+	}
+
+
 	// Calcule a posi��o central (middle)
 	//	O meio est� entre start e finish
 
@@ -95,7 +120,7 @@ int __subseqMaxDC(int * array, int start, int finish, int & ini, int & end, long
 	// 	Esse valor ser� o retornado pelo fun��o e vai determinar
 	// 	quais limites ser�o salvo nos par�metros ini e end da chamada atual
 
-	return -9999; // corrigir com o retorno certo
+	//return -9999; // corrigir com o retorno certo
 }
 
 int subseqMaxDC(int * array, int len, int & ini, int & end, long & count) {
@@ -125,14 +150,14 @@ void runSubseqMax(const char * name, int func(int *, int, int&, int&, long &), i
 
 }
 
-int main_SUBSEQMAX() {
-//int main() {
+//int main_SUBSEQMAX() {
+int main() {
 	int printSeq = 0;
 	int size = 20;
 
 	int * array = new int[size];
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 20; i++) {
 
 		for (int i = 0; i < size; i++) {
 			array[i] = (rand() % size) - (size / 2);
