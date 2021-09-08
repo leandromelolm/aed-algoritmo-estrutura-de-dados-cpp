@@ -13,7 +13,7 @@
 
 using namespace std;
 
-/* fun��es for�a bruta -----------------*/
+/* funções força bruta -----------------*/
 
 void reset(int * array, int len) {
 	for (int i = 0; i < len; i++) array[i] = 0;
@@ -53,7 +53,7 @@ int subsetSumBF(int * array, int len, int value, int * subset, long & count) {
 	return tmp == value;
 }
 
-/* fun��es Backtracking V1 ----------------- */
+/* funções Backtracking V1 ----------------- */
 
 int __subsetSumBT(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	// Sucesso!
@@ -62,11 +62,11 @@ int __subsetSumBT(int * array, int len, int value, int * subset, int pos, int su
 	if (pos >= len) return 0;
 	count++;
 
-	// Adicionando n�mero na posi��o atual ao conjunto
+	// Adicionando n�mero na posição atual ao conjunto
 	subset[pos] = 1;
 	if (__subsetSumBT(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque n�o deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque não deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subsetSumBT(array, len, value, subset, pos + 1, sum, count)) return 1;
 
@@ -77,7 +77,7 @@ int subsetSumBT(int * array, int len, int value, int * subset, long & count) {
 	return __subsetSumBT(array, len, value, subset, 0, 0, count);
 }
 
-/* fun��es Backtracking V2 ----------------- */
+/* funções Backtracking V2 ----------------- */
 
 int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	// Sucesso!
@@ -89,11 +89,11 @@ int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int 
 	//implementado - prunning - condição para parar a busca
 	if (sum > value) return 0;
 
-	// Adicionando n�mero na posi��o atual ao conjunto
+	// Adicionando número na posição atual ao conjunto
 	subset[pos] = 1;
 	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque n�o deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque não deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum, count)) return 1;
 
