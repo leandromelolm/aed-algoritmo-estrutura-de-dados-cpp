@@ -142,9 +142,9 @@ void runSubseqMax(const char * name,	int func(int *, int, int, int *, long &), i
 	delete [] subset;
 }
 
-//int main_SUBSETSUM() {
-int main() {
-	int size = 20;
+int main_SUBSETSUM() {
+//int main() {
+	int size = 19;
 
 	int * array = new int[size];
 

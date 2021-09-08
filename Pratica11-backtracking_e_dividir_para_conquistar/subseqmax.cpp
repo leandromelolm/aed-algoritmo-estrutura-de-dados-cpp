@@ -90,7 +90,9 @@ int __subseqMaxDC(int * array, int start, int finish, int & ini, int & end, long
 	 int endRight = end;
 	 int maxSumR = __subseqMaxDC(array, middle+1, finish, iniRight, endRight, count);
 
-	 int maxSumM = subseqMaxMiddle(array, start, middle, finish, ini, end, count);
+	 int iniMidle = ini;
+	 int endMidle = end;
+	 int maxSumM = subseqMaxMiddle(array, start, middle, finish, iniMidle, endMidle, count);
 
 	if(maxSumL > maxSumM && maxSumL > maxSumR){
 	    ini = iniLeft;
@@ -150,14 +152,15 @@ void runSubseqMax(const char * name, int func(int *, int, int&, int&, long &), i
 
 }
 
-int main_SUBSEQMAX() {
-//int main() {
+//int main_SUBSEQMAX() {
+int main() {
 	int printSeq = 1;
 	int size = 50;
 
 	int * array = new int[size];
 
-	srand(1234);
+//	srand(1234);
+//	srand(time(NULL));
 	for (int i = 0; i < 10; i++) {
 
 		for (int i = 0; i < size; i++) {
