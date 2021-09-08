@@ -37,24 +37,29 @@ void searchRemoveShow(BinaryTree &tree, int value, int show) {
 }
 
 int main() {
-	int values [10] = {10, 35, 22, 16, 1, 45, 17, 88, 62, 7}; // ordem de inserção
-	//int values [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // inserção em ordem
-	int sorted [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // ordem natural, para testes
+	int values [10] = {10, 35, 22, 16, 1, 45, 17, 88, 62, 7}; // ordem de inserção (não ordenado)
+//	int values [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // ordem de inserção (ordenado)
+	int sorted [10] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 88}; // ordem natural, para testes (ordenado)
 	int size = 10;
 
 //	int values [11] = {10, 35, 22, 16, 1, 45, 17, 88, 62, 7,63}; // ordem de inserção
 //	int sorted [11] = {1, 7, 10, 16, 17, 22, 35, 45, 62, 63, 88}; // ordem natural, para testes
 //	int size = 11;
 
-	BinaryTree * tree = new BinaryTree();
-	//BinaryTree * tree = new AVLTree();
+/**** Testes BST e AVl *****/
+
+	BinaryTree * tree = new BinaryTree();   // Teste BST
+
+//	BinaryTree * tree = new AVLTree();      // Teste AVL
 
 	try {
 
 		for (int i = 0; i < size; i++) {
-			//int value = rand() % size;
-			int value = values[i];			// Teste BST
-			//int value = size - i - 1;		// Teste AVL
+//			int value = rand() % size;
+
+			int value = values[i];			// Para teste BST (Teste com valores não ordenados)
+
+//			int value = sorted[i];			// Para teste AVL (Teste com valores ordenado - força rotações)
 
 			tree->insert(value);
 		}
