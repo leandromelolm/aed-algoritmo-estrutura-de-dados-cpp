@@ -82,23 +82,23 @@ int __subseqMaxDC(int * array, int start, int finish, int & ini, int & end, long
 
 	 int middle = (start + finish)/2;
 
-	 int iniL = ini;
-	 int endL = end;
-	 int maxSumL = __subseqMaxDC(array, start, middle-1, iniL, endL, count);
+	 int iniLeft = ini;
+	 int endLeft = end;
+	 int maxSumL = __subseqMaxDC(array, start, middle-1, iniLeft, endLeft, count);
 
-	 int iniR = ini;
-	 int endR = end;
-	 int maxSumR = __subseqMaxDC(array, middle+1, finish, iniR, endR, count);
+	 int iniRight = ini;
+	 int endRight = end;
+	 int maxSumR = __subseqMaxDC(array, middle+1, finish, iniRight, endRight, count);
 
 	 int maxSumM = subseqMaxMiddle(array, start, middle, finish, ini, end, count);
 
 	if(maxSumL > maxSumM && maxSumL > maxSumR){
-	    ini = iniL;
-	    end = endL;
+	    ini = iniLeft;
+	    end = endLeft;
 	    return maxSumL;
 	}else if(maxSumR > maxSumM && maxSumR > maxSumL){
-	    ini = iniR;
-	    end = endR;
+	    ini = iniRight;
+	    end = endRight;
 	    return maxSumR;
 	}else{
 	    return maxSumM;
@@ -150,19 +150,20 @@ void runSubseqMax(const char * name, int func(int *, int, int&, int&, long &), i
 
 }
 
-//int main_SUBSEQMAX() {
-int main() {
-	int printSeq = 0;
-	int size = 20;
+int main_SUBSEQMAX() {
+//int main() {
+	int printSeq = 1;
+	int size = 50;
 
 	int * array = new int[size];
 
-	for (int i = 0; i < 20; i++) {
+	srand(1234);
+	for (int i = 0; i < 10; i++) {
 
 		for (int i = 0; i < size; i++) {
 			array[i] = (rand() % size) - (size / 2);
 		}
-		cout << i << ": " << endl; //print(array, size);
+		cout << i << ": " << endl; print(array, size);
 
 		runSubseqMax("Bruteforce    ", subseqMaxBF, array, size, printSeq);
 		runSubseqMax("Divide&Conquer", subseqMaxDC, array, size, printSeq);
@@ -172,7 +173,6 @@ int main() {
 
 	return 0;
 }
-
 
 
 
