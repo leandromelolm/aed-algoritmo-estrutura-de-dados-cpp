@@ -91,29 +91,29 @@ void insertionsort(int * array, int size) {
 void merge(int * target, int * buffer, int start, int mid, int finish) {
 
 	int auxMid = mid;
-	int arrPos = start;
+	int aux = start;
 
 	while(start < mid && auxMid <= finish){
         if(buffer[start] < buffer[auxMid]){
-            target[arrPos] = buffer[start];
+            target[aux] = buffer[start];
             start++;
         }else{
-            target[arrPos] = buffer[auxMid];
+            target[aux] = buffer[auxMid];
             auxMid++;
         }
-        arrPos++;
+        aux++;
 	}
 
 	while(start < mid){
-        target[arrPos] = buffer[start];
+        target[aux] = buffer[start];
         start++;
-        arrPos++;
+        aux++;
     }
 
     while(auxMid <= finish){
-        target[arrPos] = buffer[auxMid];
+        target[aux] = buffer[auxMid];
         auxMid++;
-        arrPos++;
+        aux++;
     }
 }
 
