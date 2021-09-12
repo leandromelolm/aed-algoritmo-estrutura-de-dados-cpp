@@ -20,7 +20,7 @@
 
 using namespace std;
 
-/* fun��es for�a bruta -----------------*/
+/* funções força bruta -----------------*/
 
 int subseqMaxBF(int * array, int len, int & ini, int & end, long & count) {
 	int max = -9999, sum;
@@ -42,7 +42,7 @@ int subseqMaxBF(int * array, int len, int & ini, int & end, long & count) {
 	return max;
 }
 
-/* fun��es Dividir e Conquistar ----------------- */
+/* funções Dividir e Conquistar ----------------- */
 
 int subseqMaxMiddle(int * array, int start, int middle, int finish, int & ini, int & end, long & count) {
 	int maxL = 0, maxR = 0;
@@ -72,53 +72,55 @@ int subseqMaxMiddle(int * array, int start, int middle, int finish, int & ini, i
 }
 
 // array:	o array sendo processado
-// start:	posi��o a ser considerada in�cio do array
-// finish:	posi��o a ser considerada final do array
-// ini:		(Resultado) deve conter ao final a posi��o de in�cio da subsequ�ncia m�xima
-// end: 	(Resultado)	deve contar ao final a posi��o de final da subsequ�ncia m�xima
-// RETORNO:	soma da subsequ�ncia m�xima
+// start:	posição a ser considerada início do array
+// finish:	posição a ser considerada final do array
+// ini:		(Resultado) deve conter ao final a posição de início da subsequência máxima
+// end: 	(Resultado)	deve contar ao final a posição de final da subsequência máxima
+// RETORNO:	soma da subsequência máxima
 int __subseqMaxDC(int * array, int start, int finish, int & ini, int & end, long & count) {
 	if (start > finish) return -9999; // caso de retorno
 
 	 int middle = (start + finish)/2;
 
-	 int iniL = ini;
-	 int endL = end;
-	 int maxSumL = __subseqMaxDC(array, start, middle-1, iniL, endL, count);
+	 int iniLeft = ini;
+	 int endLeft = end;
+	 int maxSumL = __subseqMaxDC(array, start, middle-1, iniLeft, endLeft, count);
 
-	 int iniR = ini;
-	 int endR = end;
-	 int maxSumR = __subseqMaxDC(array, middle+1, finish, iniR, endR, count);
+	 int iniRight = ini;
+	 int endRight = end;
+	 int maxSumR = __subseqMaxDC(array, middle+1, finish, iniRight, endRight, count);
 
-	 int maxSumM = subseqMaxMiddle(array, start, middle, finish, ini, end, count);
+	 int iniMidle = ini;
+	 int endMidle = end;
+	 int maxSumM = subseqMaxMiddle(array, start, middle, finish, iniMidle, endMidle, count);
 
 	if(maxSumL > maxSumM && maxSumL > maxSumR){
-	    ini = iniL;
-	    end = endL;
+	    ini = iniLeft;
+	    end = endLeft;
 	    return maxSumL;
 	}else if(maxSumR > maxSumM && maxSumR > maxSumL){
-	    ini = iniR;
-	    end = endR;
+	    ini = iniRight;
+	    end = endRight;
 	    return maxSumR;
 	}else{
 	    return maxSumM;
 	}
 
 
-	// Calcule a posi��o central (middle)
-	//	O meio est� entre start e finish
+	// Calcule a posição central (middle)
+	//	O meio está entre start e finish
 
-	// Chame a fun��o recursivamente para as duas metades:
-	// 	Lado esquerdo (start at� middle -1) e Lado direito (middle + 1 at� finish)
+	// Chame a função recursivamente para as duas metades:
+	// 	Lado esquerdo (start até middle -1) e Lado direito (middle + 1 até finish)
 	//  Para cada metade, devem ser retornados a soma da subseqmax, os os inicios (ini) e finais (end)
-	//     Salve esses valores em vari�veis tempor�rias adequadas para cada metade
+	//     Salve esses valores em variáveis temporárias adequadas para cada metade
 
-	// Use subseqMaxMiddle() para achar a sequ�ncia com soma m�xima que passa no meio do array (middle)
-	// 	Lembre de salvar o retorno (soma m�xima) e limites da sequ�ncia (ini e end) em vari�veis pr�prias
+	// Use subseqMaxMiddle() para achar a sequência com soma máxima que passa no meio do array (middle)
+	// 	Lembre de salvar o retorno (soma máxima) e limites da sequência (ini e end) em variáveis próprias
 
-	// Identifique qual dos tr�s cen�rios (esquerda, direita, meio) gerou a maior soma:
-	// 	Esse valor ser� o retornado pelo fun��o e vai determinar
-	// 	quais limites ser�o salvo nos par�metros ini e end da chamada atual
+	// Identifique qual dos três cenários (esquerda, direita, meio) gerou a maior soma:
+	// 	Esse valor será o retornado pelo função e vai determinar
+	// 	quais limites serão salvo nos parámetros ini e end da chamada atual
 
 	//return -9999; // corrigir com o retorno certo
 }
@@ -150,19 +152,21 @@ void runSubseqMax(const char * name, int func(int *, int, int&, int&, long &), i
 
 }
 
-int main_SUBSEQMAX() {
-//int main() {
-	int printSeq = 0;
-	int size = 20;
+//int main_SUBSEQMAX() {
+int main() {
+	int printSeq = 1;
+	int size = 50;
 
 	int * array = new int[size];
 
+//	srand(1234);
+//	srand(time(NULL));
 	for (int i = 0; i < 10; i++) {
 
 		for (int i = 0; i < size; i++) {
 			array[i] = (rand() % size) - (size / 2);
 		}
-		cout << i << ": " << endl; //print(array, size);
+		cout << i << ": " << endl; print(array, size);
 
 		runSubseqMax("Bruteforce    ", subseqMaxBF, array, size, printSeq);
 		runSubseqMax("Divide&Conquer", subseqMaxDC, array, size, printSeq);
@@ -172,9 +176,5 @@ int main_SUBSEQMAX() {
 
 	return 0;
 }
-
-
-
-
 
 

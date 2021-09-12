@@ -13,7 +13,7 @@
 
 using namespace std;
 
-/* fun��es for�a bruta -----------------*/
+/* funções força bruta -----------------*/
 
 void reset(int * array, int len) {
 	for (int i = 0; i < len; i++) array[i] = 0;
@@ -53,7 +53,7 @@ int subsetSumBF(int * array, int len, int value, int * subset, long & count) {
 	return tmp == value;
 }
 
-/* fun��es Backtracking V1 ----------------- */
+/* funções Backtracking V1 ----------------- */
 
 int __subsetSumBT(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	// Sucesso!
@@ -62,11 +62,11 @@ int __subsetSumBT(int * array, int len, int value, int * subset, int pos, int su
 	if (pos >= len) return 0;
 	count++;
 
-	// Adicionando n�mero na posi��o atual ao conjunto
+	// Adicionando n�mero na posição atual ao conjunto
 	subset[pos] = 1;
 	if (__subsetSumBT(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque n�o deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque não deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subsetSumBT(array, len, value, subset, pos + 1, sum, count)) return 1;
 
@@ -77,7 +77,7 @@ int subsetSumBT(int * array, int len, int value, int * subset, long & count) {
 	return __subsetSumBT(array, len, value, subset, 0, 0, count);
 }
 
-/* fun��es Backtracking V2 ----------------- */
+/* funções Backtracking V2 ----------------- */
 
 int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	// Sucesso!
@@ -86,13 +86,14 @@ int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int 
 	if (pos >= len) return 0;
 	count++;
 
+	//implementado - prunning - condição para parar a busca
 	if (sum > value) return 0;
 
-	// Adicionando n�mero na posi��o atual ao conjunto
+	// Adicionando número na posição atual ao conjunto
 	subset[pos] = 1;
 	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque n�o deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque não deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum, count)) return 1;
 
@@ -105,6 +106,7 @@ int subsetSumBTv2(int * array, int len, int value, int * subset, long & count) {
 	for(int i = 0; i < len; i++){
         total += array[i];
 	}
+	//verificação se numero fornecido é maior que a soma do array
 	if(value > total) return 0;
 
 	return __subsetSumBTv2(array, len, value, subset, 0, 0, count);
@@ -140,8 +142,8 @@ void runSubseqMax(const char * name,	int func(int *, int, int, int *, long &), i
 	delete [] subset;
 }
 
-//int main_SUBSETSUM() {
-int main() {
+int main_SUBSETSUM() {
+//int main() {
 	int size = 19;
 
 	int * array = new int[size];
@@ -149,11 +151,25 @@ int main() {
 	for (int i = 0; i < size; i++) {
 		cout << (array[i] = rand() % (size * 2)) << " ";
 	}
+
+//	int array[20]= {3,24,34,6,30,7,31,30,16,11,11,26,33,10,17,26,8,12,14,2};
+//	//int array[20]= {1,2,4,5,6,7,8,10,11,12,14,16,17,22,23,26,30,32,33,35};
+//	//int array[20]= {35,33,32,30,26,23,22,17,16,14,12,11,10,8,7,6,5,4,2,1};
+//	for (int i = 0; i<20; i++){
+//		cout<< array[i] <<" ";
+//	}
+
 	cout << endl;
 
 	int value = 0;
 	for (int i = 0; i < 20; i++) {
 		 value += (rand() % (size * 2));
+
+//	int valores[20] = {17,25,58,89,117,117,141,161,176,203,238,243,282,301,301,307,315,344,365,370};
+//	int value;
+//	for(int i=0;i <20;i++){
+//		value = valores[i];
+
 		cout << i << ": Trying " << value << " ..." << endl;
 
 		runSubseqMax("Bruteforce     ", subsetSumBF, array, size, value);
@@ -166,3 +182,40 @@ int main() {
 
 
 
+
+
+
+
+
+
+
+/*
+ *
+//Main Teste2 ( valores de testes inseridos)
+	int size = 20;
+//	int * array = new int[size];
+//
+//	for (int i = 0; i < size; i++) {
+//		cout << (array[i] = rand() % (size * 2)) << " ";
+//	}
+	int array[20]= {3,24,34,6,30,7,31,30,16,11,11,26,33,10,17,26,8,12,14,2};
+	//int array[20]= {1,2,4,5,6,7,8,10,11,12,14,16,17,22,23,26,30,32,33,35}; //array ordenado menor para maior
+	//int array[20]= {35,33,32,30,26,23,22,17,16,14,12,11,10,8,7,6,5,4,2,1}; //array ordenado maior para menor
+	for (int i = 0; i<20; i++){
+		cout<< array[i] <<" ";
+	}
+	cout << endl;
+//	int value = 0;
+//	for (int i = 0; i < 20; i++) {
+//		 value += (rand() % (size * 2));
+	int valores[20] = {17,25,58,89,117,117,141,161,176,203,238,243,282,301,301,307,315,344,365,370};
+	int value;
+	for(int i=0;i <20;i++){
+		value = valores[i];
+		cout << i << ": Trying " << value << " ..." << endl;
+		runSubseqMax("Bruteforce     ", subsetSumBF, array, size, value);
+		runSubseqMax("Backtracking   ", subsetSumBT, array, size, value);
+		runSubseqMax("Backtracking V2", subsetSumBTv2, array, size, value);
+	}
+	return 0;
+ * */
