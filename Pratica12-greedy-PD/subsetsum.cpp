@@ -13,7 +13,7 @@
 
 using namespace std;
 
-/* funÁıes forÁa bruta -----------------*/
+/* fun√ß√µes for√ßa bruta -----------------*/
 
 void reset(int * array, int len) {
 	for (int i = 0; i < len; i++) array[i] = 0;
@@ -53,7 +53,7 @@ int subsetSumBF(int * array, int len, int value, int * subset, long & count) {
 	return tmp == value;
 }
 
-/* funÁıes Backtracking V1 ----------------- */
+/* fun√ß√µes Backtracking V1 ----------------- */
 
 int __subseqSumBT(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
 	if (pos >= len) return 0;
@@ -62,11 +62,11 @@ int __subseqSumBT(int * array, int len, int value, int * subset, int pos, int su
 	// Sucesso!
 	if (sum == value) return 1;
 
-	// Adicionando n˙mero na posiÁ„o atual ao conjunto
+	// Adicionando nÔøΩmero na posiÔøΩÔøΩo atual ao conjunto
 	subset[pos] = 1;
 	if (__subseqSumBT(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
 
-	// Desfazendo (Backtracking) porque n„o deu certo e tentando de novo
+	// Desfazendo (Backtracking) porque nÔøΩo deu certo e tentando de novo
 	subset[pos] = 0;
 	if (__subseqSumBT(array, len, value, subset, pos + 1, sum, count)) return 1;
 
@@ -77,13 +77,26 @@ int subsetSumBT(int * array, int len, int value, int * subset, long & count) {
 	return __subseqSumBT(array, len, value, subset, 0, 0, count);
 }
 
-/* funÁıes Backtracking V2 ----------------- */
+/* fun√ß√µes Backtracking V2 ----------------- */
 
 int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int sum, long & count) {
+	// Sucesso!
+	if (sum == value) return 1;
+
 	if (pos >= len) return 0;
 	count++;
 
 	// TODO Pratica 11
+	//implementado - prunning - condi√ß√£o para parar a busca
+	if (sum > value) return 0;
+
+	// Adicionando n√∫mero na posi√ß√£o atual ao conjunto
+	subset[pos] = 1;
+	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum + array[pos], count)) return 1;
+
+	// Desfazendo (Backtracking) porque n√£o deu certo e tentando de novo
+	subset[pos] = 0;
+	if (__subsetSumBTv2(array, len, value, subset, pos + 1, sum, count)) return 1;
 
 	return 0;
 }
@@ -91,8 +104,19 @@ int __subsetSumBTv2(int * array, int len, int value, int * subset, int pos, int 
 int subsetSumBTv2(int * array, int len, int value, int * subset, long & count) {
 
 	// TODO Pratica 11
+    int total = 0;
+	for(int i = 0; i < len; i++){
+        total += array[i];
+	}
+	//verifica√ß√£o se numero fornecido √© maior que a soma do array
+	if(value > total) return 0;
 
 	return __subsetSumBTv2(array, len, value, subset, 0, 0, count);
+}
+
+int subsetsumGreedy(int * array, int len, int value, int * subset, long & count){
+
+	return 0;
 }
 
 /* -------------------------------------- */
@@ -125,7 +149,8 @@ void runSubseqMax(const char * name,	int func(int *, int, int, int *, long &), i
 	delete [] subset;
 }
 
-int main2() {
+//Pratica 12
+int main() {
 
 	int size = 20;
 
@@ -144,6 +169,7 @@ int main2() {
 		runSubseqMax("Bruteforce     ", subsetSumBF, array, size, value);
 		runSubseqMax("Backtracking   ", subsetSumBT, array, size, value);
 		runSubseqMax("Backtracking V2", subsetSumBTv2, array, size, value);
+		runSubseqMax("Greedy         ", subsetsumGreedy,array, size,value);
 	}
 
 	return 0;

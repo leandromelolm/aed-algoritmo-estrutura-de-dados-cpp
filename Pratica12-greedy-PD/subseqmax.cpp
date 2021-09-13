@@ -13,7 +13,7 @@
 
 using namespace std;
 
-/* funções força bruta -----------------*/
+/* funï¿½ï¿½es forï¿½a bruta -----------------*/
 
 int subseqMaxBF(int * array, int len, int & ini, int & end, long & count) {
 	int max = -9999, sum;
@@ -35,7 +35,7 @@ int subseqMaxBF(int * array, int len, int & ini, int & end, long & count) {
 	return max;
 }
 
-/* funções Dividir e Conquistar ----------------- */
+/* funï¿½ï¿½es Dividir e Conquistar ----------------- */
 
 int subseqMaxMiddle(int * array, int start, int middle, int finish, int & ini, int & end, long & count) {
 	int maxL = 0, maxR = 0;
@@ -76,7 +76,7 @@ int subseqMaxDC(int * array, int len, int & ini, int & end, long & count) {
 	return __subseqMaxDC(array, 0, len - 1, ini, end, count);
 }
 
-/* funções versão Rercusiva ----------------- */
+/* funï¿½ï¿½es versï¿½o Rercusiva ----------------- */
 
 int seqMax(int * array, int pos, int & ini, long & count) {
 	if (pos < 0) return 0;
@@ -86,7 +86,7 @@ int seqMax(int * array, int pos, int & ini, long & count) {
 	int x = array[pos];
 	int sumPrev = x + seqMax(array, pos - 1, iniPrev, count);
 
-	if ( x >= sumPrev) {		// começa nova sequencia
+	if ( x >= sumPrev) {		// comeÃ§a nova sequencia
 		sum = array[pos];
 		ini = pos;
 	} else {				// continua sequencia anterior
@@ -115,7 +115,7 @@ int subseqMaxRec(int * array, int len, int & ini, int & end, long & count) {
 	return sum;
 }
 
-/* funções Memoization ----------------- */
+/* funï¿½ï¿½es Memoization ----------------- */
 
 int seqMaxMemo(int * array, int pos, int & ini, int * SUM, int * INI, long & count) {
 	// TODO
@@ -129,7 +129,7 @@ int subseqMaxMemo(int * array, int len, int & ini, int & end, long & count) {
 	return 0;
 }
 
-/* funções Programação Dinâmica ----------------- */
+/* funï¿½ï¿½es Programaï¿½ï¿½o Dinï¿½mica ----------------- */
 
 int subseqMaxPD(int * array, int len, int & ini, int & end, long & count) {
 	// TODO
@@ -160,7 +160,7 @@ void runSubseqMax(const char * name, int func(int *, int, int&, int&, long &), i
 
 }
 
-int main() {
+int main2() {
 
 	int printSeq = 0;
 	int size = 1000;
